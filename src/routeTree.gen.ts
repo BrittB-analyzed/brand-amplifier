@@ -15,6 +15,10 @@ import { Route as SiteKennisRouteImport } from './routes/_site.kennis'
 import { Route as SiteDienstenRouteImport } from './routes/_site.diensten'
 import { Route as SiteKennisIndexRouteImport } from './routes/_site.kennis.index'
 import { Route as SiteDienstenIndexRouteImport } from './routes/_site.diensten.index'
+import { Route as SiteDienstenSeoRouteImport } from './routes/_site.diensten.seo'
+import { Route as SiteDienstenSeaRouteImport } from './routes/_site.diensten.sea'
+import { Route as SiteDienstenGeoRouteImport } from './routes/_site.diensten.geo'
+import { Route as SiteDienstenCroRouteImport } from './routes/_site.diensten.cro'
 
 const SiteRoute = SiteRouteImport.update({
   id: '/_site',
@@ -45,16 +49,44 @@ const SiteDienstenIndexRoute = SiteDienstenIndexRouteImport.update({
   path: '/',
   getParentRoute: () => SiteDienstenRoute,
 } as any)
+const SiteDienstenSeoRoute = SiteDienstenSeoRouteImport.update({
+  id: '/seo',
+  path: '/seo',
+  getParentRoute: () => SiteDienstenRoute,
+} as any)
+const SiteDienstenSeaRoute = SiteDienstenSeaRouteImport.update({
+  id: '/sea',
+  path: '/sea',
+  getParentRoute: () => SiteDienstenRoute,
+} as any)
+const SiteDienstenGeoRoute = SiteDienstenGeoRouteImport.update({
+  id: '/geo',
+  path: '/geo',
+  getParentRoute: () => SiteDienstenRoute,
+} as any)
+const SiteDienstenCroRoute = SiteDienstenCroRouteImport.update({
+  id: '/cro',
+  path: '/cro',
+  getParentRoute: () => SiteDienstenRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof SiteIndexRoute
   '/diensten': typeof SiteDienstenRouteWithChildren
   '/kennis': typeof SiteKennisRouteWithChildren
+  '/diensten/cro': typeof SiteDienstenCroRoute
+  '/diensten/geo': typeof SiteDienstenGeoRoute
+  '/diensten/sea': typeof SiteDienstenSeaRoute
+  '/diensten/seo': typeof SiteDienstenSeoRoute
   '/diensten/': typeof SiteDienstenIndexRoute
   '/kennis/': typeof SiteKennisIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof SiteIndexRoute
+  '/diensten/cro': typeof SiteDienstenCroRoute
+  '/diensten/geo': typeof SiteDienstenGeoRoute
+  '/diensten/sea': typeof SiteDienstenSeaRoute
+  '/diensten/seo': typeof SiteDienstenSeoRoute
   '/diensten': typeof SiteDienstenIndexRoute
   '/kennis': typeof SiteKennisIndexRoute
 }
@@ -64,20 +96,44 @@ export interface FileRoutesById {
   '/_site/diensten': typeof SiteDienstenRouteWithChildren
   '/_site/kennis': typeof SiteKennisRouteWithChildren
   '/_site/': typeof SiteIndexRoute
+  '/_site/diensten/cro': typeof SiteDienstenCroRoute
+  '/_site/diensten/geo': typeof SiteDienstenGeoRoute
+  '/_site/diensten/sea': typeof SiteDienstenSeaRoute
+  '/_site/diensten/seo': typeof SiteDienstenSeoRoute
   '/_site/diensten/': typeof SiteDienstenIndexRoute
   '/_site/kennis/': typeof SiteKennisIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/diensten' | '/kennis' | '/diensten/' | '/kennis/'
+  fullPaths:
+    | '/'
+    | '/diensten'
+    | '/kennis'
+    | '/diensten/cro'
+    | '/diensten/geo'
+    | '/diensten/sea'
+    | '/diensten/seo'
+    | '/diensten/'
+    | '/kennis/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/diensten' | '/kennis'
+  to:
+    | '/'
+    | '/diensten/cro'
+    | '/diensten/geo'
+    | '/diensten/sea'
+    | '/diensten/seo'
+    | '/diensten'
+    | '/kennis'
   id:
     | '__root__'
     | '/_site'
     | '/_site/diensten'
     | '/_site/kennis'
     | '/_site/'
+    | '/_site/diensten/cro'
+    | '/_site/diensten/geo'
+    | '/_site/diensten/sea'
+    | '/_site/diensten/seo'
     | '/_site/diensten/'
     | '/_site/kennis/'
   fileRoutesById: FileRoutesById
@@ -130,14 +186,50 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteDienstenIndexRouteImport
       parentRoute: typeof SiteDienstenRoute
     }
+    '/_site/diensten/seo': {
+      id: '/_site/diensten/seo'
+      path: '/seo'
+      fullPath: '/diensten/seo'
+      preLoaderRoute: typeof SiteDienstenSeoRouteImport
+      parentRoute: typeof SiteDienstenRoute
+    }
+    '/_site/diensten/sea': {
+      id: '/_site/diensten/sea'
+      path: '/sea'
+      fullPath: '/diensten/sea'
+      preLoaderRoute: typeof SiteDienstenSeaRouteImport
+      parentRoute: typeof SiteDienstenRoute
+    }
+    '/_site/diensten/geo': {
+      id: '/_site/diensten/geo'
+      path: '/geo'
+      fullPath: '/diensten/geo'
+      preLoaderRoute: typeof SiteDienstenGeoRouteImport
+      parentRoute: typeof SiteDienstenRoute
+    }
+    '/_site/diensten/cro': {
+      id: '/_site/diensten/cro'
+      path: '/cro'
+      fullPath: '/diensten/cro'
+      preLoaderRoute: typeof SiteDienstenCroRouteImport
+      parentRoute: typeof SiteDienstenRoute
+    }
   }
 }
 
 interface SiteDienstenRouteChildren {
+  SiteDienstenCroRoute: typeof SiteDienstenCroRoute
+  SiteDienstenGeoRoute: typeof SiteDienstenGeoRoute
+  SiteDienstenSeaRoute: typeof SiteDienstenSeaRoute
+  SiteDienstenSeoRoute: typeof SiteDienstenSeoRoute
   SiteDienstenIndexRoute: typeof SiteDienstenIndexRoute
 }
 
 const SiteDienstenRouteChildren: SiteDienstenRouteChildren = {
+  SiteDienstenCroRoute: SiteDienstenCroRoute,
+  SiteDienstenGeoRoute: SiteDienstenGeoRoute,
+  SiteDienstenSeaRoute: SiteDienstenSeaRoute,
+  SiteDienstenSeoRoute: SiteDienstenSeoRoute,
   SiteDienstenIndexRoute: SiteDienstenIndexRoute,
 }
 
@@ -177,3 +269,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
