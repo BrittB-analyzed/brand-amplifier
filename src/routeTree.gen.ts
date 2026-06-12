@@ -13,8 +13,11 @@ import { Route as SiteRouteImport } from './routes/_site'
 import { Route as SiteIndexRouteImport } from './routes/_site.index'
 import { Route as SiteKennisRouteImport } from './routes/_site.kennis'
 import { Route as SiteDienstenRouteImport } from './routes/_site.diensten'
+import { Route as SiteCasesRouteImport } from './routes/_site.cases'
 import { Route as SiteKennisIndexRouteImport } from './routes/_site.kennis.index'
 import { Route as SiteDienstenIndexRouteImport } from './routes/_site.diensten.index'
+import { Route as SiteKennisFaqRouteImport } from './routes/_site.kennis.faq'
+import { Route as SiteKennisBlogRouteImport } from './routes/_site.kennis.blog'
 import { Route as SiteDienstenSeoRouteImport } from './routes/_site.diensten.seo'
 import { Route as SiteDienstenSeaRouteImport } from './routes/_site.diensten.sea'
 import { Route as SiteDienstenGeoRouteImport } from './routes/_site.diensten.geo'
@@ -39,6 +42,11 @@ const SiteDienstenRoute = SiteDienstenRouteImport.update({
   path: '/diensten',
   getParentRoute: () => SiteRoute,
 } as any)
+const SiteCasesRoute = SiteCasesRouteImport.update({
+  id: '/cases',
+  path: '/cases',
+  getParentRoute: () => SiteRoute,
+} as any)
 const SiteKennisIndexRoute = SiteKennisIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -48,6 +56,16 @@ const SiteDienstenIndexRoute = SiteDienstenIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => SiteDienstenRoute,
+} as any)
+const SiteKennisFaqRoute = SiteKennisFaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => SiteKennisRoute,
+} as any)
+const SiteKennisBlogRoute = SiteKennisBlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => SiteKennisRoute,
 } as any)
 const SiteDienstenSeoRoute = SiteDienstenSeoRouteImport.update({
   id: '/seo',
@@ -72,27 +90,34 @@ const SiteDienstenCroRoute = SiteDienstenCroRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof SiteIndexRoute
+  '/cases': typeof SiteCasesRoute
   '/diensten': typeof SiteDienstenRouteWithChildren
   '/kennis': typeof SiteKennisRouteWithChildren
   '/diensten/cro': typeof SiteDienstenCroRoute
   '/diensten/geo': typeof SiteDienstenGeoRoute
   '/diensten/sea': typeof SiteDienstenSeaRoute
   '/diensten/seo': typeof SiteDienstenSeoRoute
+  '/kennis/blog': typeof SiteKennisBlogRoute
+  '/kennis/faq': typeof SiteKennisFaqRoute
   '/diensten/': typeof SiteDienstenIndexRoute
   '/kennis/': typeof SiteKennisIndexRoute
 }
 export interface FileRoutesByTo {
+  '/cases': typeof SiteCasesRoute
   '/': typeof SiteIndexRoute
   '/diensten/cro': typeof SiteDienstenCroRoute
   '/diensten/geo': typeof SiteDienstenGeoRoute
   '/diensten/sea': typeof SiteDienstenSeaRoute
   '/diensten/seo': typeof SiteDienstenSeoRoute
+  '/kennis/blog': typeof SiteKennisBlogRoute
+  '/kennis/faq': typeof SiteKennisFaqRoute
   '/diensten': typeof SiteDienstenIndexRoute
   '/kennis': typeof SiteKennisIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_site': typeof SiteRouteWithChildren
+  '/_site/cases': typeof SiteCasesRoute
   '/_site/diensten': typeof SiteDienstenRouteWithChildren
   '/_site/kennis': typeof SiteKennisRouteWithChildren
   '/_site/': typeof SiteIndexRoute
@@ -100,6 +125,8 @@ export interface FileRoutesById {
   '/_site/diensten/geo': typeof SiteDienstenGeoRoute
   '/_site/diensten/sea': typeof SiteDienstenSeaRoute
   '/_site/diensten/seo': typeof SiteDienstenSeoRoute
+  '/_site/kennis/blog': typeof SiteKennisBlogRoute
+  '/_site/kennis/faq': typeof SiteKennisFaqRoute
   '/_site/diensten/': typeof SiteDienstenIndexRoute
   '/_site/kennis/': typeof SiteKennisIndexRoute
 }
@@ -107,26 +134,33 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/cases'
     | '/diensten'
     | '/kennis'
     | '/diensten/cro'
     | '/diensten/geo'
     | '/diensten/sea'
     | '/diensten/seo'
+    | '/kennis/blog'
+    | '/kennis/faq'
     | '/diensten/'
     | '/kennis/'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/cases'
     | '/'
     | '/diensten/cro'
     | '/diensten/geo'
     | '/diensten/sea'
     | '/diensten/seo'
+    | '/kennis/blog'
+    | '/kennis/faq'
     | '/diensten'
     | '/kennis'
   id:
     | '__root__'
     | '/_site'
+    | '/_site/cases'
     | '/_site/diensten'
     | '/_site/kennis'
     | '/_site/'
@@ -134,6 +168,8 @@ export interface FileRouteTypes {
     | '/_site/diensten/geo'
     | '/_site/diensten/sea'
     | '/_site/diensten/seo'
+    | '/_site/kennis/blog'
+    | '/_site/kennis/faq'
     | '/_site/diensten/'
     | '/_site/kennis/'
   fileRoutesById: FileRoutesById
@@ -172,6 +208,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteDienstenRouteImport
       parentRoute: typeof SiteRoute
     }
+    '/_site/cases': {
+      id: '/_site/cases'
+      path: '/cases'
+      fullPath: '/cases'
+      preLoaderRoute: typeof SiteCasesRouteImport
+      parentRoute: typeof SiteRoute
+    }
     '/_site/kennis/': {
       id: '/_site/kennis/'
       path: '/'
@@ -185,6 +228,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/diensten/'
       preLoaderRoute: typeof SiteDienstenIndexRouteImport
       parentRoute: typeof SiteDienstenRoute
+    }
+    '/_site/kennis/faq': {
+      id: '/_site/kennis/faq'
+      path: '/faq'
+      fullPath: '/kennis/faq'
+      preLoaderRoute: typeof SiteKennisFaqRouteImport
+      parentRoute: typeof SiteKennisRoute
+    }
+    '/_site/kennis/blog': {
+      id: '/_site/kennis/blog'
+      path: '/blog'
+      fullPath: '/kennis/blog'
+      preLoaderRoute: typeof SiteKennisBlogRouteImport
+      parentRoute: typeof SiteKennisRoute
     }
     '/_site/diensten/seo': {
       id: '/_site/diensten/seo'
@@ -238,10 +295,14 @@ const SiteDienstenRouteWithChildren = SiteDienstenRoute._addFileChildren(
 )
 
 interface SiteKennisRouteChildren {
+  SiteKennisBlogRoute: typeof SiteKennisBlogRoute
+  SiteKennisFaqRoute: typeof SiteKennisFaqRoute
   SiteKennisIndexRoute: typeof SiteKennisIndexRoute
 }
 
 const SiteKennisRouteChildren: SiteKennisRouteChildren = {
+  SiteKennisBlogRoute: SiteKennisBlogRoute,
+  SiteKennisFaqRoute: SiteKennisFaqRoute,
   SiteKennisIndexRoute: SiteKennisIndexRoute,
 }
 
@@ -250,12 +311,14 @@ const SiteKennisRouteWithChildren = SiteKennisRoute._addFileChildren(
 )
 
 interface SiteRouteChildren {
+  SiteCasesRoute: typeof SiteCasesRoute
   SiteDienstenRoute: typeof SiteDienstenRouteWithChildren
   SiteKennisRoute: typeof SiteKennisRouteWithChildren
   SiteIndexRoute: typeof SiteIndexRoute
 }
 
 const SiteRouteChildren: SiteRouteChildren = {
+  SiteCasesRoute: SiteCasesRoute,
   SiteDienstenRoute: SiteDienstenRouteWithChildren,
   SiteKennisRoute: SiteKennisRouteWithChildren,
   SiteIndexRoute: SiteIndexRoute,
