@@ -9,61 +9,431 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as GratisGeoAuditRouteImport } from './routes/gratis-geo-audit'
+import { Route as SiteRouteImport } from './routes/_site'
+import { Route as SiteIndexRouteImport } from './routes/_site.index'
+import { Route as SiteSamenwerkingRouteImport } from './routes/_site.samenwerking'
+import { Route as SiteOverOnsRouteImport } from './routes/_site.over-ons'
+import { Route as SiteKennisRouteImport } from './routes/_site.kennis'
+import { Route as SiteDienstenRouteImport } from './routes/_site.diensten'
+import { Route as SiteContactRouteImport } from './routes/_site.contact'
+import { Route as SiteCasesRouteImport } from './routes/_site.cases'
+import { Route as SiteKennisIndexRouteImport } from './routes/_site.kennis.index'
+import { Route as SiteDienstenIndexRouteImport } from './routes/_site.diensten.index'
+import { Route as SiteKennisFaqRouteImport } from './routes/_site.kennis.faq'
+import { Route as SiteKennisBlogRouteImport } from './routes/_site.kennis.blog'
+import { Route as SiteDienstenSeoRouteImport } from './routes/_site.diensten.seo'
+import { Route as SiteDienstenSeaRouteImport } from './routes/_site.diensten.sea'
+import { Route as SiteDienstenGeoRouteImport } from './routes/_site.diensten.geo'
+import { Route as SiteDienstenCroRouteImport } from './routes/_site.diensten.cro'
 
-const IndexRoute = IndexRouteImport.update({
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GratisGeoAuditRoute = GratisGeoAuditRouteImport.update({
+  id: '/gratis-geo-audit',
+  path: '/gratis-geo-audit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SiteRoute = SiteRouteImport.update({
+  id: '/_site',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SiteIndexRoute = SiteIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteSamenwerkingRoute = SiteSamenwerkingRouteImport.update({
+  id: '/samenwerking',
+  path: '/samenwerking',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteOverOnsRoute = SiteOverOnsRouteImport.update({
+  id: '/over-ons',
+  path: '/over-ons',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteKennisRoute = SiteKennisRouteImport.update({
+  id: '/kennis',
+  path: '/kennis',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteDienstenRoute = SiteDienstenRouteImport.update({
+  id: '/diensten',
+  path: '/diensten',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteContactRoute = SiteContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteCasesRoute = SiteCasesRouteImport.update({
+  id: '/cases',
+  path: '/cases',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteKennisIndexRoute = SiteKennisIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SiteKennisRoute,
+} as any)
+const SiteDienstenIndexRoute = SiteDienstenIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SiteDienstenRoute,
+} as any)
+const SiteKennisFaqRoute = SiteKennisFaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => SiteKennisRoute,
+} as any)
+const SiteKennisBlogRoute = SiteKennisBlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => SiteKennisRoute,
+} as any)
+const SiteDienstenSeoRoute = SiteDienstenSeoRouteImport.update({
+  id: '/seo',
+  path: '/seo',
+  getParentRoute: () => SiteDienstenRoute,
+} as any)
+const SiteDienstenSeaRoute = SiteDienstenSeaRouteImport.update({
+  id: '/sea',
+  path: '/sea',
+  getParentRoute: () => SiteDienstenRoute,
+} as any)
+const SiteDienstenGeoRoute = SiteDienstenGeoRouteImport.update({
+  id: '/geo',
+  path: '/geo',
+  getParentRoute: () => SiteDienstenRoute,
+} as any)
+const SiteDienstenCroRoute = SiteDienstenCroRouteImport.update({
+  id: '/cro',
+  path: '/cro',
+  getParentRoute: () => SiteDienstenRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/': typeof SiteIndexRoute
+  '/gratis-geo-audit': typeof GratisGeoAuditRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/cases': typeof SiteCasesRoute
+  '/contact': typeof SiteContactRoute
+  '/diensten': typeof SiteDienstenRouteWithChildren
+  '/kennis': typeof SiteKennisRouteWithChildren
+  '/over-ons': typeof SiteOverOnsRoute
+  '/samenwerking': typeof SiteSamenwerkingRoute
+  '/diensten/cro': typeof SiteDienstenCroRoute
+  '/diensten/geo': typeof SiteDienstenGeoRoute
+  '/diensten/sea': typeof SiteDienstenSeaRoute
+  '/diensten/seo': typeof SiteDienstenSeoRoute
+  '/kennis/blog': typeof SiteKennisBlogRoute
+  '/kennis/faq': typeof SiteKennisFaqRoute
+  '/diensten/': typeof SiteDienstenIndexRoute
+  '/kennis/': typeof SiteKennisIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/gratis-geo-audit': typeof GratisGeoAuditRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/cases': typeof SiteCasesRoute
+  '/contact': typeof SiteContactRoute
+  '/over-ons': typeof SiteOverOnsRoute
+  '/samenwerking': typeof SiteSamenwerkingRoute
+  '/': typeof SiteIndexRoute
+  '/diensten/cro': typeof SiteDienstenCroRoute
+  '/diensten/geo': typeof SiteDienstenGeoRoute
+  '/diensten/sea': typeof SiteDienstenSeaRoute
+  '/diensten/seo': typeof SiteDienstenSeoRoute
+  '/kennis/blog': typeof SiteKennisBlogRoute
+  '/kennis/faq': typeof SiteKennisFaqRoute
+  '/diensten': typeof SiteDienstenIndexRoute
+  '/kennis': typeof SiteKennisIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/_site': typeof SiteRouteWithChildren
+  '/gratis-geo-audit': typeof GratisGeoAuditRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/_site/cases': typeof SiteCasesRoute
+  '/_site/contact': typeof SiteContactRoute
+  '/_site/diensten': typeof SiteDienstenRouteWithChildren
+  '/_site/kennis': typeof SiteKennisRouteWithChildren
+  '/_site/over-ons': typeof SiteOverOnsRoute
+  '/_site/samenwerking': typeof SiteSamenwerkingRoute
+  '/_site/': typeof SiteIndexRoute
+  '/_site/diensten/cro': typeof SiteDienstenCroRoute
+  '/_site/diensten/geo': typeof SiteDienstenGeoRoute
+  '/_site/diensten/sea': typeof SiteDienstenSeaRoute
+  '/_site/diensten/seo': typeof SiteDienstenSeoRoute
+  '/_site/kennis/blog': typeof SiteKennisBlogRoute
+  '/_site/kennis/faq': typeof SiteKennisFaqRoute
+  '/_site/diensten/': typeof SiteDienstenIndexRoute
+  '/_site/kennis/': typeof SiteKennisIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/gratis-geo-audit'
+    | '/sitemap.xml'
+    | '/cases'
+    | '/contact'
+    | '/diensten'
+    | '/kennis'
+    | '/over-ons'
+    | '/samenwerking'
+    | '/diensten/cro'
+    | '/diensten/geo'
+    | '/diensten/sea'
+    | '/diensten/seo'
+    | '/kennis/blog'
+    | '/kennis/faq'
+    | '/diensten/'
+    | '/kennis/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/gratis-geo-audit'
+    | '/sitemap.xml'
+    | '/cases'
+    | '/contact'
+    | '/over-ons'
+    | '/samenwerking'
+    | '/'
+    | '/diensten/cro'
+    | '/diensten/geo'
+    | '/diensten/sea'
+    | '/diensten/seo'
+    | '/kennis/blog'
+    | '/kennis/faq'
+    | '/diensten'
+    | '/kennis'
+  id:
+    | '__root__'
+    | '/_site'
+    | '/gratis-geo-audit'
+    | '/sitemap.xml'
+    | '/_site/cases'
+    | '/_site/contact'
+    | '/_site/diensten'
+    | '/_site/kennis'
+    | '/_site/over-ons'
+    | '/_site/samenwerking'
+    | '/_site/'
+    | '/_site/diensten/cro'
+    | '/_site/diensten/geo'
+    | '/_site/diensten/sea'
+    | '/_site/diensten/seo'
+    | '/_site/kennis/blog'
+    | '/_site/kennis/faq'
+    | '/_site/diensten/'
+    | '/_site/kennis/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  SiteRoute: typeof SiteRouteWithChildren
+  GratisGeoAuditRoute: typeof GratisGeoAuditRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gratis-geo-audit': {
+      id: '/gratis-geo-audit'
+      path: '/gratis-geo-audit'
+      fullPath: '/gratis-geo-audit'
+      preLoaderRoute: typeof GratisGeoAuditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_site': {
+      id: '/_site'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof SiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_site/': {
+      id: '/_site/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof SiteIndexRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/samenwerking': {
+      id: '/_site/samenwerking'
+      path: '/samenwerking'
+      fullPath: '/samenwerking'
+      preLoaderRoute: typeof SiteSamenwerkingRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/over-ons': {
+      id: '/_site/over-ons'
+      path: '/over-ons'
+      fullPath: '/over-ons'
+      preLoaderRoute: typeof SiteOverOnsRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/kennis': {
+      id: '/_site/kennis'
+      path: '/kennis'
+      fullPath: '/kennis'
+      preLoaderRoute: typeof SiteKennisRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/diensten': {
+      id: '/_site/diensten'
+      path: '/diensten'
+      fullPath: '/diensten'
+      preLoaderRoute: typeof SiteDienstenRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/contact': {
+      id: '/_site/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof SiteContactRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/cases': {
+      id: '/_site/cases'
+      path: '/cases'
+      fullPath: '/cases'
+      preLoaderRoute: typeof SiteCasesRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/kennis/': {
+      id: '/_site/kennis/'
+      path: '/'
+      fullPath: '/kennis/'
+      preLoaderRoute: typeof SiteKennisIndexRouteImport
+      parentRoute: typeof SiteKennisRoute
+    }
+    '/_site/diensten/': {
+      id: '/_site/diensten/'
+      path: '/'
+      fullPath: '/diensten/'
+      preLoaderRoute: typeof SiteDienstenIndexRouteImport
+      parentRoute: typeof SiteDienstenRoute
+    }
+    '/_site/kennis/faq': {
+      id: '/_site/kennis/faq'
+      path: '/faq'
+      fullPath: '/kennis/faq'
+      preLoaderRoute: typeof SiteKennisFaqRouteImport
+      parentRoute: typeof SiteKennisRoute
+    }
+    '/_site/kennis/blog': {
+      id: '/_site/kennis/blog'
+      path: '/blog'
+      fullPath: '/kennis/blog'
+      preLoaderRoute: typeof SiteKennisBlogRouteImport
+      parentRoute: typeof SiteKennisRoute
+    }
+    '/_site/diensten/seo': {
+      id: '/_site/diensten/seo'
+      path: '/seo'
+      fullPath: '/diensten/seo'
+      preLoaderRoute: typeof SiteDienstenSeoRouteImport
+      parentRoute: typeof SiteDienstenRoute
+    }
+    '/_site/diensten/sea': {
+      id: '/_site/diensten/sea'
+      path: '/sea'
+      fullPath: '/diensten/sea'
+      preLoaderRoute: typeof SiteDienstenSeaRouteImport
+      parentRoute: typeof SiteDienstenRoute
+    }
+    '/_site/diensten/geo': {
+      id: '/_site/diensten/geo'
+      path: '/geo'
+      fullPath: '/diensten/geo'
+      preLoaderRoute: typeof SiteDienstenGeoRouteImport
+      parentRoute: typeof SiteDienstenRoute
+    }
+    '/_site/diensten/cro': {
+      id: '/_site/diensten/cro'
+      path: '/cro'
+      fullPath: '/diensten/cro'
+      preLoaderRoute: typeof SiteDienstenCroRouteImport
+      parentRoute: typeof SiteDienstenRoute
     }
   }
 }
 
+interface SiteDienstenRouteChildren {
+  SiteDienstenCroRoute: typeof SiteDienstenCroRoute
+  SiteDienstenGeoRoute: typeof SiteDienstenGeoRoute
+  SiteDienstenSeaRoute: typeof SiteDienstenSeaRoute
+  SiteDienstenSeoRoute: typeof SiteDienstenSeoRoute
+  SiteDienstenIndexRoute: typeof SiteDienstenIndexRoute
+}
+
+const SiteDienstenRouteChildren: SiteDienstenRouteChildren = {
+  SiteDienstenCroRoute: SiteDienstenCroRoute,
+  SiteDienstenGeoRoute: SiteDienstenGeoRoute,
+  SiteDienstenSeaRoute: SiteDienstenSeaRoute,
+  SiteDienstenSeoRoute: SiteDienstenSeoRoute,
+  SiteDienstenIndexRoute: SiteDienstenIndexRoute,
+}
+
+const SiteDienstenRouteWithChildren = SiteDienstenRoute._addFileChildren(
+  SiteDienstenRouteChildren,
+)
+
+interface SiteKennisRouteChildren {
+  SiteKennisBlogRoute: typeof SiteKennisBlogRoute
+  SiteKennisFaqRoute: typeof SiteKennisFaqRoute
+  SiteKennisIndexRoute: typeof SiteKennisIndexRoute
+}
+
+const SiteKennisRouteChildren: SiteKennisRouteChildren = {
+  SiteKennisBlogRoute: SiteKennisBlogRoute,
+  SiteKennisFaqRoute: SiteKennisFaqRoute,
+  SiteKennisIndexRoute: SiteKennisIndexRoute,
+}
+
+const SiteKennisRouteWithChildren = SiteKennisRoute._addFileChildren(
+  SiteKennisRouteChildren,
+)
+
+interface SiteRouteChildren {
+  SiteCasesRoute: typeof SiteCasesRoute
+  SiteContactRoute: typeof SiteContactRoute
+  SiteDienstenRoute: typeof SiteDienstenRouteWithChildren
+  SiteKennisRoute: typeof SiteKennisRouteWithChildren
+  SiteOverOnsRoute: typeof SiteOverOnsRoute
+  SiteSamenwerkingRoute: typeof SiteSamenwerkingRoute
+  SiteIndexRoute: typeof SiteIndexRoute
+}
+
+const SiteRouteChildren: SiteRouteChildren = {
+  SiteCasesRoute: SiteCasesRoute,
+  SiteContactRoute: SiteContactRoute,
+  SiteDienstenRoute: SiteDienstenRouteWithChildren,
+  SiteKennisRoute: SiteKennisRouteWithChildren,
+  SiteOverOnsRoute: SiteOverOnsRoute,
+  SiteSamenwerkingRoute: SiteSamenwerkingRoute,
+  SiteIndexRoute: SiteIndexRoute,
+}
+
+const SiteRouteWithChildren = SiteRoute._addFileChildren(SiteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  SiteRoute: SiteRouteWithChildren,
+  GratisGeoAuditRoute: GratisGeoAuditRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
