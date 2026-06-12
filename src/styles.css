@@ -5,18 +5,62 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ * Expose Your Brand — Design System
+ * Brand colors are intentionally defined in hex (oklch-equivalent picks would
+ * shift hue). Semantic shadcn tokens still use oklch.
  */
+
+@theme {
+  --color-twilight: #04044F;
+  --color-navy: #010032;
+  --color-btn-blue: #071CB2;
+  --color-molten: #EB4300;
+  --color-silver: #F8F9FA;
+  --color-body-text: #495E88;
+  --color-peach: #FF7B47;
+  --color-peach-soft: #FFC5AD;
+  --color-powder: #FFE0D2;
+  --color-cosmic-rose: #EDD7EC;
+  --color-lavender: #D1D3F0;
+
+  --font-display: 'Red Hat Display', sans-serif;
+  --font-sans: 'DM Sans', sans-serif;
+
+  --animate-sparkle-pulse: sparkle-pulse 3s ease-in-out infinite;
+  --animate-fade-in-up: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-rotate-words: rotate-words 9s ease-in-out infinite;
+}
+
+@keyframes sparkle-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes rotate-words {
+  0%, 25% { transform: translateY(0); opacity: 1; }
+  30%, 33% { transform: translateY(-110%); opacity: 0; }
+  38%, 58% { transform: translateY(-100%); opacity: 1; }
+  63%, 66% { transform: translateY(-210%); opacity: 0; }
+  71%, 91% { transform: translateY(-200%); opacity: 1; }
+  96%, 100% { transform: translateY(-310%); opacity: 0; }
+}
+
+@utility mesh-bg {
+  background-color: #F8F9FA;
+  background-image:
+    radial-gradient(at 0% 0%, #FFC5AD 0px, transparent 50%),
+    radial-gradient(at 100% 0%, #D1D3F0 0px, transparent 50%),
+    radial-gradient(at 50% 100%, #EDD7EC 0px, transparent 50%);
+}
+@utility mesh-bg-dark {
+  background-color: #010032;
+  background-image:
+    radial-gradient(at 10% 20%, rgba(235, 67, 0, 0.25) 0px, transparent 50%),
+    radial-gradient(at 90% 80%, rgba(7, 28, 178, 0.35) 0px, transparent 50%);
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
