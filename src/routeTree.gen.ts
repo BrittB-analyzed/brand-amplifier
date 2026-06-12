@@ -9,10 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as GratisGeoAuditRouteImport } from './routes/gratis-geo-audit'
 import { Route as SiteRouteImport } from './routes/_site'
 import { Route as SiteIndexRouteImport } from './routes/_site.index'
+import { Route as SiteSamenwerkingRouteImport } from './routes/_site.samenwerking'
+import { Route as SiteOverOnsRouteImport } from './routes/_site.over-ons'
 import { Route as SiteKennisRouteImport } from './routes/_site.kennis'
 import { Route as SiteDienstenRouteImport } from './routes/_site.diensten'
+import { Route as SiteContactRouteImport } from './routes/_site.contact'
 import { Route as SiteCasesRouteImport } from './routes/_site.cases'
 import { Route as SiteKennisIndexRouteImport } from './routes/_site.kennis.index'
 import { Route as SiteDienstenIndexRouteImport } from './routes/_site.diensten.index'
@@ -23,6 +27,11 @@ import { Route as SiteDienstenSeaRouteImport } from './routes/_site.diensten.sea
 import { Route as SiteDienstenGeoRouteImport } from './routes/_site.diensten.geo'
 import { Route as SiteDienstenCroRouteImport } from './routes/_site.diensten.cro'
 
+const GratisGeoAuditRoute = GratisGeoAuditRouteImport.update({
+  id: '/gratis-geo-audit',
+  path: '/gratis-geo-audit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SiteRoute = SiteRouteImport.update({
   id: '/_site',
   getParentRoute: () => rootRouteImport,
@@ -30,6 +39,16 @@ const SiteRoute = SiteRouteImport.update({
 const SiteIndexRoute = SiteIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteSamenwerkingRoute = SiteSamenwerkingRouteImport.update({
+  id: '/samenwerking',
+  path: '/samenwerking',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteOverOnsRoute = SiteOverOnsRouteImport.update({
+  id: '/over-ons',
+  path: '/over-ons',
   getParentRoute: () => SiteRoute,
 } as any)
 const SiteKennisRoute = SiteKennisRouteImport.update({
@@ -40,6 +59,11 @@ const SiteKennisRoute = SiteKennisRouteImport.update({
 const SiteDienstenRoute = SiteDienstenRouteImport.update({
   id: '/diensten',
   path: '/diensten',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteContactRoute = SiteContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => SiteRoute,
 } as any)
 const SiteCasesRoute = SiteCasesRouteImport.update({
@@ -90,9 +114,13 @@ const SiteDienstenCroRoute = SiteDienstenCroRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof SiteIndexRoute
+  '/gratis-geo-audit': typeof GratisGeoAuditRoute
   '/cases': typeof SiteCasesRoute
+  '/contact': typeof SiteContactRoute
   '/diensten': typeof SiteDienstenRouteWithChildren
   '/kennis': typeof SiteKennisRouteWithChildren
+  '/over-ons': typeof SiteOverOnsRoute
+  '/samenwerking': typeof SiteSamenwerkingRoute
   '/diensten/cro': typeof SiteDienstenCroRoute
   '/diensten/geo': typeof SiteDienstenGeoRoute
   '/diensten/sea': typeof SiteDienstenSeaRoute
@@ -103,7 +131,11 @@ export interface FileRoutesByFullPath {
   '/kennis/': typeof SiteKennisIndexRoute
 }
 export interface FileRoutesByTo {
+  '/gratis-geo-audit': typeof GratisGeoAuditRoute
   '/cases': typeof SiteCasesRoute
+  '/contact': typeof SiteContactRoute
+  '/over-ons': typeof SiteOverOnsRoute
+  '/samenwerking': typeof SiteSamenwerkingRoute
   '/': typeof SiteIndexRoute
   '/diensten/cro': typeof SiteDienstenCroRoute
   '/diensten/geo': typeof SiteDienstenGeoRoute
@@ -117,9 +149,13 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_site': typeof SiteRouteWithChildren
+  '/gratis-geo-audit': typeof GratisGeoAuditRoute
   '/_site/cases': typeof SiteCasesRoute
+  '/_site/contact': typeof SiteContactRoute
   '/_site/diensten': typeof SiteDienstenRouteWithChildren
   '/_site/kennis': typeof SiteKennisRouteWithChildren
+  '/_site/over-ons': typeof SiteOverOnsRoute
+  '/_site/samenwerking': typeof SiteSamenwerkingRoute
   '/_site/': typeof SiteIndexRoute
   '/_site/diensten/cro': typeof SiteDienstenCroRoute
   '/_site/diensten/geo': typeof SiteDienstenGeoRoute
@@ -134,9 +170,13 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/gratis-geo-audit'
     | '/cases'
+    | '/contact'
     | '/diensten'
     | '/kennis'
+    | '/over-ons'
+    | '/samenwerking'
     | '/diensten/cro'
     | '/diensten/geo'
     | '/diensten/sea'
@@ -147,7 +187,11 @@ export interface FileRouteTypes {
     | '/kennis/'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/gratis-geo-audit'
     | '/cases'
+    | '/contact'
+    | '/over-ons'
+    | '/samenwerking'
     | '/'
     | '/diensten/cro'
     | '/diensten/geo'
@@ -160,9 +204,13 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/_site'
+    | '/gratis-geo-audit'
     | '/_site/cases'
+    | '/_site/contact'
     | '/_site/diensten'
     | '/_site/kennis'
+    | '/_site/over-ons'
+    | '/_site/samenwerking'
     | '/_site/'
     | '/_site/diensten/cro'
     | '/_site/diensten/geo'
@@ -176,10 +224,18 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   SiteRoute: typeof SiteRouteWithChildren
+  GratisGeoAuditRoute: typeof GratisGeoAuditRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/gratis-geo-audit': {
+      id: '/gratis-geo-audit'
+      path: '/gratis-geo-audit'
+      fullPath: '/gratis-geo-audit'
+      preLoaderRoute: typeof GratisGeoAuditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_site': {
       id: '/_site'
       path: ''
@@ -194,6 +250,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteIndexRouteImport
       parentRoute: typeof SiteRoute
     }
+    '/_site/samenwerking': {
+      id: '/_site/samenwerking'
+      path: '/samenwerking'
+      fullPath: '/samenwerking'
+      preLoaderRoute: typeof SiteSamenwerkingRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/over-ons': {
+      id: '/_site/over-ons'
+      path: '/over-ons'
+      fullPath: '/over-ons'
+      preLoaderRoute: typeof SiteOverOnsRouteImport
+      parentRoute: typeof SiteRoute
+    }
     '/_site/kennis': {
       id: '/_site/kennis'
       path: '/kennis'
@@ -206,6 +276,13 @@ declare module '@tanstack/react-router' {
       path: '/diensten'
       fullPath: '/diensten'
       preLoaderRoute: typeof SiteDienstenRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/contact': {
+      id: '/_site/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof SiteContactRouteImport
       parentRoute: typeof SiteRoute
     }
     '/_site/cases': {
@@ -312,15 +389,21 @@ const SiteKennisRouteWithChildren = SiteKennisRoute._addFileChildren(
 
 interface SiteRouteChildren {
   SiteCasesRoute: typeof SiteCasesRoute
+  SiteContactRoute: typeof SiteContactRoute
   SiteDienstenRoute: typeof SiteDienstenRouteWithChildren
   SiteKennisRoute: typeof SiteKennisRouteWithChildren
+  SiteOverOnsRoute: typeof SiteOverOnsRoute
+  SiteSamenwerkingRoute: typeof SiteSamenwerkingRoute
   SiteIndexRoute: typeof SiteIndexRoute
 }
 
 const SiteRouteChildren: SiteRouteChildren = {
   SiteCasesRoute: SiteCasesRoute,
+  SiteContactRoute: SiteContactRoute,
   SiteDienstenRoute: SiteDienstenRouteWithChildren,
   SiteKennisRoute: SiteKennisRouteWithChildren,
+  SiteOverOnsRoute: SiteOverOnsRoute,
+  SiteSamenwerkingRoute: SiteSamenwerkingRoute,
   SiteIndexRoute: SiteIndexRoute,
 }
 
@@ -328,6 +411,7 @@ const SiteRouteWithChildren = SiteRoute._addFileChildren(SiteRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   SiteRoute: SiteRouteWithChildren,
+  GratisGeoAuditRoute: GratisGeoAuditRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
