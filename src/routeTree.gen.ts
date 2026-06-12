@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SiteRouteImport } from './routes/_site'
 import { Route as SiteIndexRouteImport } from './routes/_site.index'
+import { Route as SiteKennisRouteImport } from './routes/_site.kennis'
 import { Route as SiteDienstenRouteImport } from './routes/_site.diensten'
+import { Route as SiteDienstenIndexRouteImport } from './routes/_site.diensten.index'
 
 const SiteRoute = SiteRouteImport.update({
   id: '/_site',
@@ -22,32 +24,53 @@ const SiteIndexRoute = SiteIndexRouteImport.update({
   path: '/',
   getParentRoute: () => SiteRoute,
 } as any)
+const SiteKennisRoute = SiteKennisRouteImport.update({
+  id: '/kennis',
+  path: '/kennis',
+  getParentRoute: () => SiteRoute,
+} as any)
 const SiteDienstenRoute = SiteDienstenRouteImport.update({
   id: '/diensten',
   path: '/diensten',
   getParentRoute: () => SiteRoute,
 } as any)
+const SiteDienstenIndexRoute = SiteDienstenIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SiteDienstenRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof SiteIndexRoute
-  '/diensten': typeof SiteDienstenRoute
+  '/diensten': typeof SiteDienstenRouteWithChildren
+  '/kennis': typeof SiteKennisRoute
+  '/diensten/': typeof SiteDienstenIndexRoute
 }
 export interface FileRoutesByTo {
-  '/diensten': typeof SiteDienstenRoute
+  '/kennis': typeof SiteKennisRoute
   '/': typeof SiteIndexRoute
+  '/diensten': typeof SiteDienstenIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_site': typeof SiteRouteWithChildren
-  '/_site/diensten': typeof SiteDienstenRoute
+  '/_site/diensten': typeof SiteDienstenRouteWithChildren
+  '/_site/kennis': typeof SiteKennisRoute
   '/_site/': typeof SiteIndexRoute
+  '/_site/diensten/': typeof SiteDienstenIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/diensten'
+  fullPaths: '/' | '/diensten' | '/kennis' | '/diensten/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/diensten' | '/'
-  id: '__root__' | '/_site' | '/_site/diensten' | '/_site/'
+  to: '/kennis' | '/' | '/diensten'
+  id:
+    | '__root__'
+    | '/_site'
+    | '/_site/diensten'
+    | '/_site/kennis'
+    | '/_site/'
+    | '/_site/diensten/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -70,6 +93,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteIndexRouteImport
       parentRoute: typeof SiteRoute
     }
+    '/_site/kennis': {
+      id: '/_site/kennis'
+      path: '/kennis'
+      fullPath: '/kennis'
+      preLoaderRoute: typeof SiteKennisRouteImport
+      parentRoute: typeof SiteRoute
+    }
     '/_site/diensten': {
       id: '/_site/diensten'
       path: '/diensten'
@@ -77,16 +107,37 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteDienstenRouteImport
       parentRoute: typeof SiteRoute
     }
+    '/_site/diensten/': {
+      id: '/_site/diensten/'
+      path: '/'
+      fullPath: '/diensten/'
+      preLoaderRoute: typeof SiteDienstenIndexRouteImport
+      parentRoute: typeof SiteDienstenRoute
+    }
   }
 }
 
+interface SiteDienstenRouteChildren {
+  SiteDienstenIndexRoute: typeof SiteDienstenIndexRoute
+}
+
+const SiteDienstenRouteChildren: SiteDienstenRouteChildren = {
+  SiteDienstenIndexRoute: SiteDienstenIndexRoute,
+}
+
+const SiteDienstenRouteWithChildren = SiteDienstenRoute._addFileChildren(
+  SiteDienstenRouteChildren,
+)
+
 interface SiteRouteChildren {
-  SiteDienstenRoute: typeof SiteDienstenRoute
+  SiteDienstenRoute: typeof SiteDienstenRouteWithChildren
+  SiteKennisRoute: typeof SiteKennisRoute
   SiteIndexRoute: typeof SiteIndexRoute
 }
 
 const SiteRouteChildren: SiteRouteChildren = {
-  SiteDienstenRoute: SiteDienstenRoute,
+  SiteDienstenRoute: SiteDienstenRouteWithChildren,
+  SiteKennisRoute: SiteKennisRoute,
   SiteIndexRoute: SiteIndexRoute,
 }
 
@@ -98,3 +149,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
