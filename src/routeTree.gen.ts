@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as GratisGeoAuditRouteImport } from './routes/gratis-geo-audit'
 import { Route as SiteRouteImport } from './routes/_site'
 import { Route as SiteIndexRouteImport } from './routes/_site.index'
@@ -27,6 +28,11 @@ import { Route as SiteDienstenSeaRouteImport } from './routes/_site.diensten.sea
 import { Route as SiteDienstenGeoRouteImport } from './routes/_site.diensten.geo'
 import { Route as SiteDienstenCroRouteImport } from './routes/_site.diensten.cro'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GratisGeoAuditRoute = GratisGeoAuditRouteImport.update({
   id: '/gratis-geo-audit',
   path: '/gratis-geo-audit',
@@ -115,6 +121,7 @@ const SiteDienstenCroRoute = SiteDienstenCroRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof SiteIndexRoute
   '/gratis-geo-audit': typeof GratisGeoAuditRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/cases': typeof SiteCasesRoute
   '/contact': typeof SiteContactRoute
   '/diensten': typeof SiteDienstenRouteWithChildren
@@ -132,6 +139,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/gratis-geo-audit': typeof GratisGeoAuditRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/cases': typeof SiteCasesRoute
   '/contact': typeof SiteContactRoute
   '/over-ons': typeof SiteOverOnsRoute
@@ -150,6 +158,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_site': typeof SiteRouteWithChildren
   '/gratis-geo-audit': typeof GratisGeoAuditRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/_site/cases': typeof SiteCasesRoute
   '/_site/contact': typeof SiteContactRoute
   '/_site/diensten': typeof SiteDienstenRouteWithChildren
@@ -171,6 +180,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/gratis-geo-audit'
+    | '/sitemap.xml'
     | '/cases'
     | '/contact'
     | '/diensten'
@@ -188,6 +198,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/gratis-geo-audit'
+    | '/sitemap.xml'
     | '/cases'
     | '/contact'
     | '/over-ons'
@@ -205,6 +216,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/_site'
     | '/gratis-geo-audit'
+    | '/sitemap.xml'
     | '/_site/cases'
     | '/_site/contact'
     | '/_site/diensten'
@@ -225,10 +237,18 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   SiteRoute: typeof SiteRouteWithChildren
   GratisGeoAuditRoute: typeof GratisGeoAuditRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gratis-geo-audit': {
       id: '/gratis-geo-audit'
       path: '/gratis-geo-audit'
@@ -412,6 +432,7 @@ const SiteRouteWithChildren = SiteRoute._addFileChildren(SiteRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   SiteRoute: SiteRouteWithChildren,
   GratisGeoAuditRoute: GratisGeoAuditRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
