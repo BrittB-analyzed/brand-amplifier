@@ -83,6 +83,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Expose Your Brand" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Expose Your Brand — AI-first SEO & GEO bureau" },
+      { name: "twitter:title", content: "Expose Your Brand — AI-first SEO & GEO bureau" },
+      { property: "og:description", content: "Van 'Onzichtbaar' naar 'Aanbevolen'. Binnen 90 dagen aanbevolen door ChatGPT, Gemini en Perplexity — of we werken gratis door." },
+      { name: "twitter:description", content: "Van 'Onzichtbaar' naar 'Aanbevolen'. Binnen 90 dagen aanbevolen door ChatGPT, Gemini en Perplexity — of we werken gratis door." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b3add6e0-0a32-4d3a-a24b-799f20971fff/id-preview-62f163fe--c4ffa0f8-05c5-4e1e-97f1-c3ba48e13b6b.lovable.app-1781263894049.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b3add6e0-0a32-4d3a-a24b-799f20971fff/id-preview-62f163fe--c4ffa0f8-05c5-4e1e-97f1-c3ba48e13b6b.lovable.app-1781263894049.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
