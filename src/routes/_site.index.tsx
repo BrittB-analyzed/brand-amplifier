@@ -5,7 +5,6 @@ import { Sparkle } from "@/components/site/Sparkle";
 import { AnimatedRotator } from "@/components/site/AnimatedRotator";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { PreFooterCTA } from "@/components/site/PreFooterCTA";
-import sparklesBg from "@/assets/sparkles-bg.png.asset.json";
 import heroBg from "@/assets/hero-bg.png.asset.json";
 
 export const Route = createFileRoute("/_site/")({
