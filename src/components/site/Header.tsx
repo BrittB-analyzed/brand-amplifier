@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CTAButton } from "./CTAButton";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 const services = [
   { to: "/diensten/seo", label: "SEO" },
@@ -40,9 +41,11 @@ export function Header() {
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <span className="font-display font-semibold text-lg sm:text-xl tracking-tight text-twilight">
-            EXPOSE <span className="text-molten">YOUR BRAND</span>
-          </span>
+          <img
+            src={logoAsset.url}
+            alt="Expose Your Brand"
+            className="h-10 sm:h-12 w-auto"
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-twilight">
