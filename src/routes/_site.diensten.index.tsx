@@ -1,9 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
-import { Sparkle } from "@/components/site/Sparkle";
 import { CTAButton } from "@/components/site/CTAButton";
 import { PreFooterCTA } from "@/components/site/PreFooterCTA";
+import { GeoIcon, SeoIcon, SeaAiAdsIcon, CroIcon } from "@/components/site/ServiceIcons";
+
+const services = [
+  { to: "/diensten/geo", label: "GEO", color: "molten" as const, desc: "Word geciteerd in ChatGPT, Gemini, Perplexity en AI Overviews.", icon: GeoIcon },
+  { to: "/diensten/seo", label: "SEO", color: "blue" as const, desc: "Klassieke zoekmachine dominantie op de termen die omzet opleveren.", icon: SeoIcon },
+  { to: "/diensten/sea", label: "SEA + AI Ads", color: "molten" as const, desc: "Google Ads, Shopping en opkomende AI-advertenties.", icon: SeaAiAdsIcon },
+  { to: "/diensten/cro", label: "CRO", color: "blue" as const, desc: "Frictieloze funnels die elke bezoeker een stap dichter bij conversie zetten.", icon: CroIcon },
+];
 
 export const Route = createFileRoute("/_site/diensten/")({
   head: () => ({
@@ -19,13 +26,6 @@ export const Route = createFileRoute("/_site/diensten/")({
   component: DienstenIndex,
 });
 
-const services = [
-  { to: "/diensten/geo", label: "GEO", color: "molten" as const, desc: "Word geciteerd in ChatGPT, Gemini, Perplexity en AI Overviews." },
-  { to: "/diensten/seo", label: "SEO", color: "blue" as const, desc: "Klassieke zoekmachine dominantie op de termen die omzet opleveren." },
-  { to: "/diensten/sea", label: "SEA + AI Ads", color: "molten" as const, desc: "Google Ads, Shopping en opkomende AI-advertenties." },
-  { to: "/diensten/cro", label: "CRO", color: "blue" as const, desc: "Frictieloze funnels die elke bezoeker een stap dichter bij conversie zetten." },
-];
-
 function DienstenIndex() {
   return (
     <>
@@ -40,8 +40,8 @@ function DienstenIndex() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-6">
           {services.map((s) => (
             <Link key={s.to} to={s.to} className="group p-8 bg-white ring-1 ring-black/5 rounded-2xl hover:ring-molten/30 hover:-translate-y-1 transition-all">
-              <div className={`size-12 rounded-xl flex items-center justify-center mb-5 ${s.color === "molten" ? "bg-molten/10" : "bg-btn-blue/10"}`}>
-                <Sparkle color={s.color} />
+              <div className={`size-12 rounded-xl flex items-center justify-center mb-5 ${s.color === "molten" ? "bg-molten/10 text-molten" : "bg-btn-blue/10 text-btn-blue"}`}>
+                <s.icon className="size-6" />
               </div>
               <h2 className="font-display font-semibold text-2xl text-twilight mb-3">{s.label}</h2>
               <p className="leading-relaxed mb-6">{s.desc}</p>
