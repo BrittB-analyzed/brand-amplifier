@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Instagram, Facebook, MapPin } from "lucide-react";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 export function Footer() {
   return (
@@ -7,9 +8,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-4 gap-12 mb-16">
           <div className="lg:col-span-2">
-            <div className="font-display font-semibold text-2xl tracking-tight mb-4">
-              EXPOSE <span className="text-molten">YOUR BRAND</span>
-            </div>
+            <img src={logoAsset.url} alt="Expose Your Brand" className="h-14 w-auto mb-4 bg-white rounded-xl p-2 inline-block" />
             <p className="text-white/60 max-w-sm leading-relaxed mb-6">
               Van 'Onzichtbaar' naar 'Aanbevolen'. AI-first SEO & GEO bureau voor ambitieuze ondernemers.
             </p>
