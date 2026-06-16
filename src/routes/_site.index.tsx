@@ -157,7 +157,7 @@ function HomePage() {
                 className="group p-6 rounded-2xl bg-silver ring-1 ring-black/5 hover:ring-molten/30 hover:bg-white transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-twilight/5"
               >
                 <div className={`size-12 rounded-xl flex items-center justify-center mb-5 ${s.color === "molten" ? "bg-molten/10 text-molten" : "bg-btn-blue/10 text-btn-blue"}`}>
-                  <Sparkle size="md" color={s.color} />
+                  <s.icon className="size-6" />
                 </div>
                 <h3 className="font-display font-semibold text-xl text-twilight mb-2">{s.label}</h3>
                 <p className="text-sm leading-relaxed mb-5">{s.desc}</p>
