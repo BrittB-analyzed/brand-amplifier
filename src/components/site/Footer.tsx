@@ -8,7 +8,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-4 gap-12 mb-16">
           <div className="lg:col-span-2">
-            <img src={logoAsset.url} alt="Expose Your Brand" className="h-14 w-auto mb-4 bg-white rounded-xl p-2 inline-block" />
+            <img src={logoAsset.url} alt="Expose Your Brand" className="h-14 w-auto mb-4" />
             <p className="text-white/60 max-w-sm leading-relaxed mb-6">
               Van 'Onzichtbaar' naar 'Aanbevolen'. AI-first SEO & GEO bureau voor ambitieuze ondernemers.
             </p>
