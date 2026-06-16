@@ -1,10 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Play, Check, MessageSquare, Gauge, Users, Clock, Award, Settings2 } from "lucide-react";
+import { ArrowRight, Play, Check, MessageSquare, Gauge, Users, Clock, Award, Settings2, DoorOpen, Stethoscope, Scale, ShieldCheck, ShoppingBag, Gem } from "lucide-react";
 import { CTAButton } from "@/components/site/CTAButton";
 import { Sparkle } from "@/components/site/Sparkle";
 import { AnimatedRotator } from "@/components/site/AnimatedRotator";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { PreFooterCTA } from "@/components/site/PreFooterCTA";
+import sparklesBg from "@/assets/sparkles-bg.png.asset.json";
 
 export const Route = createFileRoute("/_site/")({
   head: () => ({
@@ -20,7 +21,14 @@ export const Route = createFileRoute("/_site/")({
   component: HomePage,
 });
 
-const clients = ["METALDOORS", "CLINIC PRO", "LAW GROUP", "TECH SEC", "VOGEL SHOP", "PRIME WEALTH"];
+const clients = [
+  { name: "Metaldoors", icon: DoorOpen, font: "font-display font-black tracking-tight" },
+  { name: "ClinicPro", icon: Stethoscope, font: "font-sans font-semibold tracking-wide" },
+  { name: "Law Group", icon: Scale, font: "font-display italic font-semibold" },
+  { name: "TechSec", icon: ShieldCheck, font: "font-mono font-bold tracking-tighter uppercase" },
+  { name: "Vogel Shop", icon: ShoppingBag, font: "font-display font-medium" },
+  { name: "Prime Wealth", icon: Gem, font: "font-sans font-light tracking-[0.2em] uppercase" },
+];
 
 const services = [
   { to: "/diensten/geo", label: "GEO", color: "molten" as const, desc: "Word de autoriteit die AI citeert in ChatGPT, Gemini en Google AI Overviews." },
@@ -60,6 +68,25 @@ function HomePage() {
     <>
       {/* Hero */}
       <section className="mesh-bg pt-20 pb-24 md:pb-32 px-6 relative overflow-hidden">
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none opacity-[0.18] bg-no-repeat bg-right-top"
+          style={{
+            backgroundImage: `url(${sparklesBg.url})`,
+            backgroundSize: "min(700px, 80%) auto",
+            backgroundPosition: "right -80px top -60px",
+          }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none opacity-[0.10] bg-no-repeat"
+          style={{
+            backgroundImage: `url(${sparklesBg.url})`,
+            backgroundSize: "min(420px, 55%) auto",
+            backgroundPosition: "left -60px bottom -40px",
+            transform: "scaleX(-1)",
+          }}
+        />
         <div className="max-w-7xl mx-auto relative z-10 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-white ring-1 ring-black/5 rounded-full mb-8">
             <Sparkle size="sm" />
@@ -91,10 +118,6 @@ function HomePage() {
             <span className="flex items-center gap-2"><Sparkle size="sm" /> Nederlands team</span>
           </div>
         </div>
-
-        <Sparkle className="absolute top-20 right-[10%] text-4xl" animate />
-        <Sparkle className="absolute bottom-32 left-[5%] text-2xl" color="blue" animate />
-        <Sparkle className="absolute top-1/2 right-[22%] text-3xl" color="white" animate />
       </section>
 
       {/* Logo strip */}
@@ -103,11 +126,17 @@ function HomePage() {
           <p className="text-center text-[11px] font-bold uppercase tracking-[0.3em] text-twilight/40 mb-8">
             Vertrouwd door marktleiders
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-50">
+          <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-6">
             {clients.map((c) => (
-              <span key={c} className="font-display font-bold text-lg sm:text-xl tracking-tighter text-twilight">
-                {c}
-              </span>
+              <div
+                key={c.name}
+                className="flex items-center gap-2 text-twilight/70 hover:text-twilight transition-colors grayscale hover:grayscale-0"
+              >
+                <c.icon className="size-5 text-molten/80" strokeWidth={2.2} />
+                <span className={`text-base sm:text-lg text-twilight ${c.font}`}>
+                  {c.name}
+                </span>
+              </div>
             ))}
           </div>
         </div>
