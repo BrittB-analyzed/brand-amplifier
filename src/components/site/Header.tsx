@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CTAButton } from "./CTAButton";
 import logoAsset from "@/assets/logo.png.asset.json";
+import sparklesBg from "@/assets/sparkles-bg.png.asset.json";
 
 const services = [
   { to: "/diensten/seo", label: "SEO" },
@@ -33,18 +34,30 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-colors duration-300",
+        "sticky top-0 z-50 w-full transition-colors duration-300 relative",
         scrolled
           ? "bg-white/90 backdrop-blur-md ring-1 ring-black/5"
           : "bg-transparent",
       )}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 shrink-0">
+      <div
+        aria-hidden
+        className={cn(
+          "pointer-events-none absolute inset-0 bg-no-repeat transition-opacity duration-300",
+          scrolled ? "opacity-25" : "opacity-40",
+        )}
+        style={{
+          backgroundImage: `url(${sparklesBg.url})`,
+          backgroundSize: "auto 180%",
+          backgroundPosition: "right -40px center",
+        }}
+      />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 h-20 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 lg:flex lg:justify-between">
+        <Link to="/" className="flex items-center min-w-0 shrink-0">
           <img
             src={logoAsset.url}
             alt="Expose Your Brand"
-            className="h-10 sm:h-12 w-auto"
+            className="h-12 sm:h-14 w-auto block"
           />
         </Link>
 

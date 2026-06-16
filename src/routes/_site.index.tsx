@@ -70,20 +70,20 @@ function HomePage() {
       <section className="mesh-bg pt-20 pb-24 md:pb-32 px-6 relative overflow-hidden">
         <div
           aria-hidden
-          className="absolute inset-0 pointer-events-none opacity-[0.18] bg-no-repeat bg-right-top"
+          className="absolute inset-0 pointer-events-none opacity-50 bg-no-repeat"
           style={{
             backgroundImage: `url(${sparklesBg.url})`,
-            backgroundSize: "min(700px, 80%) auto",
-            backgroundPosition: "right -80px top -60px",
+            backgroundSize: "min(820px, 90%) auto",
+            backgroundPosition: "right -60px top -40px",
           }}
         />
         <div
           aria-hidden
-          className="absolute inset-0 pointer-events-none opacity-[0.10] bg-no-repeat"
+          className="absolute inset-0 pointer-events-none opacity-30 bg-no-repeat"
           style={{
             backgroundImage: `url(${sparklesBg.url})`,
-            backgroundSize: "min(420px, 55%) auto",
-            backgroundPosition: "left -60px bottom -40px",
+            backgroundSize: "min(460px, 60%) auto",
+            backgroundPosition: "left -80px bottom -60px",
             transform: "scaleX(-1)",
           }}
         />
