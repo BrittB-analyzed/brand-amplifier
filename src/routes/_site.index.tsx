@@ -5,7 +5,7 @@ import { Sparkle } from "@/components/site/Sparkle";
 import { AnimatedRotator } from "@/components/site/AnimatedRotator";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { PreFooterCTA } from "@/components/site/PreFooterCTA";
-import sparklesBg from "@/assets/sparkles-bg.png.asset.json";
+import heroBg from "@/assets/hero-bg.png.asset.json";
 
 export const Route = createFileRoute("/_site/")({
   head: () => ({
@@ -67,26 +67,10 @@ function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="mesh-bg pt-20 pb-24 md:pb-32 px-6 relative overflow-hidden">
-        <div
-          aria-hidden
-          className="absolute inset-0 pointer-events-none opacity-50 bg-no-repeat"
-          style={{
-            backgroundImage: `url(${sparklesBg.url})`,
-            backgroundSize: "min(820px, 90%) auto",
-            backgroundPosition: "right -60px top -40px",
-          }}
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 pointer-events-none opacity-30 bg-no-repeat"
-          style={{
-            backgroundImage: `url(${sparklesBg.url})`,
-            backgroundSize: "min(460px, 60%) auto",
-            backgroundPosition: "left -80px bottom -60px",
-            transform: "scaleX(-1)",
-          }}
-        />
+      <section
+        className="pt-20 pb-24 md:pb-32 px-6 relative overflow-hidden bg-no-repeat bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroBg.url})` }}
+      >
         <div className="max-w-7xl mx-auto relative z-10 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-white ring-1 ring-black/5 rounded-full mb-8">
             <Sparkle size="sm" />

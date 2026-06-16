@@ -52,12 +52,12 @@ export function Header() {
           backgroundPosition: "right -40px center",
         }}
       />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 h-20 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 lg:flex lg:justify-between">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 h-24 sm:h-28 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 lg:flex lg:justify-between">
         <Link to="/" className="flex items-center min-w-0 shrink-0">
           <img
             src={logoAsset.url}
             alt="Expose Your Brand"
-            className="h-12 sm:h-14 w-auto block"
+            className="h-16 sm:h-20 lg:h-24 w-auto block"
           />
         </Link>
 
