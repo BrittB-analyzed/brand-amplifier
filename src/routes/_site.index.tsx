@@ -5,6 +5,7 @@ import { Sparkle } from "@/components/site/Sparkle";
 import { AnimatedRotator } from "@/components/site/AnimatedRotator";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { PreFooterCTA } from "@/components/site/PreFooterCTA";
+import { GeoIcon, SeoIcon, SeaAiAdsIcon, CroIcon } from "@/components/site/ServiceIcons";
 import heroBg from "@/assets/hero-bg.png.asset.json";
 
 export const Route = createFileRoute("/_site/")({
@@ -31,10 +32,10 @@ const clients = [
 ];
 
 const services = [
-  { to: "/diensten/geo", label: "GEO", color: "molten" as const, desc: "Word de autoriteit die AI citeert in ChatGPT, Gemini en Google AI Overviews." },
-  { to: "/diensten/seo", label: "SEO", color: "blue" as const, desc: "Klassieke zoekmachine dominantie voor de termen waar jouw klanten op zoeken." },
-  { to: "/diensten/sea", label: "SEA + AI Ads", color: "molten" as const, desc: "Claim direct de belangrijkste plekken in Google Ads, Shopping en opkomende AI-advertenties." },
-  { to: "/diensten/cro", label: "CRO", color: "blue" as const, desc: "Frictieloze funnels die van elke AI-lead een betalende klant maken." },
+  { to: "/diensten/geo", label: "GEO", color: "molten" as const, desc: "Word de autoriteit die AI citeert in ChatGPT, Gemini en Google AI Overviews.", icon: GeoIcon },
+  { to: "/diensten/seo", label: "SEO", color: "blue" as const, desc: "Klassieke zoekmachine dominantie voor de termen waar jouw klanten op zoeken.", icon: SeoIcon },
+  { to: "/diensten/sea", label: "SEA + AI Ads", color: "molten" as const, desc: "Claim direct de belangrijkste plekken in Google Ads, Shopping en opkomende AI-advertenties.", icon: SeaAiAdsIcon },
+  { to: "/diensten/cro", label: "CRO", color: "blue" as const, desc: "Frictieloze funnels die van elke AI-lead een betalende klant maken.", icon: CroIcon },
 ];
 
 const usps = [
@@ -156,7 +157,7 @@ function HomePage() {
                 className="group p-6 rounded-2xl bg-silver ring-1 ring-black/5 hover:ring-molten/30 hover:bg-white transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-twilight/5"
               >
                 <div className={`size-12 rounded-xl flex items-center justify-center mb-5 ${s.color === "molten" ? "bg-molten/10 text-molten" : "bg-btn-blue/10 text-btn-blue"}`}>
-                  <Sparkle size="md" color={s.color} />
+                  <s.icon className="size-6" />
                 </div>
                 <h3 className="font-display font-semibold text-xl text-twilight mb-2">{s.label}</h3>
                 <p className="text-sm leading-relaxed mb-5">{s.desc}</p>
