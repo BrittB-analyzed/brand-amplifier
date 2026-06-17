@@ -3,6 +3,8 @@ import { PageHero } from "@/components/site/PageHero";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { PreFooterCTA } from "@/components/site/PreFooterCTA";
 import { Sparkle } from "@/components/site/Sparkle";
+import berryPortrait from "@/assets/berry-portrait.jpg.asset.json";
+import founderPortrait from "@/assets/founder-portrait.jpg.asset.json";
 
 export const Route = createFileRoute("/_site/over-ons")({
   head: () => ({
@@ -18,10 +20,18 @@ export const Route = createFileRoute("/_site/over-ons")({
 });
 
 const team = [
-  { name: "Specialist 1", role: "Founder & GEO Lead" },
-  { name: "Specialist 2", role: "SEO & Content Strategist" },
-  { name: "Specialist 3", role: "Tech & Schema Architect" },
-  { name: "Specialist 4", role: "Conversion Optimization" },
+  {
+    name: "Berry",
+    role: "Founder & GEO Lead",
+    bio: "30+ jaar ervaring in zoekmachine-marketing. Vertaalt complexe AI-search naar concrete groei voor het MKB.",
+    photo: berryPortrait.url,
+  },
+  {
+    name: "Co-founder",
+    role: "Strategy & Conversie",
+    bio: "Brengt strategie, conversie en klantrelatie samen. Zorgt dat elke citatie in AI ook daadwerkelijk omzet wordt.",
+    photo: founderPortrait.url,
+  },
 ];
 
 function OverOnsPage() {
@@ -59,14 +69,17 @@ function OverOnsPage() {
       </section>
 
       <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <SectionHeader eyebrow="Team" title="Je vaste aanspreekpunten." className="mb-12" />
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {team.map((m) => (
               <div key={m.name} className="p-6 bg-white rounded-2xl ring-1 ring-black/5">
-                <div className="aspect-square bg-gradient-to-br from-peach-soft to-lavender rounded-xl mb-4" />
-                <h4 className="font-display font-semibold text-twilight">{m.name}</h4>
-                <p className="text-xs uppercase tracking-widest text-molten font-bold mt-1">{m.role}</p>
+                <div className="aspect-[4/5] rounded-xl mb-5 overflow-hidden bg-silver">
+                  <img src={m.photo} alt={`${m.name} — ${m.role}`} className="w-full h-full object-cover" loading="lazy" />
+                </div>
+                <h4 className="font-display font-semibold text-twilight text-xl">{m.name}</h4>
+                <p className="text-xs uppercase tracking-widest text-molten font-bold mt-1 mb-3">{m.role}</p>
+                <p className="text-sm leading-relaxed">{m.bio}</p>
               </div>
             ))}
           </div>
