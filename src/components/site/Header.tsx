@@ -42,13 +42,13 @@ export function Header() {
       <div
         aria-hidden
         className={cn(
-          "pointer-events-none absolute inset-0 bg-no-repeat transition-opacity duration-300",
-          scrolled ? "opacity-25" : "opacity-40",
+          "pointer-events-none absolute inset-0 bg-no-repeat transition-opacity duration-300 mix-blend-multiply",
+          scrolled ? "opacity-40" : "opacity-70",
         )}
         style={{
           backgroundImage: `url(${sparklesBg.url})`,
-          backgroundSize: "auto 180%",
-          backgroundPosition: "right -40px center",
+          backgroundSize: "auto 200%",
+          backgroundPosition: "right -20px center",
         }}
       />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 h-24 sm:h-28 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 lg:flex lg:justify-between">
