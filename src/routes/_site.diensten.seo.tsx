@@ -211,6 +211,12 @@ const cases = [
   { client: "Cliënt C · B2B SaaS", title: "Pillar-strategie bracht qualified demos", metric1: "+421%", metric1l: "organische demo's", metric2: "x4", metric2l: "branded search", metric3: "12 mnd", metric3l: "trajectduur" },
 ];
 
+const forWho = [
+  "MKB met €500K+ omzet en hoge klantwaarde.",
+  "Bedrijven waarvan klanten online research doen voor ze beslissen.",
+  "Ondernemers die genoeg hebben van rapportages zonder resultaat.",
+];
+
 function SeoPage() {
   return (
     <>
