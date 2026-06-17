@@ -1,5 +1,7 @@
 import { CTAButton } from "./CTAButton";
 import { Sparkle } from "./Sparkle";
+import berryPortrait from "@/assets/berry-portrait.jpg.asset.json";
+import founderPortrait from "@/assets/founder-portrait.jpg.asset.json";
 
 export function PreFooterCTA() {
   return (
@@ -20,6 +22,13 @@ export function PreFooterCTA() {
             <CTAButton to="/contact" variant="molten" size="lg">
               Plan je gratis AI-adviesgesprek
             </CTAButton>
+            <div className="mt-6 flex justify-center items-center gap-3">
+              <div className="flex -space-x-2">
+                <img src={berryPortrait.url} alt="Berry" className="size-9 rounded-full object-cover ring-2 ring-white" />
+                <img src={founderPortrait.url} alt="Co-founder" className="size-9 rounded-full object-cover ring-2 ring-white" />
+              </div>
+              <span className="text-xs text-twilight/70">Gesprek met Berry of zijn co-founder</span>
+            </div>
             <div className="mt-8 flex justify-center items-center gap-3 sm:gap-6 text-[11px] sm:text-xs font-bold uppercase tracking-widest text-twilight/50 flex-wrap">
               <span>30+ jaar ervaring</span>
               <Sparkle size="sm" />
