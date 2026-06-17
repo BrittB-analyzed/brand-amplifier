@@ -5,6 +5,7 @@ import { CTAButton } from "@/components/site/CTAButton";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { PreFooterCTA } from "@/components/site/PreFooterCTA";
 import { Sparkle } from "@/components/site/Sparkle";
+import berryMood from "@/assets/berry-mood.jpg.asset.json";
 
 export const Route = createFileRoute("/_site/samenwerking")({
   head: () => ({
@@ -53,7 +54,11 @@ function SamenwerkingPage() {
       <section className="py-20 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
           <SectionHeader eyebrow="Hoe het werkt" title="Drie eenvoudige stappen." />
-          <div className="mt-10 space-y-4">
+          <div className="mt-10 grid lg:grid-cols-[1fr_1.2fr] gap-8 items-start">
+            <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 aspect-[4/5] bg-silver">
+              <img src={berryMood.url} alt="Berry — kennismakingsgesprek" className="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div className="space-y-4">
             {[
               { n: "01", t: "Kennismakingsgesprek", d: "We checken de fit: type klanten, gewenste service-level en marge." },
               { n: "02", t: "Onboarding klant", d: "Wij sluiten naadloos aan op jouw account management, dashboard volgt." },
@@ -67,6 +72,7 @@ function SamenwerkingPage() {
                 </div>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </section>
