@@ -594,7 +594,7 @@ function ResultsSection() {
         <SectionHeader
           title={<>Wat GEO oplevert <span className="text-molten italic">in de praktijk</span>.</>}
           description="Gemiddelde resultaten uit onze GEO-trajecten van zes maanden of langer. Realistische verwachtingen, op basis van gemeten data."
-          variant="dark"
+          tone="dark"
         />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-12">
           {results.map((r) => (
