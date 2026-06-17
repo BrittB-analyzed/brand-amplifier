@@ -41,9 +41,9 @@ function ContactPage() {
             <div className="flex items-center gap-3 mb-6">
               <div className="flex -space-x-3">
                 <img src={berryPortrait.url} alt="Berry" className="size-12 rounded-full object-cover ring-2 ring-white" />
-                <img src={founderPortrait.url} alt="Co-founder" className="size-12 rounded-full object-cover ring-2 ring-white" />
+                <img src={founderPortrait.url} alt="Britt" className="size-12 rounded-full object-cover ring-2 ring-white" />
               </div>
-              <p className="text-sm text-body-text">Je spreekt direct met <span className="text-twilight font-medium">Berry</span> of zijn co-founder.</p>
+              <p className="text-sm text-body-text">Je spreekt direct met <span className="text-twilight font-medium">Berry</span> of <span class="text-twilight font-medium">Britt</span>.</p>
             </div>
             <div className="aspect-[4/5] bg-silver rounded-xl grid place-items-center text-center px-6 border-2 border-dashed border-twilight/10">
               <div>
