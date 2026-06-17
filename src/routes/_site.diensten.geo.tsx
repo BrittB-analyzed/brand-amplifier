@@ -6,7 +6,6 @@ import { PreFooterCTA } from "@/components/site/PreFooterCTA";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { CTAButton } from "@/components/site/CTAButton";
 import { cn } from "@/lib/utils";
-import geoEcosystem from "@/assets/geo-ecosystem-branded.png.asset.json";
 
 export const Route = createFileRoute("/_site/diensten/geo")({
   head: () => ({
