@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Sparkle } from "./Sparkle";
+import heroBg from "@/assets/hero-bg.png.asset.json";
 
 interface Props {
   eyebrow?: string;
@@ -10,7 +11,10 @@ interface Props {
 
 export function PageHero({ eyebrow, title, description, children }: Props) {
   return (
-    <section className="mesh-bg pt-20 pb-20 md:pb-24 px-6 relative overflow-hidden">
+    <section
+      className="pt-20 pb-20 md:pb-24 px-6 relative overflow-hidden bg-no-repeat bg-cover bg-center"
+      style={{ backgroundImage: `url(${heroBg.url})` }}
+    >
       <Sparkle className="absolute top-16 right-[12%] opacity-60" size="lg" animate />
       <Sparkle className="absolute bottom-10 left-[8%] opacity-50" size="md" color="blue" animate />
       <div className="max-w-4xl mx-auto relative z-10 animate-fade-in-up">
