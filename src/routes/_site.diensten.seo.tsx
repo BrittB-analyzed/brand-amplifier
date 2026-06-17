@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowRight, Check, Zap, FileText, MousePointer2, Award, Search, Wrench, FileSearch2, Link2, LineChart, Compass, Info, Navigation, Scale, Wallet } from "lucide-react";
+import { ArrowRight, Check, Zap, FileText, MousePointer2, Award, Compass, Info, Navigation, Scale, Wallet } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { PreFooterCTA } from "@/components/site/PreFooterCTA";
 import { SectionHeader } from "@/components/site/SectionHeader";
