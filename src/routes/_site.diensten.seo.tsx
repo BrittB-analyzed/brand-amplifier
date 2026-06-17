@@ -268,6 +268,46 @@ function SeoPage() {
   );
 }
 
+function ForWhoSection() {
+  return (
+    <section className="py-20 px-6">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+        <div className="bg-white rounded-2xl p-8 md:p-10 ring-1 ring-black/5">
+          <div className="text-molten font-bold text-xs uppercase tracking-widest mb-3">Voor wie</div>
+          <h2 className="font-display text-3xl text-twilight font-semibold mb-6">Geschikt als…</h2>
+          <ul className="space-y-3">
+            {forWho.map((w) => (
+              <li key={w} className="flex gap-3 items-start text-twilight">
+                <Check className="size-5 text-molten shrink-0 mt-0.5" /> <span>{w}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="flex flex-col justify-center">
+          <div className="text-molten font-bold text-xs uppercase tracking-widest mb-3">Wat je krijgt</div>
+          <h2 className="font-display text-3xl text-twilight font-semibold mb-6">Concreet en meetbaar.</h2>
+          <ul className="space-y-3">
+            {[
+              "Keyword-strategie op zoekintentie en omzetpotentie.",
+              "Technische SEO-audit en concrete fix-lijst.",
+              "Content die direct citeerbaar is voor AI Overviews.",
+              "Linkbuilding met focus op autoriteit, niet volume.",
+              "Maandelijkse rapportage in je eigen dashboard.",
+            ].map((b) => (
+              <li key={b} className="flex gap-3 items-start text-twilight">
+                <span className="shrink-0 mt-1 size-5 rounded-full bg-molten/10 text-molten flex items-center justify-center">
+                  <Check className="size-3" />
+                </span>
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function PillarsSection() {
   return (
     <section className="py-20 px-6 bg-white">
