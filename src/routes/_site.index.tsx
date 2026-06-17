@@ -72,6 +72,8 @@ function HomePage() {
         className="pt-20 pb-24 md:pb-32 px-6 relative overflow-hidden bg-no-repeat bg-cover bg-center"
         style={{ backgroundImage: `url(${heroBg.url})` }}
       >
+        <Sparkle className="absolute top-16 right-[12%] opacity-60" size="lg" animate />
+        <Sparkle className="absolute bottom-10 left-[8%] opacity-50" size="md" color="blue" animate />
         <div className="max-w-7xl mx-auto relative z-10 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-white ring-1 ring-black/5 rounded-full mb-8">
             <Sparkle size="sm" />

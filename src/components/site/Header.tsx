@@ -15,8 +15,7 @@ const services = [
 
 const navItems = [
   { to: "/cases", label: "Cases" },
-  { to: "/kennis", label: "Kennis" },
-  { to: "/samenwerking", label: "Samenwerking" },
+  { to: "/seo-voor-mkb", label: "SEO voor MKB" },
   { to: "/over-ons", label: "Over ons" },
 ] as const;
 
