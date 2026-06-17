@@ -32,15 +32,29 @@ export const Route = createFileRoute("/_site/diensten/cro")({
       { property: "og:url", content: "/diensten/cro" },
     ],
     links: [{ rel: "canonical", href: "/diensten/cro" }],
-    scripts: [{
-      type: "application/ld+json",
-      children: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Service",
-        name: "Conversion Rate Optimization",
-        provider: { "@type": "Organization", name: "Expose Your Brand" },
-      }),
-    }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Conversion Rate Optimization",
+          provider: { "@type": "Organization", name: "Expose Your Brand" },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faq.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
+    ],
   }),
   component: CroPage,
 });
