@@ -31,14 +31,6 @@ export const Route = createFileRoute("/_site/diensten/geo")({
   component: GeoPage,
 });
 
-const llms = [
-  { key: "chatgpt", glyph: "G", name: "ChatGPT", sub: "OpenAI · 280M+ users" },
-  { key: "perplexity", glyph: "P", name: "Perplexity", sub: "Bronnen-first AI" },
-  { key: "gemini", glyph: "✦", name: "Gemini", sub: "Google's antwoord" },
-  { key: "aio", glyph: "G", name: "AI Overviews", sub: "In de SERP" },
-  { key: "claude", glyph: "C", name: "Claude", sub: "Anthropic · enterprise" },
-] as const;
-
 const heroStats = [
   { stat: "36%", label: "van zoekopdrachten via AI in 2026 (NL)" },
   { stat: "22+", label: "grote LLM's om in te ranken" },
