@@ -32,15 +32,29 @@ export const Route = createFileRoute("/_site/diensten/cro")({
       { property: "og:url", content: "/diensten/cro" },
     ],
     links: [{ rel: "canonical", href: "/diensten/cro" }],
-    scripts: [{
-      type: "application/ld+json",
-      children: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Service",
-        name: "Conversion Rate Optimization",
-        provider: { "@type": "Organization", name: "Expose Your Brand" },
-      }),
-    }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Conversion Rate Optimization",
+          provider: { "@type": "Organization", name: "Expose Your Brand" },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faq.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
+    ],
   }),
   component: CroPage,
 });
@@ -225,6 +239,41 @@ const cases = [
   { client: "Cliënt C · D2C", title: "Productpagina-redesign met meetbare lift", metric1: "+71%", metric1l: "add-to-cart", metric2: "+24%", metric2l: "AOV", metric3: "6 mnd", metric3l: "trajectduur" },
 ];
 
+const faq = [
+  {
+    q: "Wat is CRO precies?",
+    a: "Conversion Rate Optimization is het structureel verbeteren van het percentage bezoekers dat een gewenste actie uitvoert — een aankoop, een aanvraag, een download. Geen losse meningen, maar onderzoek, hypothesen en A/B-tests met statistisch significante uitkomsten.",
+  },
+  {
+    q: "Hoeveel verkeer heb ik nodig voor A/B-tests?",
+    a: "Voor betrouwbare tests adviseren we minimaal 5.000 unieke bezoekers per maand op de pagina die je test, met minstens 200 conversies per variant. Bij minder verkeer schakelen we naar kwalitatief onderzoek, heuristische optimalisaties en sequentieel testen.",
+  },
+  {
+    q: "Hoe lang duurt een gemiddelde A/B-test?",
+    a: "Doorgaans 2 tot 4 weken per test. De looptijd wordt vooraf berekend op basis van verwachte lift, baseline-conversie en sample size. We stoppen niet eerder — peeking vertroebelt het resultaat.",
+  },
+  {
+    q: "Wanneer zie ik de eerste resultaten?",
+    a: "De eerste hypothesen draaien binnen 3 tot 4 weken na de research-fase. Meetbare omzet-impact volgt meestal in maand 2 tot 3, afhankelijk van het aantal tests dat parallel kan lopen.",
+  },
+  {
+    q: "Wat is het verschil tussen CRO en UX-design?",
+    a: "UX-design is breder en vaak op gevoel. CRO is gericht op meetbare conversie en wordt gevalideerd met data. Een goede CRO-aanpak gebruikt UX-principes, maar onderbouwt elke keuze met een test of bewijs.",
+  },
+  {
+    q: "Werken jullie ook met onze bestaande tooling?",
+    a: "Ja. We stappen in op GA4, GTM, Hotjar, Clarity, VWO, Convert of welke stack je ook gebruikt. Ontbreekt er iets essentieels, dan adviseren we — maar we forceren geen tool-switch.",
+  },
+  {
+    q: "Hoe rapporteren jullie de impact?",
+    a: "Maandelijks via een live Looker Studio-dashboard met conversie, omzet en testresultaten. Plus een korte schriftelijke samenvatting met learnings — ook van de tests die niet wonnen.",
+  },
+  {
+    q: "Wat kost een CRO-traject?",
+    a: "Maatwerk en maandelijks opzegbaar. Tijdens het gratis adviesgesprek krijg je een concreet voorstel met scope, prijs en verwachte business case.",
+  },
+];
+
 function CroPage() {
   return (
     <>
@@ -261,6 +310,7 @@ function CroPage() {
       <StepsSection />
       <ResultsSection />
       <CasesSection />
+      <FaqSection />
 
       <PreFooterCTA />
     </>
@@ -552,6 +602,31 @@ function CasesSection() {
           <CTAButton to="/cases" variant="outline-navy">
             Bekijk alle cases <ArrowRight className="size-4" />
           </CTAButton>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FaqSection() {
+  return (
+    <section className="py-20 px-6">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-molten font-display font-bold text-xs tracking-[0.2em] uppercase mb-3">faq</div>
+        <SectionHeader
+          title={<>Veelgestelde vragen <span className="text-molten italic">over CRO</span>.</>}
+          description="De vragen die we het vaakst krijgen — kort, eerlijk en zonder marketingpraat."
+        />
+        <div className="mt-10 space-y-3">
+          {faq.map((f) => (
+            <details key={f.q} className="group p-6 bg-white rounded-xl ring-1 ring-black/5">
+              <summary className="cursor-pointer font-display font-semibold text-twilight flex items-center justify-between gap-4">
+                <span>{f.q}</span>
+                <span className="text-molten transition-transform group-open:rotate-45 text-2xl leading-none shrink-0">+</span>
+              </summary>
+              <p className="mt-4 text-sm leading-relaxed text-body-text">{f.a}</p>
+            </details>
+          ))}
         </div>
       </div>
     </section>
