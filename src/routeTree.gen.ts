@@ -16,6 +16,7 @@ import { Route as SiteIndexRouteImport } from './routes/_site.index'
 import { Route as SiteVoorwaardenRouteImport } from './routes/_site.voorwaarden'
 import { Route as SiteSeoVoorMkbRouteImport } from './routes/_site.seo-voor-mkb'
 import { Route as SiteSamenwerkingRouteImport } from './routes/_site.samenwerking'
+import { Route as SitePrivacyRouteImport } from './routes/_site.privacy'
 import { Route as SiteOverOnsRouteImport } from './routes/_site.over-ons'
 import { Route as SiteKennisRouteImport } from './routes/_site.kennis'
 import { Route as SiteDienstenRouteImport } from './routes/_site.diensten'
@@ -62,6 +63,11 @@ const SiteSeoVoorMkbRoute = SiteSeoVoorMkbRouteImport.update({
 const SiteSamenwerkingRoute = SiteSamenwerkingRouteImport.update({
   id: '/samenwerking',
   path: '/samenwerking',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SitePrivacyRoute = SitePrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => SiteRoute,
 } as any)
 const SiteOverOnsRoute = SiteOverOnsRouteImport.update({
@@ -139,6 +145,7 @@ export interface FileRoutesByFullPath {
   '/diensten': typeof SiteDienstenRouteWithChildren
   '/kennis': typeof SiteKennisRouteWithChildren
   '/over-ons': typeof SiteOverOnsRoute
+  '/privacy': typeof SitePrivacyRoute
   '/samenwerking': typeof SiteSamenwerkingRoute
   '/seo-voor-mkb': typeof SiteSeoVoorMkbRoute
   '/voorwaarden': typeof SiteVoorwaardenRoute
@@ -157,6 +164,7 @@ export interface FileRoutesByTo {
   '/cases': typeof SiteCasesRoute
   '/contact': typeof SiteContactRoute
   '/over-ons': typeof SiteOverOnsRoute
+  '/privacy': typeof SitePrivacyRoute
   '/samenwerking': typeof SiteSamenwerkingRoute
   '/seo-voor-mkb': typeof SiteSeoVoorMkbRoute
   '/voorwaarden': typeof SiteVoorwaardenRoute
@@ -180,6 +188,7 @@ export interface FileRoutesById {
   '/_site/diensten': typeof SiteDienstenRouteWithChildren
   '/_site/kennis': typeof SiteKennisRouteWithChildren
   '/_site/over-ons': typeof SiteOverOnsRoute
+  '/_site/privacy': typeof SitePrivacyRoute
   '/_site/samenwerking': typeof SiteSamenwerkingRoute
   '/_site/seo-voor-mkb': typeof SiteSeoVoorMkbRoute
   '/_site/voorwaarden': typeof SiteVoorwaardenRoute
@@ -204,6 +213,7 @@ export interface FileRouteTypes {
     | '/diensten'
     | '/kennis'
     | '/over-ons'
+    | '/privacy'
     | '/samenwerking'
     | '/seo-voor-mkb'
     | '/voorwaarden'
@@ -222,6 +232,7 @@ export interface FileRouteTypes {
     | '/cases'
     | '/contact'
     | '/over-ons'
+    | '/privacy'
     | '/samenwerking'
     | '/seo-voor-mkb'
     | '/voorwaarden'
@@ -244,6 +255,7 @@ export interface FileRouteTypes {
     | '/_site/diensten'
     | '/_site/kennis'
     | '/_site/over-ons'
+    | '/_site/privacy'
     | '/_site/samenwerking'
     | '/_site/seo-voor-mkb'
     | '/_site/voorwaarden'
@@ -313,6 +325,13 @@ declare module '@tanstack/react-router' {
       path: '/samenwerking'
       fullPath: '/samenwerking'
       preLoaderRoute: typeof SiteSamenwerkingRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/privacy': {
+      id: '/_site/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof SitePrivacyRouteImport
       parentRoute: typeof SiteRoute
     }
     '/_site/over-ons': {
@@ -451,6 +470,7 @@ interface SiteRouteChildren {
   SiteDienstenRoute: typeof SiteDienstenRouteWithChildren
   SiteKennisRoute: typeof SiteKennisRouteWithChildren
   SiteOverOnsRoute: typeof SiteOverOnsRoute
+  SitePrivacyRoute: typeof SitePrivacyRoute
   SiteSamenwerkingRoute: typeof SiteSamenwerkingRoute
   SiteSeoVoorMkbRoute: typeof SiteSeoVoorMkbRoute
   SiteVoorwaardenRoute: typeof SiteVoorwaardenRoute
@@ -463,6 +483,7 @@ const SiteRouteChildren: SiteRouteChildren = {
   SiteDienstenRoute: SiteDienstenRouteWithChildren,
   SiteKennisRoute: SiteKennisRouteWithChildren,
   SiteOverOnsRoute: SiteOverOnsRoute,
+  SitePrivacyRoute: SitePrivacyRoute,
   SiteSamenwerkingRoute: SiteSamenwerkingRoute,
   SiteSeoVoorMkbRoute: SiteSeoVoorMkbRoute,
   SiteVoorwaardenRoute: SiteVoorwaardenRoute,
