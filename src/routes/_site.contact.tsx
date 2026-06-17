@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, MessageSquare, Calendar } from "lucide-react";
+import { Mail, MessageSquare, Calendar, MapPin, Building2 } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { Sparkle } from "@/components/site/Sparkle";
 import berryPortrait from "@/assets/berry-portrait.jpg.asset.json";
@@ -82,15 +82,38 @@ function ContactPage() {
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
-              <a href="mailto:hallo@expose-your-brand.com" className="p-5 bg-white rounded-xl ring-1 ring-black/5 hover:ring-molten/30 transition-all">
+              <a href="mailto:onlinegroeien@expose-your-brand.com" className="p-5 bg-white rounded-xl ring-1 ring-black/5 hover:ring-molten/30 transition-all">
                 <Mail className="size-5 text-molten mb-2" />
                 <div className="font-display font-semibold text-twilight text-sm">E-mail</div>
-                <div className="text-xs">hallo@expose-your-brand.com</div>
+                <div className="text-xs break-all">onlinegroeien@expose-your-brand.com</div>
               </a>
               <div className="p-5 bg-white rounded-xl ring-1 ring-black/5">
                 <MessageSquare className="size-5 text-molten mb-2" />
                 <div className="font-display font-semibold text-twilight text-sm">Slack</div>
                 <div className="text-xs">Eigen kanaal na onboarding</div>
+              </div>
+            </div>
+
+            <div className="mt-6 grid sm:grid-cols-2 gap-4">
+              <div className="p-5 bg-white rounded-xl ring-1 ring-black/5">
+                <MapPin className="size-5 text-molten mb-2" />
+                <div className="font-display font-semibold text-twilight text-sm mb-1">Bezoekadres</div>
+                <address className="not-italic text-xs leading-relaxed">
+                  Expose your Brand<br />
+                  Visstraat 55K<br />
+                  5211 DM Den Bosch<br />
+                  Nederland
+                </address>
+              </div>
+              <div className="p-5 bg-white rounded-xl ring-1 ring-black/5">
+                <Building2 className="size-5 text-molten mb-2" />
+                <div className="font-display font-semibold text-twilight text-sm mb-1">Bedrijfsgegevens</div>
+                <div className="text-xs leading-relaxed">
+                  KvK 71474129<br />
+                  KvK 61944351<br />
+                  BTW NL001764651B24<br />
+                  BTW NL001846301B46
+                </div>
               </div>
             </div>
           </div>
