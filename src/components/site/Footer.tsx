@@ -63,13 +63,13 @@ export function Footer() {
             </form>
           </div>
           <div className="flex md:justify-end items-center gap-4">
-            <a href="https://www.linkedin.com/" aria-label="LinkedIn" className="size-10 rounded-lg bg-white/5 hover:bg-molten transition-colors grid place-items-center">
+            <a href="https://www.linkedin.com/company/expose-your-brand-com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="size-10 rounded-lg bg-white/5 hover:bg-molten transition-colors grid place-items-center">
               <Linkedin className="size-4" />
             </a>
-            <a href="https://www.instagram.com/xposeyourbrand" aria-label="Instagram" className="size-10 rounded-lg bg-white/5 hover:bg-molten transition-colors grid place-items-center">
+            <a href="https://www.instagram.com/xposeyourbrand" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="size-10 rounded-lg bg-white/5 hover:bg-molten transition-colors grid place-items-center">
               <Instagram className="size-4" />
             </a>
-            <a href="https://www.facebook.com/" aria-label="Facebook" className="size-10 rounded-lg bg-white/5 hover:bg-molten transition-colors grid place-items-center">
+            <a href="https://www.facebook.com/exposeyourbrandcom" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="size-10 rounded-lg bg-white/5 hover:bg-molten transition-colors grid place-items-center">
               <Facebook className="size-4" />
             </a>
           </div>
