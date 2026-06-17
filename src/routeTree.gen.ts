@@ -13,6 +13,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as GratisGeoAuditRouteImport } from './routes/gratis-geo-audit'
 import { Route as SiteRouteImport } from './routes/_site'
 import { Route as SiteIndexRouteImport } from './routes/_site.index'
+import { Route as SiteVoorwaardenRouteImport } from './routes/_site.voorwaarden'
 import { Route as SiteSeoVoorMkbRouteImport } from './routes/_site.seo-voor-mkb'
 import { Route as SiteSamenwerkingRouteImport } from './routes/_site.samenwerking'
 import { Route as SiteOverOnsRouteImport } from './routes/_site.over-ons'
@@ -46,6 +47,11 @@ const SiteRoute = SiteRouteImport.update({
 const SiteIndexRoute = SiteIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteVoorwaardenRoute = SiteVoorwaardenRouteImport.update({
+  id: '/voorwaarden',
+  path: '/voorwaarden',
   getParentRoute: () => SiteRoute,
 } as any)
 const SiteSeoVoorMkbRoute = SiteSeoVoorMkbRouteImport.update({
@@ -135,6 +141,7 @@ export interface FileRoutesByFullPath {
   '/over-ons': typeof SiteOverOnsRoute
   '/samenwerking': typeof SiteSamenwerkingRoute
   '/seo-voor-mkb': typeof SiteSeoVoorMkbRoute
+  '/voorwaarden': typeof SiteVoorwaardenRoute
   '/diensten/cro': typeof SiteDienstenCroRoute
   '/diensten/geo': typeof SiteDienstenGeoRoute
   '/diensten/sea': typeof SiteDienstenSeaRoute
@@ -152,6 +159,7 @@ export interface FileRoutesByTo {
   '/over-ons': typeof SiteOverOnsRoute
   '/samenwerking': typeof SiteSamenwerkingRoute
   '/seo-voor-mkb': typeof SiteSeoVoorMkbRoute
+  '/voorwaarden': typeof SiteVoorwaardenRoute
   '/': typeof SiteIndexRoute
   '/diensten/cro': typeof SiteDienstenCroRoute
   '/diensten/geo': typeof SiteDienstenGeoRoute
@@ -174,6 +182,7 @@ export interface FileRoutesById {
   '/_site/over-ons': typeof SiteOverOnsRoute
   '/_site/samenwerking': typeof SiteSamenwerkingRoute
   '/_site/seo-voor-mkb': typeof SiteSeoVoorMkbRoute
+  '/_site/voorwaarden': typeof SiteVoorwaardenRoute
   '/_site/': typeof SiteIndexRoute
   '/_site/diensten/cro': typeof SiteDienstenCroRoute
   '/_site/diensten/geo': typeof SiteDienstenGeoRoute
@@ -197,6 +206,7 @@ export interface FileRouteTypes {
     | '/over-ons'
     | '/samenwerking'
     | '/seo-voor-mkb'
+    | '/voorwaarden'
     | '/diensten/cro'
     | '/diensten/geo'
     | '/diensten/sea'
@@ -214,6 +224,7 @@ export interface FileRouteTypes {
     | '/over-ons'
     | '/samenwerking'
     | '/seo-voor-mkb'
+    | '/voorwaarden'
     | '/'
     | '/diensten/cro'
     | '/diensten/geo'
@@ -235,6 +246,7 @@ export interface FileRouteTypes {
     | '/_site/over-ons'
     | '/_site/samenwerking'
     | '/_site/seo-voor-mkb'
+    | '/_site/voorwaarden'
     | '/_site/'
     | '/_site/diensten/cro'
     | '/_site/diensten/geo'
@@ -280,6 +292,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof SiteIndexRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/voorwaarden': {
+      id: '/_site/voorwaarden'
+      path: '/voorwaarden'
+      fullPath: '/voorwaarden'
+      preLoaderRoute: typeof SiteVoorwaardenRouteImport
       parentRoute: typeof SiteRoute
     }
     '/_site/seo-voor-mkb': {
@@ -434,6 +453,7 @@ interface SiteRouteChildren {
   SiteOverOnsRoute: typeof SiteOverOnsRoute
   SiteSamenwerkingRoute: typeof SiteSamenwerkingRoute
   SiteSeoVoorMkbRoute: typeof SiteSeoVoorMkbRoute
+  SiteVoorwaardenRoute: typeof SiteVoorwaardenRoute
   SiteIndexRoute: typeof SiteIndexRoute
 }
 
@@ -445,6 +465,7 @@ const SiteRouteChildren: SiteRouteChildren = {
   SiteOverOnsRoute: SiteOverOnsRoute,
   SiteSamenwerkingRoute: SiteSamenwerkingRoute,
   SiteSeoVoorMkbRoute: SiteSeoVoorMkbRoute,
+  SiteVoorwaardenRoute: SiteVoorwaardenRoute,
   SiteIndexRoute: SiteIndexRoute,
 }
 
