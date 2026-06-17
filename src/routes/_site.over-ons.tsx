@@ -27,7 +27,7 @@ const team = [
     photo: berryPortrait.url,
   },
   {
-    name: "Co-founder",
+    name: "Britt",
     role: "Strategy & Conversie",
     bio: "Brengt strategie, conversie en klantrelatie samen. Zorgt dat elke citatie in AI ook daadwerkelijk omzet wordt.",
     photo: founderPortrait.url,
