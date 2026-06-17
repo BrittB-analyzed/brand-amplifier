@@ -270,13 +270,18 @@ function GeoPage() {
             </CTAButton>
           </div>
 
-          <img
-            src={geoEcosystem.url}
-            alt="GEO-ecosysteem: Expose Your Brand als bron in ChatGPT, Perplexity, Gemini, AI Overviews en Claude"
-            width={1344}
-            height={768}
-            className="w-full rounded-2xl ring-1 ring-black/5 shadow-2xl shadow-twilight/10 bg-white"
-          />
+          {/* LLM strip */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 max-w-3xl">
+            {llms.map((l) => (
+              <div key={l.key} className="bg-white/80 backdrop-blur rounded-xl p-3 ring-1 ring-black/5 flex items-center gap-3">
+                <span className="shrink-0 size-9 rounded-lg bg-twilight text-white flex items-center justify-center font-display text-lg">{l.glyph}</span>
+                <div className="min-w-0">
+                  <div className="text-sm font-display font-semibold text-twilight truncate">{l.name}</div>
+                  <div className="text-[10px] text-body-text truncate">{l.sub}</div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </PageHero>
 
