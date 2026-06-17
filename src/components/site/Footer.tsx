@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Instagram, Facebook, MapPin } from "lucide-react";
+import { Linkedin, Instagram, Facebook, MapPin, Mail } from "lucide-react";
 import logoAsset from "@/assets/logo.png.asset.json";
 
 export function Footer() {
@@ -12,9 +12,19 @@ export function Footer() {
             <p className="text-white/60 max-w-sm leading-relaxed mb-6">
               Van 'Onzichtbaar' naar 'Aanbevolen'. AI-first SEO & GEO bureau voor ambitieuze ondernemers.
             </p>
-            <div className="flex items-center gap-2 text-sm text-white/50">
-              <MapPin className="size-4" /> Nederland · expose-your-brand.com
-            </div>
+            <address className="not-italic space-y-2 text-sm text-white/60">
+              <div className="flex items-start gap-2">
+                <MapPin className="size-4 mt-0.5 shrink-0 text-molten" />
+                <span>Expose your Brand<br />Visstraat 55K<br />5211 DM Den Bosch · Nederland</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="size-4 shrink-0 text-molten" />
+                <a href="mailto:onlinegroeien@expose-your-brand.com" className="hover:text-white">onlinegroeien@expose-your-brand.com</a>
+              </div>
+              <div className="text-white/40 text-xs pt-1">
+                KvK 71474129 · 61944351<br />BTW NL001764651B24 · NL001846301B46
+              </div>
+            </address>
           </div>
 
           <div>
@@ -32,8 +42,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-white/60">
               <li><Link to="/over-ons" className="hover:text-white">Over ons</Link></li>
               <li><Link to="/cases" className="hover:text-white">Cases</Link></li>
-              <li><Link to="/kennis" className="hover:text-white">Kenniscentrum</Link></li>
-              <li><Link to="/samenwerking" className="hover:text-white">Samenwerking</Link></li>
+              <li><Link to="/seo-voor-mkb" className="hover:text-white">SEO voor MKB</Link></li>
               <li><Link to="/contact" className="hover:text-white">Contact</Link></li>
             </ul>
           </div>
@@ -69,9 +78,9 @@ export function Footer() {
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] uppercase tracking-widest text-white/30">
           <p>© {new Date().getFullYear()} Expose Your Brand · KvK Nederland</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white">Privacy</a>
-            <a href="#" className="hover:text-white">Voorwaarden</a>
-            <a href="#" className="hover:text-white">Cookies</a>
+            <Link to="/privacy" className="hover:text-white">Privacy</Link>
+            <Link to="/voorwaarden" className="hover:text-white">Voorwaarden</Link>
+            <Link to="/cookies" className="hover:text-white">Cookies</Link>
           </div>
         </div>
       </div>

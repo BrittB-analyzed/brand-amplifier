@@ -13,11 +13,14 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as GratisGeoAuditRouteImport } from './routes/gratis-geo-audit'
 import { Route as SiteRouteImport } from './routes/_site'
 import { Route as SiteIndexRouteImport } from './routes/_site.index'
+import { Route as SiteVoorwaardenRouteImport } from './routes/_site.voorwaarden'
 import { Route as SiteSeoVoorMkbRouteImport } from './routes/_site.seo-voor-mkb'
 import { Route as SiteSamenwerkingRouteImport } from './routes/_site.samenwerking'
+import { Route as SitePrivacyRouteImport } from './routes/_site.privacy'
 import { Route as SiteOverOnsRouteImport } from './routes/_site.over-ons'
 import { Route as SiteKennisRouteImport } from './routes/_site.kennis'
 import { Route as SiteDienstenRouteImport } from './routes/_site.diensten'
+import { Route as SiteCookiesRouteImport } from './routes/_site.cookies'
 import { Route as SiteContactRouteImport } from './routes/_site.contact'
 import { Route as SiteCasesRouteImport } from './routes/_site.cases'
 import { Route as SiteKennisIndexRouteImport } from './routes/_site.kennis.index'
@@ -48,6 +51,11 @@ const SiteIndexRoute = SiteIndexRouteImport.update({
   path: '/',
   getParentRoute: () => SiteRoute,
 } as any)
+const SiteVoorwaardenRoute = SiteVoorwaardenRouteImport.update({
+  id: '/voorwaarden',
+  path: '/voorwaarden',
+  getParentRoute: () => SiteRoute,
+} as any)
 const SiteSeoVoorMkbRoute = SiteSeoVoorMkbRouteImport.update({
   id: '/seo-voor-mkb',
   path: '/seo-voor-mkb',
@@ -56,6 +64,11 @@ const SiteSeoVoorMkbRoute = SiteSeoVoorMkbRouteImport.update({
 const SiteSamenwerkingRoute = SiteSamenwerkingRouteImport.update({
   id: '/samenwerking',
   path: '/samenwerking',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SitePrivacyRoute = SitePrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => SiteRoute,
 } as any)
 const SiteOverOnsRoute = SiteOverOnsRouteImport.update({
@@ -71,6 +84,11 @@ const SiteKennisRoute = SiteKennisRouteImport.update({
 const SiteDienstenRoute = SiteDienstenRouteImport.update({
   id: '/diensten',
   path: '/diensten',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteCookiesRoute = SiteCookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
   getParentRoute: () => SiteRoute,
 } as any)
 const SiteContactRoute = SiteContactRouteImport.update({
@@ -130,11 +148,14 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/cases': typeof SiteCasesRoute
   '/contact': typeof SiteContactRoute
+  '/cookies': typeof SiteCookiesRoute
   '/diensten': typeof SiteDienstenRouteWithChildren
   '/kennis': typeof SiteKennisRouteWithChildren
   '/over-ons': typeof SiteOverOnsRoute
+  '/privacy': typeof SitePrivacyRoute
   '/samenwerking': typeof SiteSamenwerkingRoute
   '/seo-voor-mkb': typeof SiteSeoVoorMkbRoute
+  '/voorwaarden': typeof SiteVoorwaardenRoute
   '/diensten/cro': typeof SiteDienstenCroRoute
   '/diensten/geo': typeof SiteDienstenGeoRoute
   '/diensten/sea': typeof SiteDienstenSeaRoute
@@ -149,9 +170,12 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/cases': typeof SiteCasesRoute
   '/contact': typeof SiteContactRoute
+  '/cookies': typeof SiteCookiesRoute
   '/over-ons': typeof SiteOverOnsRoute
+  '/privacy': typeof SitePrivacyRoute
   '/samenwerking': typeof SiteSamenwerkingRoute
   '/seo-voor-mkb': typeof SiteSeoVoorMkbRoute
+  '/voorwaarden': typeof SiteVoorwaardenRoute
   '/': typeof SiteIndexRoute
   '/diensten/cro': typeof SiteDienstenCroRoute
   '/diensten/geo': typeof SiteDienstenGeoRoute
@@ -169,11 +193,14 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/_site/cases': typeof SiteCasesRoute
   '/_site/contact': typeof SiteContactRoute
+  '/_site/cookies': typeof SiteCookiesRoute
   '/_site/diensten': typeof SiteDienstenRouteWithChildren
   '/_site/kennis': typeof SiteKennisRouteWithChildren
   '/_site/over-ons': typeof SiteOverOnsRoute
+  '/_site/privacy': typeof SitePrivacyRoute
   '/_site/samenwerking': typeof SiteSamenwerkingRoute
   '/_site/seo-voor-mkb': typeof SiteSeoVoorMkbRoute
+  '/_site/voorwaarden': typeof SiteVoorwaardenRoute
   '/_site/': typeof SiteIndexRoute
   '/_site/diensten/cro': typeof SiteDienstenCroRoute
   '/_site/diensten/geo': typeof SiteDienstenGeoRoute
@@ -192,11 +219,14 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/cases'
     | '/contact'
+    | '/cookies'
     | '/diensten'
     | '/kennis'
     | '/over-ons'
+    | '/privacy'
     | '/samenwerking'
     | '/seo-voor-mkb'
+    | '/voorwaarden'
     | '/diensten/cro'
     | '/diensten/geo'
     | '/diensten/sea'
@@ -211,9 +241,12 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/cases'
     | '/contact'
+    | '/cookies'
     | '/over-ons'
+    | '/privacy'
     | '/samenwerking'
     | '/seo-voor-mkb'
+    | '/voorwaarden'
     | '/'
     | '/diensten/cro'
     | '/diensten/geo'
@@ -230,11 +263,14 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/_site/cases'
     | '/_site/contact'
+    | '/_site/cookies'
     | '/_site/diensten'
     | '/_site/kennis'
     | '/_site/over-ons'
+    | '/_site/privacy'
     | '/_site/samenwerking'
     | '/_site/seo-voor-mkb'
+    | '/_site/voorwaarden'
     | '/_site/'
     | '/_site/diensten/cro'
     | '/_site/diensten/geo'
@@ -282,6 +318,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteIndexRouteImport
       parentRoute: typeof SiteRoute
     }
+    '/_site/voorwaarden': {
+      id: '/_site/voorwaarden'
+      path: '/voorwaarden'
+      fullPath: '/voorwaarden'
+      preLoaderRoute: typeof SiteVoorwaardenRouteImport
+      parentRoute: typeof SiteRoute
+    }
     '/_site/seo-voor-mkb': {
       id: '/_site/seo-voor-mkb'
       path: '/seo-voor-mkb'
@@ -294,6 +337,13 @@ declare module '@tanstack/react-router' {
       path: '/samenwerking'
       fullPath: '/samenwerking'
       preLoaderRoute: typeof SiteSamenwerkingRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/privacy': {
+      id: '/_site/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof SitePrivacyRouteImport
       parentRoute: typeof SiteRoute
     }
     '/_site/over-ons': {
@@ -315,6 +365,13 @@ declare module '@tanstack/react-router' {
       path: '/diensten'
       fullPath: '/diensten'
       preLoaderRoute: typeof SiteDienstenRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/cookies': {
+      id: '/_site/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof SiteCookiesRouteImport
       parentRoute: typeof SiteRoute
     }
     '/_site/contact': {
@@ -429,22 +486,28 @@ const SiteKennisRouteWithChildren = SiteKennisRoute._addFileChildren(
 interface SiteRouteChildren {
   SiteCasesRoute: typeof SiteCasesRoute
   SiteContactRoute: typeof SiteContactRoute
+  SiteCookiesRoute: typeof SiteCookiesRoute
   SiteDienstenRoute: typeof SiteDienstenRouteWithChildren
   SiteKennisRoute: typeof SiteKennisRouteWithChildren
   SiteOverOnsRoute: typeof SiteOverOnsRoute
+  SitePrivacyRoute: typeof SitePrivacyRoute
   SiteSamenwerkingRoute: typeof SiteSamenwerkingRoute
   SiteSeoVoorMkbRoute: typeof SiteSeoVoorMkbRoute
+  SiteVoorwaardenRoute: typeof SiteVoorwaardenRoute
   SiteIndexRoute: typeof SiteIndexRoute
 }
 
 const SiteRouteChildren: SiteRouteChildren = {
   SiteCasesRoute: SiteCasesRoute,
   SiteContactRoute: SiteContactRoute,
+  SiteCookiesRoute: SiteCookiesRoute,
   SiteDienstenRoute: SiteDienstenRouteWithChildren,
   SiteKennisRoute: SiteKennisRouteWithChildren,
   SiteOverOnsRoute: SiteOverOnsRoute,
+  SitePrivacyRoute: SitePrivacyRoute,
   SiteSamenwerkingRoute: SiteSamenwerkingRoute,
   SiteSeoVoorMkbRoute: SiteSeoVoorMkbRoute,
+  SiteVoorwaardenRoute: SiteVoorwaardenRoute,
   SiteIndexRoute: SiteIndexRoute,
 }
 
