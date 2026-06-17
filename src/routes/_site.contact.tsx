@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Mail, MessageSquare, Calendar } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { Sparkle } from "@/components/site/Sparkle";
+import berryPortrait from "@/assets/berry-portrait.jpg.asset.json";
+import founderPortrait from "@/assets/founder-portrait.jpg.asset.json";
 
 export const Route = createFileRoute("/_site/contact")({
   head: () => ({
@@ -36,6 +38,13 @@ function ContactPage() {
               <span className="text-molten font-bold text-xs uppercase tracking-widest">Direct boeken</span>
             </div>
             <h2 className="font-display text-2xl text-twilight font-semibold mb-6">Kies een tijdslot</h2>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex -space-x-3">
+                <img src={berryPortrait.url} alt="Berry" className="size-12 rounded-full object-cover ring-2 ring-white" />
+                <img src={founderPortrait.url} alt="Co-founder" className="size-12 rounded-full object-cover ring-2 ring-white" />
+              </div>
+              <p className="text-sm text-body-text">Je spreekt direct met <span className="text-twilight font-medium">Berry</span> of zijn co-founder.</p>
+            </div>
             <div className="aspect-[4/5] bg-silver rounded-xl grid place-items-center text-center px-6 border-2 border-dashed border-twilight/10">
               <div>
                 <Calendar className="size-10 text-molten mx-auto mb-4" />
