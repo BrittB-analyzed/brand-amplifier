@@ -607,3 +607,28 @@ function CasesSection() {
     </section>
   );
 }
+
+function FaqSection() {
+  return (
+    <section className="py-20 px-6">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-molten font-display font-bold text-xs tracking-[0.2em] uppercase mb-3">faq</div>
+        <SectionHeader
+          title={<>Veelgestelde vragen <span className="text-molten italic">over CRO</span>.</>}
+          description="De vragen die we het vaakst krijgen — kort, eerlijk en zonder marketingpraat."
+        />
+        <div className="mt-10 space-y-3">
+          {faq.map((f) => (
+            <details key={f.q} className="group p-6 bg-white rounded-xl ring-1 ring-black/5">
+              <summary className="cursor-pointer font-display font-semibold text-twilight flex items-center justify-between gap-4">
+                <span>{f.q}</span>
+                <span className="text-molten transition-transform group-open:rotate-45 text-2xl leading-none shrink-0">+</span>
+              </summary>
+              <p className="mt-4 text-sm leading-relaxed text-body-text">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
