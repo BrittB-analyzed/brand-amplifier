@@ -230,6 +230,8 @@ function SeoPage() {
         </CTAButton>
       </PageHero>
 
+      <ForWhoSection />
+
       {/* Stat strip */}
       <section className="py-12 px-6 -mt-8">
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4">
