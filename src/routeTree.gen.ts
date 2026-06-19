@@ -29,7 +29,6 @@ import { Route as SiteKennisFaqRouteImport } from './routes/_site.kennis.faq'
 import { Route as SiteKennisBlogRouteImport } from './routes/_site.kennis.blog'
 import { Route as SiteDienstenSeoRouteImport } from './routes/_site.diensten.seo'
 import { Route as SiteDienstenSeaRouteImport } from './routes/_site.diensten.sea'
-import { Route as SiteDienstenGeoRouteImport } from './routes/_site.diensten.geo'
 import { Route as SiteDienstenCroRouteImport } from './routes/_site.diensten.cro'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -131,11 +130,6 @@ const SiteDienstenSeaRoute = SiteDienstenSeaRouteImport.update({
   path: '/sea',
   getParentRoute: () => SiteDienstenRoute,
 } as any)
-const SiteDienstenGeoRoute = SiteDienstenGeoRouteImport.update({
-  id: '/geo',
-  path: '/geo',
-  getParentRoute: () => SiteDienstenRoute,
-} as any)
 const SiteDienstenCroRoute = SiteDienstenCroRouteImport.update({
   id: '/cro',
   path: '/cro',
@@ -157,7 +151,6 @@ export interface FileRoutesByFullPath {
   '/seo-voor-mkb': typeof SiteSeoVoorMkbRoute
   '/voorwaarden': typeof SiteVoorwaardenRoute
   '/diensten/cro': typeof SiteDienstenCroRoute
-  '/diensten/geo': typeof SiteDienstenGeoRoute
   '/diensten/sea': typeof SiteDienstenSeaRoute
   '/diensten/seo': typeof SiteDienstenSeoRoute
   '/kennis/blog': typeof SiteKennisBlogRoute
@@ -178,7 +171,6 @@ export interface FileRoutesByTo {
   '/voorwaarden': typeof SiteVoorwaardenRoute
   '/': typeof SiteIndexRoute
   '/diensten/cro': typeof SiteDienstenCroRoute
-  '/diensten/geo': typeof SiteDienstenGeoRoute
   '/diensten/sea': typeof SiteDienstenSeaRoute
   '/diensten/seo': typeof SiteDienstenSeoRoute
   '/kennis/blog': typeof SiteKennisBlogRoute
@@ -203,7 +195,6 @@ export interface FileRoutesById {
   '/_site/voorwaarden': typeof SiteVoorwaardenRoute
   '/_site/': typeof SiteIndexRoute
   '/_site/diensten/cro': typeof SiteDienstenCroRoute
-  '/_site/diensten/geo': typeof SiteDienstenGeoRoute
   '/_site/diensten/sea': typeof SiteDienstenSeaRoute
   '/_site/diensten/seo': typeof SiteDienstenSeoRoute
   '/_site/kennis/blog': typeof SiteKennisBlogRoute
@@ -228,7 +219,6 @@ export interface FileRouteTypes {
     | '/seo-voor-mkb'
     | '/voorwaarden'
     | '/diensten/cro'
-    | '/diensten/geo'
     | '/diensten/sea'
     | '/diensten/seo'
     | '/kennis/blog'
@@ -249,7 +239,6 @@ export interface FileRouteTypes {
     | '/voorwaarden'
     | '/'
     | '/diensten/cro'
-    | '/diensten/geo'
     | '/diensten/sea'
     | '/diensten/seo'
     | '/kennis/blog'
@@ -273,7 +262,6 @@ export interface FileRouteTypes {
     | '/_site/voorwaarden'
     | '/_site/'
     | '/_site/diensten/cro'
-    | '/_site/diensten/geo'
     | '/_site/diensten/sea'
     | '/_site/diensten/seo'
     | '/_site/kennis/blog'
@@ -430,13 +418,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteDienstenSeaRouteImport
       parentRoute: typeof SiteDienstenRoute
     }
-    '/_site/diensten/geo': {
-      id: '/_site/diensten/geo'
-      path: '/geo'
-      fullPath: '/diensten/geo'
-      preLoaderRoute: typeof SiteDienstenGeoRouteImport
-      parentRoute: typeof SiteDienstenRoute
-    }
     '/_site/diensten/cro': {
       id: '/_site/diensten/cro'
       path: '/cro'
@@ -449,7 +430,6 @@ declare module '@tanstack/react-router' {
 
 interface SiteDienstenRouteChildren {
   SiteDienstenCroRoute: typeof SiteDienstenCroRoute
-  SiteDienstenGeoRoute: typeof SiteDienstenGeoRoute
   SiteDienstenSeaRoute: typeof SiteDienstenSeaRoute
   SiteDienstenSeoRoute: typeof SiteDienstenSeoRoute
   SiteDienstenIndexRoute: typeof SiteDienstenIndexRoute
@@ -457,7 +437,6 @@ interface SiteDienstenRouteChildren {
 
 const SiteDienstenRouteChildren: SiteDienstenRouteChildren = {
   SiteDienstenCroRoute: SiteDienstenCroRoute,
-  SiteDienstenGeoRoute: SiteDienstenGeoRoute,
   SiteDienstenSeaRoute: SiteDienstenSeaRoute,
   SiteDienstenSeoRoute: SiteDienstenSeoRoute,
   SiteDienstenIndexRoute: SiteDienstenIndexRoute,
@@ -521,13 +500,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
