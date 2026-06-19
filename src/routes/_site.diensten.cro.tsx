@@ -60,17 +60,19 @@ export const Route = createFileRoute("/_site/diensten/cro")({
 });
 
 const forWho = [
-  "Sites met 5K+ bezoekers per maand en een duidelijk conversie-doel.",
-  "Bedrijven die meer willen halen uit het verkeer dat ze al hebben.",
-  "Ondernemers die liever testen dan gokken op meningen.",
+  "Je hebt al verkeer, maar de conversie blijft achter.",
+  "Je verkoopt een high-ticket product of dienst — elke 0,1% extra conversie verdient zichzelf terug.",
+  "Je marketingbudget is gelimiteerd: meer halen uit hetzelfde verkeer in plaats van bijschalen.",
+  "Je hebt product-market fit — CRO maakt een goed aanbod overtuigender, niet een slecht aanbod beter.",
+  "Je bent bereid te testen: meten, hypothese, experiment, leren, herhalen.",
 ];
 
 const benefits = [
-  "Volledige funnel-audit met heatmaps en sessie-opnames.",
-  "Hypothesen geprioriteerd op ICE-score (impact × confidence × effort).",
-  "A/B-tests met statistisch zekere uitkomsten.",
-  "Formulier- en checkout-optimalisatie op micro-niveau.",
-  "Conversie-tracking en attributie correct ingericht.",
+  "Conversie-audit met heatmaps, session recordings en duidelijke baseline.",
+  "Data-gedreven hypothesen op basis van échte bezoeker-gedrag — geen onderbuik.",
+  "Maandelijks 2–4 A/B-tests met heldere winnaars en learnings.",
+  "Copy- en messaging-optimalisatie op headlines, CTA's en formulieren.",
+  "Doorlopende monitoring en maandelijkse rapportage op conversie-impact.",
 ];
 
 const funnelBefore = [
@@ -241,36 +243,36 @@ const cases = [
 
 const faq = [
   {
-    q: "Wat is CRO precies?",
-    a: "Conversion Rate Optimization is het structureel verbeteren van het percentage bezoekers dat een gewenste actie uitvoert — een aankoop, een aanvraag, een download. Geen losse meningen, maar onderzoek, hypothesen en A/B-tests met statistisch significante uitkomsten.",
+    q: "Hoe lang tot we resultaat zien?",
+    a: "Eerste testresultaten zie je binnen 1–2 weken. De eerste trends worden zichtbaar na 4–6 weken. Een solide, structurele conversie-verbetering meestal na 8–12 weken. CRO is sneller dan SEO of GEO (die 12–16 weken nemen), maar langzamer dan SEA — die kan morgen leveren.",
   },
   {
-    q: "Hoeveel verkeer heb ik nodig voor A/B-tests?",
-    a: "Voor betrouwbare tests adviseren we minimaal 5.000 unieke bezoekers per maand op de pagina die je test, met minstens 200 conversies per variant. Bij minder verkeer schakelen we naar kwalitatief onderzoek, heuristische optimalisaties en sequentieel testen.",
+    q: "Wat als onze conversie al goed is?",
+    a: "Niemand heeft 'perfecte' conversie. Zelfs bedrijven die nu op 5% zitten kunnen vaak nog naar 7–8%. Tijdens de audit zien we direct waar de ruimte zit — en of het zinvol is om te starten.",
   },
   {
-    q: "Hoe lang duurt een gemiddelde A/B-test?",
-    a: "Doorgaans 2 tot 4 weken per test. De looptijd wordt vooraf berekend op basis van verwachte lift, baseline-conversie en sample size. We stoppen niet eerder — peeking vertroebelt het resultaat.",
+    q: "Moeten we veel veranderingen doen?",
+    a: "Nee. We testen kleine dingen eerst — copy, kleur, volgorde van elementen. Grote redesigns zijn duur en riskant. Kleine, gerichte tests zijn goedkoop, snel en leveren cumulatief vaak meer op.",
   },
   {
-    q: "Wanneer zie ik de eerste resultaten?",
-    a: "De eerste hypothesen draaien binnen 3 tot 4 weken na de research-fase. Meetbare omzet-impact volgt meestal in maand 2 tot 3, afhankelijk van het aantal tests dat parallel kan lopen.",
+    q: "Wat als een test mislukt?",
+    a: "Dan weten we wat niet werkt. We stoppen ermee en testen het volgende. Niet elke test wint — dat hoort erbij. Als 40% van je tests positief uitvalt, stijgt je conversie-rate over de tijd flink.",
   },
   {
-    q: "Wat is het verschil tussen CRO en UX-design?",
-    a: "UX-design is breder en vaak op gevoel. CRO is gericht op meetbare conversie en wordt gevalideerd met data. Een goede CRO-aanpak gebruikt UX-principes, maar onderbouwt elke keuze met een test of bewijs.",
+    q: "Kan CRO samen met SEO, SEA en GEO?",
+    a: "Ja — sterker nog, ze versterken elkaar. SEA brengt je verkeer, CRO maakt dat verkeer rendabel. SEO levert organische bezoekers, CRO zorgt dat ze converteren. GEO brengt zichtbaarheid in AI, CRO oogst de klanten die binnenkomen.",
   },
   {
-    q: "Werken jullie ook met onze bestaande tooling?",
-    a: "Ja. We stappen in op GA4, GTM, Hotjar, Clarity, VWO, Convert of welke stack je ook gebruikt. Ontbreekt er iets essentieels, dan adviseren we — maar we forceren geen tool-switch.",
+    q: "Hoeveel kost CRO?",
+    a: "Afhankelijk van scope tussen €1.500 en €4.000 per maand. De ROI is gemiddeld 200–400%, dus een traject verdient zichzelf meestal binnen 1–2 maanden terug. Tijdens het adviesgesprek maken we een voorstel op maat.",
   },
   {
-    q: "Hoe rapporteren jullie de impact?",
-    a: "Maandelijks via een live Looker Studio-dashboard met conversie, omzet en testresultaten. Plus een korte schriftelijke samenvatting met learnings — ook van de tests die niet wonnen.",
+    q: "Hebben we analytics en tracking nodig?",
+    a: "Ja. Zonder Google Analytics en correcte conversie-tracking kunnen we niets optimaliseren. Heb je dat nog niet (goed) staan? Dan richten we het eerst in — zodat elke test op betrouwbare data steunt.",
   },
   {
-    q: "Wat kost een CRO-traject?",
-    a: "Maatwerk en maandelijks opzegbaar. Tijdens het gratis adviesgesprek krijg je een concreet voorstel met scope, prijs en verwachte business case.",
+    q: "Kun je conversie voor álles optimaliseren?",
+    a: "Nee. Als je product of dienst niet goed is, gaat CRO dat niet repareren. CRO werkt op goede aanbiedingen — we maken een sterk aanbod overtuigender, geen zwak aanbod beter. Twijfel je? Start eerst daar.",
   },
 ];
 
@@ -279,8 +281,8 @@ function CroPage() {
     <>
       <PageHero
         eyebrow="CRO · conversie-optimalisatie"
-        title={<>Meer verkeer is <span className="text-molten italic">niets</span> waard zonder conversie.</>}
-        description="Geen extra advertentiebudget. Geen extra verkeer. Alleen slimmer overtuigen. Wij bouwen frictieloze funnels en testen wat écht beweegt — datagedreven, statistisch zuiver en met focus op omzet."
+        title={<>Meer klanten uit het verkeer dat je <span className="text-molten italic">al hebt.</span></>}
+        description="Je hebt duizend bezoekers per maand — maar hoeveel hiervan worden klant? Het probleem zit niet bij verkeer, maar bij conversie. Elke 1% verbetering verdubbelt bijna het aantal klantaanvragen. CRO gaat niet over meer verkeer, maar over slimmer overtuigen van het verkeer dat je al betaalt."
       >
         <CTAButton to="/contact" variant="molten">
           Plan gratis CRO-adviesgesprek <ArrowRight className="size-4" />
