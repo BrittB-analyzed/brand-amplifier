@@ -19,7 +19,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="size-4 shrink-0 text-molten" />
-                <a href="mailto:onlinegroeien@expose-your-brand.com" className="hover:text-white">onlinegroeien@expose-your-brand.com</a>
+                <a href="mailto:groei@expose-your-brand.com" className="hover:text-white">groei@expose-your-brand.com</a>
               </div>
               <div className="text-white/40 text-xs pt-1">
                 KvK 71474129 · 61944351<br />BTW NL001764651B24 · NL001846301B46

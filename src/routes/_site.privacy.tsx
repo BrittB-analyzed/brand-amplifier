@@ -39,7 +39,7 @@ function PrivacyPage() {
             <ul className="list-disc pl-5 space-y-1">
               <li>KvK: 71474129 / 61944351</li>
               <li>BTW: NL001764651B24 / NL001846301B46</li>
-              <li>E-mail: <a href="mailto:onlinegroeien@expose-your-brand.com" className="text-molten hover:underline">onlinegroeien@expose-your-brand.com</a></li>
+              <li>E-mail: <a href="mailto:groei@expose-your-brand.com" className="text-molten hover:underline">groei@expose-your-brand.com</a></li>
             </ul>
           </Section>
 
@@ -80,7 +80,7 @@ function PrivacyPage() {
           </Section>
 
           <Section title="8. Jouw rechten">
-            <p>Je hebt het recht op inzage, rectificatie, verwijdering, beperking, dataportabiliteit en bezwaar tegen de verwerking van je persoonsgegevens. Stuur je verzoek naar <a href="mailto:onlinegroeien@expose-your-brand.com" className="text-molten hover:underline">onlinegroeien@expose-your-brand.com</a>. Je hebt daarnaast het recht een klacht in te dienen bij de Autoriteit Persoonsgegevens.</p>
+            <p>Je hebt het recht op inzage, rectificatie, verwijdering, beperking, dataportabiliteit en bezwaar tegen de verwerking van je persoonsgegevens. Stuur je verzoek naar <a href="mailto:groei@expose-your-brand.com" className="text-molten hover:underline">groei@expose-your-brand.com</a>. Je hebt daarnaast het recht een klacht in te dienen bij de Autoriteit Persoonsgegevens.</p>
           </Section>
 
           <Section title="9. Wijzigingen">

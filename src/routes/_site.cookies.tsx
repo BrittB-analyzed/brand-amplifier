@@ -55,7 +55,7 @@ function CookiesPage() {
           </Section>
 
           <Section title="5. Contact">
-            <p>Vragen over ons cookiegebruik? Mail ons via <a href="mailto:onlinegroeien@expose-your-brand.com" className="text-molten hover:underline">onlinegroeien@expose-your-brand.com</a>.</p>
+            <p>Vragen over ons cookiegebruik? Mail ons via <a href="mailto:groei@expose-your-brand.com" className="text-molten hover:underline">groei@expose-your-brand.com</a>.</p>
           </Section>
         </div>
       </section>

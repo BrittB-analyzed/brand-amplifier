@@ -300,11 +300,11 @@ function DienstenIndex() {
                 <div className="font-display font-semibold text-twilight">06 – nummer volgt</div>
               </div>
             </a>
-            <a href="mailto:onlinegroeien@expose-your-brand.com" className="flex items-center gap-3 p-5 bg-white rounded-xl ring-1 ring-black/5 hover:ring-molten/30 transition-all">
+            <a href="mailto:groei@expose-your-brand.com" className="flex items-center gap-3 p-5 bg-white rounded-xl ring-1 ring-black/5 hover:ring-molten/30 transition-all">
               <span className="size-10 rounded-lg bg-molten/10 text-molten flex items-center justify-center"><Mail className="size-4" /></span>
               <div className="text-left min-w-0">
                 <div className="text-xs text-body-text">Mailen kan ook</div>
-                <div className="font-display font-semibold text-twilight text-sm break-all">onlinegroeien@expose-your-brand.com</div>
+                <div className="font-display font-semibold text-twilight text-sm break-all">groei@expose-your-brand.com</div>
               </div>
             </a>
           </div>
