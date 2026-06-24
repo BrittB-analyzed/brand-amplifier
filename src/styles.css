@@ -29,6 +29,7 @@
   --animate-sparkle-pulse: sparkle-pulse 3s ease-in-out infinite;
   --animate-fade-in-up: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-rotate-words: rotate-words 9s ease-in-out infinite;
+  --animate-marquee: marquee 40s linear infinite;
 }
 
 @keyframes sparkle-pulse {
@@ -46,6 +47,10 @@
   63%, 66% { transform: translateY(-210%); opacity: 0; }
   71%, 91% { transform: translateY(-200%); opacity: 1; }
   96%, 100% { transform: translateY(-310%); opacity: 0; }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 @utility mesh-bg {
