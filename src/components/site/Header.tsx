@@ -20,6 +20,13 @@ const navItems = [
   { to: "/over-ons", label: "Over ons" },
 ] as const;
 
+const llmLogos = [
+  { name: "ChatGPT", url: "https://cdn.simpleicons.org/openai/64748b" },
+  { name: "Gemini", url: "https://cdn.simpleicons.org/googlegemini/64748b" },
+  { name: "Perplexity", url: "https://cdn.simpleicons.org/perplexity/64748b" },
+  { name: "Claude", url: "https://cdn.simpleicons.org/anthropic/64748b" },
+];
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -40,6 +47,21 @@ export function Header() {
           : "bg-transparent",
       )}
     >
+      <div className="hidden md:flex relative z-10 items-center justify-end gap-3 px-6 pt-2 text-twilight/50">
+        <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Aanbevolen in</span>
+        <div className="flex items-center gap-3">
+          {llmLogos.map((l) => (
+            <img
+              key={l.name}
+              src={l.url}
+              alt={l.name}
+              title={l.name}
+              className="h-3.5 w-3.5 object-contain opacity-60 hover:opacity-100 transition-opacity"
+              loading="lazy"
+            />
+          ))}
+        </div>
+      </div>
       <div
         aria-hidden
         className={cn(
