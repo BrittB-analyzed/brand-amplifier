@@ -44,14 +44,14 @@ const clientLogos = [
 ];
 
 const tools = [
-  { name: "Google Ads", url: "https://cdn.simpleicons.org/googleads/64748b" },
-  { name: "Google Analytics", url: "https://cdn.simpleicons.org/googleanalytics/64748b" },
-  { name: "Google Search Console", url: "https://cdn.simpleicons.org/googlesearchconsole/64748b" },
-  { name: "SE Ranking", url: "https://cdn.simpleicons.org/seranking/64748b" },
-  { name: "Semrush", url: "https://cdn.simpleicons.org/semrush/64748b" },
-  { name: "LLM Pulse", url: null },
-  { name: "Schema.org", url: "https://cdn.simpleicons.org/schemadotorg/64748b" },
-  { name: "Looker Studio", url: "https://cdn.simpleicons.org/looker/64748b" },
+  { name: "Google Ads", url: "https://www.google.com/s2/favicons?domain=ads.google.com&sz=128" },
+  { name: "Google Analytics", url: "https://www.google.com/s2/favicons?domain=analytics.google.com&sz=128" },
+  { name: "Search Console", url: "https://www.google.com/s2/favicons?domain=search.google.com&sz=128" },
+  { name: "SE Ranking", url: "https://www.google.com/s2/favicons?domain=seranking.com&sz=128" },
+  { name: "Semrush", url: "https://www.google.com/s2/favicons?domain=semrush.com&sz=128" },
+  { name: "LLM Pulse", url: "https://www.google.com/s2/favicons?domain=llmpulse.ai&sz=128" },
+  { name: "Schema.org", url: "https://www.google.com/s2/favicons?domain=schema.org&sz=128" },
+  { name: "Looker Studio", url: "https://www.google.com/s2/favicons?domain=lookerstudio.google.com&sz=128" },
 ];
 
 const caseTeasers = [
@@ -159,13 +159,13 @@ function HomePage() {
           </p>
         </div>
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-          <div className="flex w-max gap-16 animate-marquee items-center">
+          <div className="flex w-max gap-20 animate-marquee items-center">
             {[...clientLogos, ...clientLogos].map((c, i) => (
               <img
                 key={`${c.name}-${i}`}
                 src={c.url}
                 alt={c.name}
-                className="h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+                className="h-20 md:h-24 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
                 loading="lazy"
               />
             ))}
@@ -360,13 +360,7 @@ function HomePage() {
                 key={t.name}
                 className="flex flex-col items-center justify-center gap-3 p-6 bg-silver rounded-xl ring-1 ring-black/5 hover:ring-molten/30 transition-all"
               >
-                {t.url ? (
-                  <img src={t.url} alt={t.name} className="h-8 w-8 object-contain opacity-70" loading="lazy" />
-                ) : (
-                  <div className="h-8 w-8 rounded-md bg-molten/10 text-molten grid place-items-center font-display font-bold text-sm">
-                    {t.name.charAt(0)}
-                  </div>
-                )}
+                <img src={t.url} alt={t.name} className="h-10 w-10 object-contain" loading="lazy" />
                 <span className="text-xs font-bold uppercase tracking-wider text-twilight text-center">
                   {t.name}
                 </span>
