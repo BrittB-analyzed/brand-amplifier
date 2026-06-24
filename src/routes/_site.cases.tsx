@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { TrendingUp, Check, Search, Sparkles } from "lucide-react";
+import { TrendingUp, Search, Sparkles } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { PreFooterCTA } from "@/components/site/PreFooterCTA";
 import { Sparkle } from "@/components/site/Sparkle";
