@@ -51,7 +51,7 @@ function VoorwaardenPage() {
             <ul className="list-disc pl-5 space-y-1">
               <li>KvK-nummers: 71474129 en 61944351</li>
               <li>BTW-identificatienummers: NL001764651B24 en NL001846301B46</li>
-              <li>E-mail: <a href="mailto:onlinegroeien@expose-your-brand.com" className="text-molten hover:underline">onlinegroeien@expose-your-brand.com</a></li>
+              <li>E-mail: <a href="mailto:groei@expose-your-brand.com" className="text-molten hover:underline">groei@expose-your-brand.com</a></li>
               <li>Website: <a href="https://expose-your-brand.com" className="text-molten hover:underline">https://expose-your-brand.com</a></li>
             </ul>
           </Section>
@@ -138,7 +138,7 @@ function VoorwaardenPage() {
           </Section>
 
           <Section title="Artikel 14 — Klachten">
-            <p>Klachten kunnen schriftelijk worden gemeld bij <a href="mailto:onlinegroeien@expose-your-brand.com" className="text-molten hover:underline">onlinegroeien@expose-your-brand.com</a>. Wij nemen klachten binnen 5 werkdagen in behandeling.</p>
+            <p>Klachten kunnen schriftelijk worden gemeld bij <a href="mailto:groei@expose-your-brand.com" className="text-molten hover:underline">groei@expose-your-brand.com</a>. Wij nemen klachten binnen 5 werkdagen in behandeling.</p>
           </Section>
 
           <Section title="Artikel 15 — Wijzigingen voorwaarden">

@@ -82,10 +82,10 @@ function ContactPage() {
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
-              <a href="mailto:onlinegroeien@expose-your-brand.com" className="p-5 bg-white rounded-xl ring-1 ring-black/5 hover:ring-molten/30 transition-all">
+              <a href="mailto:groei@expose-your-brand.com" className="p-5 bg-white rounded-xl ring-1 ring-black/5 hover:ring-molten/30 transition-all">
                 <Mail className="size-5 text-molten mb-2" />
                 <div className="font-display font-semibold text-twilight text-sm">E-mail</div>
-                <div className="text-xs break-all">onlinegroeien@expose-your-brand.com</div>
+                <div className="text-xs break-all">groei@expose-your-brand.com</div>
               </a>
               <div className="p-5 bg-white rounded-xl ring-1 ring-black/5">
                 <MessageSquare className="size-5 text-molten mb-2" />
