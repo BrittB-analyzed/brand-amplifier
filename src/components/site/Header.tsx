@@ -80,6 +80,18 @@ export function Header() {
               </div>
             </div>
           </div>
+          <Link
+            to={auditLink.to}
+            className="relative inline-flex flex-col items-center hover:text-molten transition-colors"
+          >
+            <span className="absolute -top-5 flex flex-col items-center">
+              <Star className="size-3 text-molten fill-molten animate-sparkle-pulse" />
+              <span className="text-[9px] font-bold uppercase tracking-wider text-molten">
+                Nieuw
+              </span>
+            </span>
+            <span>{auditLink.label}</span>
+          </Link>
           {navItems.map((n) => (
             <Link key={n.to} to={n.to} className="hover:text-molten transition-colors">
               {n.label}
