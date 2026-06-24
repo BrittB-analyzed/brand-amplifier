@@ -11,11 +11,11 @@ const services = [
   { to: "/diensten/geo", label: "GEO" },
   { to: "/diensten/sea", label: "SEA + AI Ads" },
   { to: "/diensten/cro", label: "CRO" },
+  { to: "/diensten/seo-geo-audit", label: "SEO & GEO Audit" },
 ] as const;
 
 const navItems = [
   { to: "/cases", label: "Cases" },
-  { to: "/seo-voor-mkb", label: "SEO voor MKB" },
   { to: "/over-ons", label: "Over ons" },
 ] as const;
 
@@ -67,12 +67,6 @@ export function Header() {
             </Link>
             <div className="absolute left-0 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[200px]">
               <div className="bg-white rounded-xl ring-1 ring-black/5 shadow-xl p-2">
-                <Link
-                  to="/diensten"
-                  className="block px-4 py-2 text-sm rounded-md hover:bg-silver hover:text-molten transition-colors font-semibold"
-                >
-                  Overzicht
-                </Link>
                 {services.map((s) => (
                   <Link
                     key={s.to}
@@ -113,13 +107,6 @@ export function Header() {
             <div className="text-xs font-bold uppercase tracking-widest text-twilight/40 pb-2">
               Diensten
             </div>
-            <Link
-              to="/diensten"
-              onClick={() => setOpen(false)}
-              className="block py-2 text-twilight font-semibold"
-            >
-              Overzicht
-            </Link>
             {services.map((s) => (
               <Link
                 key={s.to}
