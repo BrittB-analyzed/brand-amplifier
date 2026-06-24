@@ -117,6 +117,18 @@ export function Header() {
       {open && (
         <div className="lg:hidden bg-white border-t border-black/5">
           <div className="px-6 py-6 space-y-1">
+            <Link
+              to={auditLink.to}
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 py-2 text-molten font-bold"
+            >
+              <Star className="size-4 fill-molten animate-sparkle-pulse" />
+              {auditLink.label}
+              <span className="ml-auto text-[10px] font-bold uppercase tracking-wider text-molten bg-powder px-2 py-0.5 rounded-full">
+                Nieuw
+              </span>
+            </Link>
+            <div className="h-px bg-black/5 my-2" />
             <div className="text-xs font-bold uppercase tracking-widest text-twilight/40 pb-2">
               Diensten
             </div>
