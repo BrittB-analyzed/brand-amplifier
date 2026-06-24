@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CTAButton } from "./CTAButton";
 import logoAsset from "@/assets/logo.png.asset.json";
@@ -11,8 +11,9 @@ const services = [
   { to: "/diensten/geo", label: "GEO" },
   { to: "/diensten/sea", label: "SEA + AI Ads" },
   { to: "/diensten/cro", label: "CRO" },
-  { to: "/diensten/seo-geo-audit", label: "SEO & GEO Audit" },
 ] as const;
+
+const auditLink = { to: "/diensten/seo-geo-audit", label: "SEO & GEO Audit" } as const;
 
 const navItems = [
   { to: "/cases", label: "Cases" },
@@ -79,6 +80,18 @@ export function Header() {
               </div>
             </div>
           </div>
+          <Link
+            to={auditLink.to}
+            className="relative inline-flex flex-col items-center hover:text-molten transition-colors"
+          >
+            <span className="absolute -top-5 flex flex-col items-center">
+              <Star className="size-3 text-molten fill-molten animate-sparkle-pulse" />
+              <span className="text-[9px] font-bold uppercase tracking-wider text-molten">
+                Nieuw
+              </span>
+            </span>
+            <span>{auditLink.label}</span>
+          </Link>
           {navItems.map((n) => (
             <Link key={n.to} to={n.to} className="hover:text-molten transition-colors">
               {n.label}
@@ -104,6 +117,18 @@ export function Header() {
       {open && (
         <div className="lg:hidden bg-white border-t border-black/5">
           <div className="px-6 py-6 space-y-1">
+            <Link
+              to={auditLink.to}
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 py-2 text-molten font-bold"
+            >
+              <Star className="size-4 fill-molten animate-sparkle-pulse" />
+              {auditLink.label}
+              <span className="ml-auto text-[10px] font-bold uppercase tracking-wider text-molten bg-powder px-2 py-0.5 rounded-full">
+                Nieuw
+              </span>
+            </Link>
+            <div className="h-px bg-black/5 my-2" />
             <div className="text-xs font-bold uppercase tracking-widest text-twilight/40 pb-2">
               Diensten
             </div>
