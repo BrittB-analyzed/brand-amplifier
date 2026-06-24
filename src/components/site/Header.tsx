@@ -21,10 +21,10 @@ const navItems = [
 ] as const;
 
 const llmLogos = [
-  { name: "ChatGPT", url: "https://cdn.simpleicons.org/openai/64748b" },
-  { name: "Gemini", url: "https://cdn.simpleicons.org/googlegemini/64748b" },
-  { name: "Perplexity", url: "https://cdn.simpleicons.org/perplexity/64748b" },
-  { name: "Claude", url: "https://cdn.simpleicons.org/anthropic/64748b" },
+  { name: "ChatGPT", url: "https://www.google.com/s2/favicons?domain=openai.com&sz=128" },
+  { name: "Gemini", url: "https://www.google.com/s2/favicons?domain=gemini.google.com&sz=128" },
+  { name: "Perplexity", url: "https://www.google.com/s2/favicons?domain=perplexity.ai&sz=128" },
+  { name: "Claude", url: "https://www.google.com/s2/favicons?domain=claude.ai&sz=128" },
 ];
 
 export function Header() {
@@ -47,16 +47,16 @@ export function Header() {
           : "bg-transparent",
       )}
     >
-      <div className="hidden md:flex relative z-10 items-center justify-end gap-3 px-6 pt-2 text-twilight/50">
+      <div className="hidden md:flex relative z-20 items-center justify-end gap-3 px-6 pt-2 text-twilight/60">
         <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Aanbevolen in</span>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
           {llmLogos.map((l) => (
             <img
               key={l.name}
               src={l.url}
               alt={l.name}
               title={l.name}
-              className="h-3.5 w-3.5 object-contain opacity-60 hover:opacity-100 transition-opacity"
+              className="h-5 w-5 object-contain opacity-80 hover:opacity-100 transition-opacity"
               loading="lazy"
             />
           ))}
