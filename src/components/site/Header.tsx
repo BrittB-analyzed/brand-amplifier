@@ -11,8 +11,9 @@ const services = [
   { to: "/diensten/geo", label: "GEO" },
   { to: "/diensten/sea", label: "SEA + AI Ads" },
   { to: "/diensten/cro", label: "CRO" },
-  { to: "/diensten/seo-geo-audit", label: "SEO & GEO Audit" },
 ] as const;
+
+const auditLink = { to: "/diensten/seo-geo-audit", label: "SEO & GEO Audit" } as const;
 
 const navItems = [
   { to: "/cases", label: "Cases" },
