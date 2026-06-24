@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Instagram, Facebook, MapPin, Mail } from "lucide-react";
 import logoAsset from "@/assets/logo.png.asset.json";
+import berryPortrait from "@/assets/berry-portrait.jpg.asset.json";
+import founderPortrait from "@/assets/founder-portrait.jpg.asset.json";
 
 export function Footer() {
   return (
@@ -12,6 +14,14 @@ export function Footer() {
             <p className="text-white/60 max-w-sm leading-relaxed mb-6">
               Van 'Onzichtbaar' naar 'Aanbevolen'. AI-first SEO & GEO bureau voor ambitieuze ondernemers.
             </p>
+            <div className="flex items-center gap-3 mb-5">
+              <img src={berryPortrait.url} alt="Berry — Strategie" className="size-12 rounded-full object-cover ring-2 ring-molten/40" />
+              <img src={founderPortrait.url} alt="Britt — Executie" className="size-12 rounded-full object-cover ring-2 ring-molten/40" />
+              <div className="text-xs text-white/60">
+                <p className="text-white font-medium">Berry & Britt</p>
+                <p>Je directe contactpersonen</p>
+              </div>
+            </div>
             <address className="not-italic space-y-2 text-sm text-white/60">
               <div className="flex items-start gap-2">
                 <MapPin className="size-4 mt-0.5 shrink-0 text-molten" />
