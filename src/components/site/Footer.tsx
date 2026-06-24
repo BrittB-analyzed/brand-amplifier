@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Instagram, Facebook, MapPin, Mail } from "lucide-react";
 import logoAsset from "@/assets/logo.png.asset.json";
+import berryPortrait from "@/assets/berry-portrait.jpg.asset.json";
+import founderPortrait from "@/assets/founder-portrait.jpg.asset.json";
 
 export function Footer() {
   return (
