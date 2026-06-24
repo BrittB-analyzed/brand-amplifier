@@ -3,7 +3,7 @@ import type {} from "@tanstack/react-start";
 
 const BASE_URL = "";
 const paths = [
-  "/", "/diensten", "/diensten/seo", "/diensten/geo", "/diensten/sea", "/diensten/cro",
+  "/", "/diensten", "/diensten/seo", "/diensten/geo", "/diensten/sea", "/diensten/cro", "/diensten/seo-geo-audit",
   "/cases", "/kennis", "/kennis/blog", "/kennis/faq",
   "/samenwerking", "/over-ons", "/contact", "/gratis-geo-audit",
 ];

@@ -27,6 +27,7 @@ import { Route as SiteKennisIndexRouteImport } from './routes/_site.kennis.index
 import { Route as SiteDienstenIndexRouteImport } from './routes/_site.diensten.index'
 import { Route as SiteKennisFaqRouteImport } from './routes/_site.kennis.faq'
 import { Route as SiteKennisBlogRouteImport } from './routes/_site.kennis.blog'
+import { Route as SiteDienstenSeoGeoAuditRouteImport } from './routes/_site.diensten.seo-geo-audit'
 import { Route as SiteDienstenSeoRouteImport } from './routes/_site.diensten.seo'
 import { Route as SiteDienstenSeaRouteImport } from './routes/_site.diensten.sea'
 import { Route as SiteDienstenGeoRouteImport } from './routes/_site.diensten.geo'
@@ -121,6 +122,11 @@ const SiteKennisBlogRoute = SiteKennisBlogRouteImport.update({
   path: '/blog',
   getParentRoute: () => SiteKennisRoute,
 } as any)
+const SiteDienstenSeoGeoAuditRoute = SiteDienstenSeoGeoAuditRouteImport.update({
+  id: '/seo-geo-audit',
+  path: '/seo-geo-audit',
+  getParentRoute: () => SiteDienstenRoute,
+} as any)
 const SiteDienstenSeoRoute = SiteDienstenSeoRouteImport.update({
   id: '/seo',
   path: '/seo',
@@ -160,6 +166,7 @@ export interface FileRoutesByFullPath {
   '/diensten/geo': typeof SiteDienstenGeoRoute
   '/diensten/sea': typeof SiteDienstenSeaRoute
   '/diensten/seo': typeof SiteDienstenSeoRoute
+  '/diensten/seo-geo-audit': typeof SiteDienstenSeoGeoAuditRoute
   '/kennis/blog': typeof SiteKennisBlogRoute
   '/kennis/faq': typeof SiteKennisFaqRoute
   '/diensten/': typeof SiteDienstenIndexRoute
@@ -181,6 +188,7 @@ export interface FileRoutesByTo {
   '/diensten/geo': typeof SiteDienstenGeoRoute
   '/diensten/sea': typeof SiteDienstenSeaRoute
   '/diensten/seo': typeof SiteDienstenSeoRoute
+  '/diensten/seo-geo-audit': typeof SiteDienstenSeoGeoAuditRoute
   '/kennis/blog': typeof SiteKennisBlogRoute
   '/kennis/faq': typeof SiteKennisFaqRoute
   '/diensten': typeof SiteDienstenIndexRoute
@@ -206,6 +214,7 @@ export interface FileRoutesById {
   '/_site/diensten/geo': typeof SiteDienstenGeoRoute
   '/_site/diensten/sea': typeof SiteDienstenSeaRoute
   '/_site/diensten/seo': typeof SiteDienstenSeoRoute
+  '/_site/diensten/seo-geo-audit': typeof SiteDienstenSeoGeoAuditRoute
   '/_site/kennis/blog': typeof SiteKennisBlogRoute
   '/_site/kennis/faq': typeof SiteKennisFaqRoute
   '/_site/diensten/': typeof SiteDienstenIndexRoute
@@ -231,6 +240,7 @@ export interface FileRouteTypes {
     | '/diensten/geo'
     | '/diensten/sea'
     | '/diensten/seo'
+    | '/diensten/seo-geo-audit'
     | '/kennis/blog'
     | '/kennis/faq'
     | '/diensten/'
@@ -252,6 +262,7 @@ export interface FileRouteTypes {
     | '/diensten/geo'
     | '/diensten/sea'
     | '/diensten/seo'
+    | '/diensten/seo-geo-audit'
     | '/kennis/blog'
     | '/kennis/faq'
     | '/diensten'
@@ -276,6 +287,7 @@ export interface FileRouteTypes {
     | '/_site/diensten/geo'
     | '/_site/diensten/sea'
     | '/_site/diensten/seo'
+    | '/_site/diensten/seo-geo-audit'
     | '/_site/kennis/blog'
     | '/_site/kennis/faq'
     | '/_site/diensten/'
@@ -416,6 +428,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteKennisBlogRouteImport
       parentRoute: typeof SiteKennisRoute
     }
+    '/_site/diensten/seo-geo-audit': {
+      id: '/_site/diensten/seo-geo-audit'
+      path: '/seo-geo-audit'
+      fullPath: '/diensten/seo-geo-audit'
+      preLoaderRoute: typeof SiteDienstenSeoGeoAuditRouteImport
+      parentRoute: typeof SiteDienstenRoute
+    }
     '/_site/diensten/seo': {
       id: '/_site/diensten/seo'
       path: '/seo'
@@ -452,6 +471,7 @@ interface SiteDienstenRouteChildren {
   SiteDienstenGeoRoute: typeof SiteDienstenGeoRoute
   SiteDienstenSeaRoute: typeof SiteDienstenSeaRoute
   SiteDienstenSeoRoute: typeof SiteDienstenSeoRoute
+  SiteDienstenSeoGeoAuditRoute: typeof SiteDienstenSeoGeoAuditRoute
   SiteDienstenIndexRoute: typeof SiteDienstenIndexRoute
 }
 
@@ -460,6 +480,7 @@ const SiteDienstenRouteChildren: SiteDienstenRouteChildren = {
   SiteDienstenGeoRoute: SiteDienstenGeoRoute,
   SiteDienstenSeaRoute: SiteDienstenSeaRoute,
   SiteDienstenSeoRoute: SiteDienstenSeoRoute,
+  SiteDienstenSeoGeoAuditRoute: SiteDienstenSeoGeoAuditRoute,
   SiteDienstenIndexRoute: SiteDienstenIndexRoute,
 }
 
