@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Play, Check, MessageSquare, Gauge, Users, Clock, Award, Settings2, DoorOpen, Stethoscope, Scale, ShieldCheck, ShoppingBag, Gem } from "lucide-react";
+import { ArrowRight, Play, Check, MessageSquare, Gauge, Users, Clock, Award, Settings2 } from "lucide-react";
 import { CTAButton } from "@/components/site/CTAButton";
 import { Sparkle } from "@/components/site/Sparkle";
 import { AnimatedRotator } from "@/components/site/AnimatedRotator";
@@ -7,6 +7,15 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 import { PreFooterCTA } from "@/components/site/PreFooterCTA";
 import { GeoIcon, SeoIcon, SeaAiAdsIcon, CroIcon } from "@/components/site/ServiceIcons";
 import heroBg from "@/assets/hero-bg.png.asset.json";
+import logoRG from "@/assets/client-RG.png.asset.json";
+import logoRavas from "@/assets/client-ravas.png.asset.json";
+import logoQBS from "@/assets/client-QBS_2.png.asset.json";
+import logoMakelaar from "@/assets/client-makelaar1.png.asset.json";
+import logoIkons from "@/assets/client-ikons.png.asset.json";
+import logoGMB from "@/assets/client-GMB.png.asset.json";
+import logoFunkytex from "@/assets/client-Funkytex.png.asset.json";
+import logoDrFinn from "@/assets/client-DrFinn.png.asset.json";
+import logoCompanial from "@/assets/client-companial.png.asset.json";
 
 export const Route = createFileRoute("/_site/")({
   head: () => ({
@@ -22,13 +31,48 @@ export const Route = createFileRoute("/_site/")({
   component: HomePage,
 });
 
-const clients = [
-  { name: "Metaldoors", icon: DoorOpen, font: "font-display font-black tracking-tight" },
-  { name: "ClinicPro", icon: Stethoscope, font: "font-sans font-semibold tracking-wide" },
-  { name: "Law Group", icon: Scale, font: "font-display italic font-semibold" },
-  { name: "TechSec", icon: ShieldCheck, font: "font-mono font-bold tracking-tighter uppercase" },
-  { name: "Vogel Shop", icon: ShoppingBag, font: "font-display font-medium" },
-  { name: "Prime Wealth", icon: Gem, font: "font-sans font-light tracking-[0.2em] uppercase" },
+const clientLogos = [
+  { name: "Reyrink Groep", url: logoRG.url },
+  { name: "Ravas", url: logoRavas.url },
+  { name: "QBS", url: logoQBS.url },
+  { name: "Makelaar", url: logoMakelaar.url },
+  { name: "We Are Ikons", url: logoIkons.url },
+  { name: "GMB", url: logoGMB.url },
+  { name: "Funkytex", url: logoFunkytex.url },
+  { name: "Dr. Finn", url: logoDrFinn.url },
+  { name: "Companial", url: logoCompanial.url },
+];
+
+const tools = [
+  { name: "Google Ads", url: "https://cdn.simpleicons.org/googleads/64748b" },
+  { name: "Google Analytics", url: "https://cdn.simpleicons.org/googleanalytics/64748b" },
+  { name: "Google Search Console", url: "https://cdn.simpleicons.org/googlesearchconsole/64748b" },
+  { name: "SE Ranking", url: "https://cdn.simpleicons.org/seranking/64748b" },
+  { name: "Semrush", url: "https://cdn.simpleicons.org/semrush/64748b" },
+  { name: "LLM Pulse", url: null },
+  { name: "Schema.org", url: "https://cdn.simpleicons.org/schemadotorg/64748b" },
+  { name: "Looker Studio", url: "https://cdn.simpleicons.org/looker/64748b" },
+];
+
+const caseTeasers = [
+  {
+    slug: "meubel-outlet-weert",
+    sector: "E-commerce / Retail",
+    client: "Meubel & Outlet Weert",
+    headline: "Van lokale showroom naar AI-aanbeveling in 3 platforms.",
+    description:
+      "Genoemd door Perplexity, Gemini én ChatGPT bij vragen over meubels in Weert. 929 zoekwoorden in de Google top-10, 164 op positie 1.",
+    metric: { before: "0%", after: "67%", label: "Prompts waarin merk wordt genoemd" },
+  },
+  {
+    slug: "vogelvoerkopen",
+    sector: "E-commerce",
+    client: "Vogelvoerkopen.nl",
+    headline: "Van onzichtbaar tussen de grote 3 naar standaard AI-shortlist.",
+    description:
+      "Gemini en Claude noemen de webshop nu actief. 5.226 zoekwoorden in de top-10, 1.771 op positie 1, ~4.868 organische bezoeken per maand.",
+    metric: { before: "0%", after: "67%", label: "Prompts waarin merk wordt genoemd" },
+  },
 ];
 
 const services = [
@@ -108,22 +152,22 @@ function HomePage() {
       </section>
 
       {/* Logo strip */}
-      <section className="bg-white py-12 px-6 border-y border-black/5">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-white py-12 border-y border-black/5 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
           <p className="text-center text-[11px] font-bold uppercase tracking-[0.3em] text-twilight/40 mb-8">
             Vertrouwd door marktleiders
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-6">
-            {clients.map((c) => (
-              <div
-                key={c.name}
-                className="flex items-center gap-2 text-twilight/70 hover:text-twilight transition-colors grayscale hover:grayscale-0"
-              >
-                <c.icon className="size-5 text-molten/80" strokeWidth={2.2} />
-                <span className={`text-base sm:text-lg text-twilight ${c.font}`}>
-                  {c.name}
-                </span>
-              </div>
+        </div>
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+          <div className="flex w-max gap-16 animate-marquee items-center">
+            {[...clientLogos, ...clientLogos].map((c, i) => (
+              <img
+                key={`${c.name}-${i}`}
+                src={c.url}
+                alt={c.name}
+                className="h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+                loading="lazy"
+              />
             ))}
           </div>
         </div>
@@ -300,6 +344,38 @@ function HomePage() {
         </div>
       </section>
 
+      {/* Tools & Partners */}
+      <section className="py-20 px-6 bg-white border-y border-black/5">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader
+            eyebrow="Onze stack"
+            title={<>De tools & partners <span className="text-molten italic">achter de resultaten.</span></>}
+            description="Van Google Ads en Search Console tot SE Ranking en LLM Pulse — we combineren de beste tools voor klassieke SEO, advertenties én AI-zichtbaarheid."
+            align="center"
+            className="mb-12"
+          />
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {tools.map((t) => (
+              <div
+                key={t.name}
+                className="flex flex-col items-center justify-center gap-3 p-6 bg-silver rounded-xl ring-1 ring-black/5 hover:ring-molten/30 transition-all"
+              >
+                {t.url ? (
+                  <img src={t.url} alt={t.name} className="h-8 w-8 object-contain opacity-70" loading="lazy" />
+                ) : (
+                  <div className="h-8 w-8 rounded-md bg-molten/10 text-molten grid place-items-center font-display font-bold text-sm">
+                    {t.name.charAt(0)}
+                  </div>
+                )}
+                <span className="text-xs font-bold uppercase tracking-wider text-twilight text-center">
+                  {t.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Kernwaarden / USPs */}
       <section className="py-24 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -325,24 +401,51 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Kennis teaser */}
+      {/* Cases teaser */}
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
-            <SectionHeader eyebrow="Kenniscentrum" title="Leer hoe AI-zoekmachines werken." />
-            <Link to="/kennis" className="text-molten font-bold text-sm uppercase tracking-wider inline-flex items-center gap-1">
-              Alle kennis <ArrowRight className="size-4" />
+            <SectionHeader
+              eyebrow="Cases"
+              title={<>Zo ziet groei er bij onze klanten <span className="text-molten italic">uit.</span></>}
+            />
+            <Link to="/cases" className="text-molten font-bold text-sm uppercase tracking-wider inline-flex items-center gap-1">
+              Alle cases <ArrowRight className="size-4" />
             </Link>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { cat: "GEO", title: "Wat is Generative Engine Optimization?", read: "8 min" },
-              { cat: "Strategie", title: "SEO vs GEO: wat is het verschil en waarom allebei?", read: "6 min" },
-              { cat: "Tactisch", title: "llms.txt: het nieuwe robots.txt voor AI-crawlers", read: "5 min" },
-            ].map((p) => (
-              <Link key={p.title} to="/kennis/blog" className="group p-6 bg-white ring-1 ring-black/5 rounded-2xl hover:ring-molten/30 transition-all hover:-translate-y-1">
-                <div className="text-[10px] font-bold uppercase tracking-widest text-molten mb-3">{p.cat} · {p.read}</div>
-                <h3 className="font-display text-xl font-semibold text-twilight group-hover:text-molten transition-colors leading-snug">{p.title}</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            {caseTeasers.map((c) => (
+              <Link
+                key={c.slug}
+                to="/cases"
+                hash={c.slug}
+                className="group p-8 bg-white ring-1 ring-black/5 rounded-2xl hover:ring-molten/30 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-twilight/5 flex flex-col"
+              >
+                <div className="text-[10px] font-bold uppercase tracking-widest text-molten mb-3">{c.sector}</div>
+                <h3 className="font-display text-2xl font-semibold text-twilight group-hover:text-molten transition-colors leading-snug mb-2">
+                  {c.client}
+                </h3>
+                <p className="text-twilight font-medium mb-4">{c.headline}</p>
+                <p className="text-sm leading-relaxed text-body-text mb-6">{c.description}</p>
+                <div className="mt-auto pt-6 border-t border-black/5 flex items-end justify-between gap-4">
+                  <div>
+                    <div className="text-[10px] font-bold uppercase tracking-widest text-twilight/50 mb-1">
+                      {c.metric.label}
+                    </div>
+                    <div className="flex items-baseline gap-2">
+                      <span className="font-display text-2xl font-semibold text-twilight/40 line-through">
+                        {c.metric.before}
+                      </span>
+                      <ArrowRight className="size-4 text-molten" />
+                      <span className="font-display text-3xl font-semibold text-molten">
+                        {c.metric.after}
+                      </span>
+                    </div>
+                  </div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-molten inline-flex items-center gap-1 shrink-0">
+                    Lees case <ArrowRight className="size-3" />
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
