@@ -78,8 +78,8 @@ const caseTeasers = [
 ];
 
 const services = [
-  { to: "/diensten/geo", label: "GEO", color: "molten" as const, desc: "Word de autoriteit die AI citeert in ChatGPT, Gemini en Google AI Overviews.", icon: GeoIcon },
   { to: "/diensten/seo", label: "SEO", color: "blue" as const, desc: "Klassieke zoekmachine dominantie voor de termen waar jouw klanten op zoeken.", icon: SeoIcon },
+  { to: "/diensten/geo", label: "GEO", color: "molten" as const, desc: "Word de autoriteit die AI citeert in ChatGPT, Gemini en Google AI Overviews.", icon: GeoIcon },
   { to: "/diensten/sea", label: "SEA + AI Ads", color: "molten" as const, desc: "Claim direct de belangrijkste plekken in Google Ads, Shopping en opkomende AI-advertenties.", icon: SeaAiAdsIcon },
   { to: "/diensten/cro", label: "CRO", color: "blue" as const, desc: "Converterende funnels die van elke AI-lead een betalende klant maken.", icon: CroIcon },
 ];
