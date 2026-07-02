@@ -138,9 +138,6 @@ function HomePage() {
             <CTAButton to="/contact" variant="molten" size="lg">
               Plan gratis adviesgesprek <ArrowRight className="size-4" />
             </CTAButton>
-            <CTAButton to="/kennis" variant="navy" size="lg">
-              <Play className="size-4" /> Bekijk hoe het werkt
-            </CTAButton>
           </div>
 
           <div className="mt-12 flex items-center gap-6 text-xs font-bold uppercase tracking-widest text-twilight/50 flex-wrap">
