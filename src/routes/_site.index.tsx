@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Play, Check, MessageSquare, Gauge, Users, Clock, Award, Settings2 } from "lucide-react";
+import { ArrowRight, Check, MessageSquare, Gauge, Users, Clock, Award, Settings2 } from "lucide-react";
 import { CTAButton } from "@/components/site/CTAButton";
 import { Sparkle } from "@/components/site/Sparkle";
 import { AnimatedRotator } from "@/components/site/AnimatedRotator";
