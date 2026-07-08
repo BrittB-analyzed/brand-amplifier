@@ -72,11 +72,22 @@ function ContactPage() {
                 >
                   <input required placeholder="Naam" className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten" />
                   <input required type="email" placeholder="E-mailadres" className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten" />
-                  <input placeholder="Bedrijf" className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten" />
+                  <input required type="url" placeholder="Website (URL)" className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten" />
                   <textarea required placeholder="Waar kunnen we mee helpen?" rows={5} className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten resize-none" />
                   <button type="submit" className="w-full bg-molten text-white font-medium h-12 rounded-md hover:brightness-110 transition-all">
-                    Verstuur bericht
+                    Vraag mijn gratis adviesgesprek aan
                   </button>
+                  <p className="text-xs text-body-text text-center pt-1">
+                    Je krijgt binnen 24 uur persoonlijk antwoord van Berry of Britt.
+                  </p>
+                  <div className="mt-4 p-4 bg-molten/5 ring-1 ring-molten/15 rounded-xl">
+                    <p className="text-sm text-twilight italic leading-relaxed">
+                      "Binnen 3 maanden merkbaar meer aanvragen — en eindelijk uitleg die klopt."
+                    </p>
+                    <p className="text-[11px] font-bold uppercase tracking-widest text-molten mt-2">
+                      Al 40+ merken gingen je voor
+                    </p>
+                  </div>
                 </form>
               )}
             </div>
