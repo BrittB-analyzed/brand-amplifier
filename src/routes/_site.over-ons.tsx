@@ -163,6 +163,24 @@ function OverOnsPage() {
         </div>
       </section>
 
+      {/* Lifestyle gallery */}
+      <section className="py-12 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+          <div className="aspect-[3/4] rounded-2xl overflow-hidden ring-1 ring-black/5">
+            <img src={brittLaptop.url} alt="Britt aan het werk" className="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div className="aspect-[3/4] rounded-2xl overflow-hidden ring-1 ring-black/5 md:translate-y-6">
+            <img src={berrySmiling.url} alt="Berry in gesprek" className="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div className="aspect-[3/4] rounded-2xl overflow-hidden ring-1 ring-black/5">
+            <img src={brittPortrait.url} alt="Britt in het veld" className="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div className="aspect-[3/4] rounded-2xl overflow-hidden ring-1 ring-black/5 md:translate-y-6">
+            <img src={berryPortrait.url} alt="Berry portret" className="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
       {/* How we work — 4 traits */}
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
