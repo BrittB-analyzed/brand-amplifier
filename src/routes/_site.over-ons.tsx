@@ -5,8 +5,10 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 import { PreFooterCTA } from "@/components/site/PreFooterCTA";
 import { Sparkle } from "@/components/site/Sparkle";
 import { CTAButton } from "@/components/site/CTAButton";
-import berryPortrait from "@/assets/berry-portrait.jpg.asset.json";
-import founderPortrait from "@/assets/founder-portrait.jpg.asset.json";
+import berryPortrait from "@/assets/berry-portrait-new.jpg.asset.json";
+import berrySmiling from "@/assets/berry-smiling.jpg.asset.json";
+import brittPortrait from "@/assets/britt-field.jpg.asset.json";
+import brittLaptop from "@/assets/britt-laptop.jpg.asset.json";
 
 export const Route = createFileRoute("/_site/over-ons")({
   head: () => ({
@@ -35,7 +37,7 @@ const team = [
     role: "Executie & client success",
     bio: "Bouwde sinds 2014 met B. Analyzed een online marketing-bureau met 50+ actieve klanten, een 9.8-rating en 386 #1-posities in Google. Britt is de motor: setup, implementatie, optimalisatie en rapportage. Niet theoretisch — praktisch. Niet morgen — vandaag als het kan. Je dashboard staat al op dag twee.",
     specialism: "Account-management · implementatie · optimalisatie · client-success",
-    photo: founderPortrait.url,
+    photo: brittPortrait.url,
   },
 ];
 
