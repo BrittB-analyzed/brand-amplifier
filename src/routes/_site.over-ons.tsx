@@ -5,8 +5,10 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 import { PreFooterCTA } from "@/components/site/PreFooterCTA";
 import { Sparkle } from "@/components/site/Sparkle";
 import { CTAButton } from "@/components/site/CTAButton";
-import berryPortrait from "@/assets/berry-portrait.jpg.asset.json";
-import founderPortrait from "@/assets/founder-portrait.jpg.asset.json";
+import berryPortrait from "@/assets/berry-portrait-new.jpg.asset.json";
+import berrySmiling from "@/assets/berry-smiling.jpg.asset.json";
+import brittPortrait from "@/assets/britt-field.jpg.asset.json";
+import brittLaptop from "@/assets/britt-laptop.jpg.asset.json";
 
 export const Route = createFileRoute("/_site/over-ons")({
   head: () => ({
@@ -35,7 +37,7 @@ const team = [
     role: "Executie & client success",
     bio: "Bouwde sinds 2014 met B. Analyzed een online marketing-bureau met 50+ actieve klanten, een 9.8-rating en 386 #1-posities in Google. Britt is de motor: setup, implementatie, optimalisatie en rapportage. Niet theoretisch — praktisch. Niet morgen — vandaag als het kan. Je dashboard staat al op dag twee.",
     specialism: "Account-management · implementatie · optimalisatie · client-success",
-    photo: founderPortrait.url,
+    photo: brittPortrait.url,
   },
 ];
 
@@ -158,6 +160,24 @@ function OverOnsPage() {
           <p className="mt-6 text-body-text leading-relaxed">
             We realiseerden ons dat 95% van de bureaus dit nog niet eens had opgemerkt — ze doen dezelfde dingen als vijf jaar geleden. Allemaal nuttig, maar onvolledig. Dus stopten we met ‘standaard packages’ en focusten ons laser-scherp op één ding: jouw bedrijf zichtbaar maken waar het straks telt. <span className="text-twilight font-medium">Zo werd Expose Your Brand geboren.</span>
           </p>
+        </div>
+      </section>
+
+      {/* Lifestyle gallery */}
+      <section className="py-12 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+          <div className="aspect-[3/4] rounded-2xl overflow-hidden ring-1 ring-black/5">
+            <img src={brittLaptop.url} alt="Britt aan het werk" className="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div className="aspect-[3/4] rounded-2xl overflow-hidden ring-1 ring-black/5 md:translate-y-6">
+            <img src={berrySmiling.url} alt="Berry in gesprek" className="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div className="aspect-[3/4] rounded-2xl overflow-hidden ring-1 ring-black/5">
+            <img src={brittPortrait.url} alt="Britt in het veld" className="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div className="aspect-[3/4] rounded-2xl overflow-hidden ring-1 ring-black/5 md:translate-y-6">
+            <img src={berryPortrait.url} alt="Berry portret" className="w-full h-full object-cover" loading="lazy" />
+          </div>
         </div>
       </section>
 
