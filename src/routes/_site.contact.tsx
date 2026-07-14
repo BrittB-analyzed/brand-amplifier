@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { Mail, MessageSquare, Calendar, MapPin, Building2 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Mail, MessageSquare, MapPin, Building2 } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { Sparkle } from "@/components/site/Sparkle";
 import berryPortrait from "@/assets/berry-portrait.jpg.asset.json";
@@ -21,6 +21,15 @@ export const Route = createFileRoute("/_site/contact")({
 
 function ContactPage() {
   const [sent, setSent] = useState(false);
+
+  useEffect(() => {
+    if (document.getElementById("calendly-widget-script")) return;
+    const script = document.createElement("script");
+    script.id = "calendly-widget-script";
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
 
   return (
     <>
@@ -45,13 +54,11 @@ function ContactPage() {
               </div>
               <p className="text-sm text-body-text">Je spreekt direct met <span className="text-twilight font-medium">Berry</span> of <span className="text-twilight font-medium">Britt</span>.</p>
             </div>
-            <div className="aspect-[4/5] bg-silver rounded-xl grid place-items-center text-center px-6 border-2 border-dashed border-twilight/10">
-              <div>
-                <Calendar className="size-10 text-molten mx-auto mb-4" />
-                <p className="text-sm text-twilight font-medium">Calendly afspraakmodule</p>
-                <p className="text-xs text-body-text mt-2">Hier wordt de Calendly-widget geladen zodra je deze koppelt.</p>
-              </div>
-            </div>
+            <div
+              className="calendly-inline-widget rounded-xl overflow-hidden"
+              data-url="https://calendly.com/groei-expose-your-brand/30min"
+              style={{ minWidth: 320, height: 700 }}
+            />
           </div>
 
           <div>
