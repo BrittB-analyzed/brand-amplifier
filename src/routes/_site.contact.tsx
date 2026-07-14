@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Mail, MessageSquare, Calendar, MapPin, Building2 } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { Sparkle } from "@/components/site/Sparkle";
