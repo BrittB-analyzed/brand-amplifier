@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Mail, MessageSquare, Calendar, MapPin, Building2 } from "lucide-react";
+import { Mail, MessageSquare, MapPin, Building2 } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { Sparkle } from "@/components/site/Sparkle";
 import berryPortrait from "@/assets/berry-portrait.jpg.asset.json";
