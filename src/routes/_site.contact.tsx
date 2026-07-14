@@ -22,6 +22,15 @@ export const Route = createFileRoute("/_site/contact")({
 function ContactPage() {
   const [sent, setSent] = useState(false);
 
+  useEffect(() => {
+    if (document.getElementById("calendly-widget-script")) return;
+    const script = document.createElement("script");
+    script.id = "calendly-widget-script";
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
   return (
     <>
       <PageHero
