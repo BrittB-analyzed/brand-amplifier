@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Instagram, Facebook, MapPin, Mail } from "lucide-react";
+import { useState } from "react";
+import { sendFormSubmission } from "@/lib/send-form.functions";
 import logoAsset from "@/assets/logo.png.asset.json";
 import berryPortrait from "@/assets/berry-portrait.jpg.asset.json";
 import founderPortrait from "@/assets/founder-portrait.jpg.asset.json";
@@ -86,5 +88,55 @@ export function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+function NewsletterForm() {
+  const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  if (sent) {
+    return <p className="text-sm text-white/70">Bedankt voor je aanmelding.</p>;
+  }
+
+  return (
+    <form
+      className="flex gap-2 max-w-sm"
+      onSubmit={async (e) => {
+        e.preventDefault();
+        setError(null);
+        const fd = new FormData(e.currentTarget);
+        setSubmitting(true);
+        try {
+          await sendFormSubmission({
+            data: {
+              formName: "Nieuwsbrief aanmelding",
+              email: String(fd.get("email") ?? ""),
+              url: "https://expose-your-brand.com",
+              _hp: String(fd.get("_hp") ?? ""),
+            },
+          });
+          setSent(true);
+        } catch (err) {
+          setError(err instanceof Error ? err.message : "Verzenden mislukt.");
+        } finally {
+          setSubmitting(false);
+        }
+      }}
+    >
+      <input
+        name="email"
+        type="email"
+        required
+        placeholder="E-mailadres"
+        className="bg-white/5 border border-white/10 rounded-md px-4 py-2 text-sm flex-1 focus:outline-none focus:ring-1 focus:ring-molten text-white placeholder:text-white/40"
+      />
+      <input type="text" name="_hp" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
+      <button disabled={submitting} className="bg-molten text-white px-4 py-2 rounded-md text-xs font-bold hover:brightness-110 disabled:opacity-60">
+        {submitting ? "…" : "Aanmelden"}
+      </button>
+      {error && <p className="text-xs text-molten w-full">{error}</p>}
+    </form>
   );
 }
