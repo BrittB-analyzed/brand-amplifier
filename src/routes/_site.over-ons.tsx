@@ -10,6 +10,7 @@ import berrySmiling from "@/assets/berry-smiling.jpg.asset.json";
 import brittPortrait from "@/assets/britt-field.jpg.asset.json";
 import brittLaptop from "@/assets/britt-laptop.jpg.asset.json";
 
+
 export const Route = createFileRoute("/_site/over-ons")({
   head: () => ({
     meta: [
@@ -56,7 +57,7 @@ const traits = [
   {
     num: "02",
     title: "Direct",
-    body: "Korte lijnen. Je spreekt Berry of Britt — niet met juniors of accountmanagers. Afspraken zijn afspraken. Rapporten op tijd. Vragen beantwoord binnen werkdagen.",
+    body: "Korte lijnen. Je spreekt met Berry of Britt. Afspraken zijn afspraken. Rapporten op tijd. Vragen beantwoord binnen werkdagen.",
   },
   {
     num: "03",
@@ -92,7 +93,7 @@ const specialisms = [
   { t: "GEO & AI, zichtbaarheid", d: "Geciteerd worden door ChatGPT, Perplexity, Gemini en AI Overviews. Passage, optimalisatie, SoLV, tracking, share of LLM voice." },
   { t: "Klassieke SEO", d: "Nog steeds 60–70% van de zoekmarkt. Rankings in Google, autoriteitsopbouw, technisch gezonde fundatie." },
   { t: "SEA (Google Ads)", d: "Snelle leads terwijl SEO en GEO opbouwen. Strategische campagne, inrichting, doorlopende optimalisatie." },
-  { t: "Conversie, optimalisatie", d: "Verkeer is geen doel — een klant is dat. Formulieren, CTA's en landingspagina's die werkelijk converteren." },
+  { t: "Conversie, optimalisatie", d: "Verkeer is geen doel, een nieuwe lead of sale is dat wel. Wij zorgen voor formulieren, CTA's en landingspagina's die werkelijk converteren." },
 ];
 
 const fitYes = [
@@ -110,14 +111,6 @@ const fitNo = [
   "Je gelooft niet in AI",
 ];
 
-const faq = [
-  { q: "Werken jullie ook met kleine bedrijven?", a: "Ja, mits je minimaal €500K omzet hebt en €2K/maand marketingbudget. Daaronder is onze investering simpelweg te groot om eerlijk te zijn over het rendement." },
-  { q: "Wat is het verschil met B. Analyzed?", a: "B. Analyzed is fullservice online marketing (SEO, Ads, content, links). Expose Your Brand heeft laser, focus op AI, zichtbaarheid (GEO + complementaire diensten). Beide worden door Britt beheerd." },
-  { q: "Hoe snel zien we resultaat?", a: "Maand 1: audit, strategie en setup. Maand 2–3: eerste citaties zichtbaar. Maand 4+: solide momentum en opschaling. Realistisch: 12–16 weken voor voelbare vooruitgang." },
-  { q: "Kunnen we langzaam starten?", a: "Niet echt. GEO werkt beter met momentum — maand 1 tot 3 zijn cruciaal. Half werk werkt tegen je." },
-  { q: "Bieden jullie garantie?", a: "Voor GEO: binnen 90 dagen je bedrijf geciteerd in AI, of we werken gratis door. Voor andere diensten zijn performance, based opties bespreekbaar." },
-  { q: "Hoe lang is de contractperiode?", a: "Maandelijks opzegbaar na de eerste 3 maanden — die zijn nodig om een eerlijke nulmeting van het resultaat te maken." },
-];
 
 function OverOnsPage() {
   return (
@@ -125,7 +118,7 @@ function OverOnsPage() {
       <PageHero
         eyebrow="Over Expose Your Brand"
         title={<>Pragmatisch, direct, <span className="text-molten italic">obsessed</span> met AI, zichtbaarheid.</>}
-        description="Wij zijn Britt en Berry. Samen helpen we MKB, bedrijven zichtbaar worden in Google én waar het straks écht telt: ChatGPT, Gemini, Perplexity. Geen tussenlagen, geen callcenter — direct contact met de mensen die het werk doen."
+        description="Wij zijn Britt en Berry. Samen helpen we MKB, bedrijven zichtbaar worden in Google én waar het straks écht telt: ChatGPT, Gemini, Perplexity. Geen tussenlagen, maar direct contact met Britt of Berry."
       >
         <div className="flex flex-wrap gap-3">
           <CTAButton to="/contact" variant="molten">
@@ -155,10 +148,10 @@ function OverOnsPage() {
           <SectionHeader
             eyebrow="Onze missie"
             title={<>Eén missie sinds dag één: <span className="text-molten italic">zichtbare resultaten</span> die voor zich spreken.</>}
-            description="Drie jaar geleden zaten we samen aan tafel. Beiden draaiden we een succesvol bureau. En we zagen iets veranderen: potentiële klanten zoeken steeds vaker niet in Google, maar vragen ChatGPT, Gemini of Perplexity. Bedrijven die daar zichtbaar zijn, groeien. De rest verdwijnt geruisloos."
+            description="Éen jaar geleden zaten we samen aan tafel en bespraken we onze kwaliteiten en de continue veranderde markt. Potentiële klanten zoeken steeds vaker niet in Google, maar vragen ChatGPT, Gemini of Perplexity. Bedrijven die daar zichtbaar zijn, groeien online."
           />
           <p className="mt-6 text-body-text leading-relaxed">
-            We realiseerden ons dat 95% van de bureaus dit nog niet eens had opgemerkt — ze doen dezelfde dingen als vijf jaar geleden. Allemaal nuttig, maar onvolledig. Dus stopten we met ‘standaard packages’ en focusten ons laser, scherp op één ding: jouw bedrijf zichtbaar maken waar het straks telt. <span className="text-twilight font-medium">Zo werd Expose Your Brand geboren.</span>
+            We realiseerden ons dat 95% van de bureaus nog steeds hetzelfde doen dan 5 jaar geleden. Allemaal nuttig, maar onvolledig. Wij stopten we met ‘standaard packages’ en focusten ons laser, scherp op één ding: jouw bedrijf zichtbaar maken waar het straks telt. <span className="text-twilight font-medium">Zo werd Expose Your Brand geboren.</span>
           </p>
         </div>
       </section>
@@ -207,7 +200,7 @@ function OverOnsPage() {
           <SectionHeader
             eyebrow="Onze route"
             title={<>Drie keer opnieuw nagedacht over <span className="text-molten italic">online zichtbaarheid.</span></>}
-            description="SEO en SEA zijn niet ‘opeens slecht’ — ze zijn nog steeds essentieel. Maar AI, zichtbaarheid maakt vandaag het verschil tussen groei en stagnatie."
+            description="SEO en SEA zijn nog steeds belangrijk. AI zichtbaarheid maakt vandaag het verschil tussen groei en stagnatie."
           />
           <div className="mt-12 grid md:grid-cols-3 gap-5">
             {timeline.map((t) => (
@@ -227,7 +220,7 @@ function OverOnsPage() {
           <SectionHeader
             eyebrow="Specialisaties"
             title={<>Eén focus. <span className="text-molten italic">Vier disciplines</span> die elkaar versterken.</>}
-            description="Bewust geen brede waaier met losse diensten. We werken diep op specialisaties die elkaar versterken — want technische SEO zonder content leidt nergens, content zonder GEO mist het AI-tijdperk, en groei zonder CRO blijft hangen in verkeer dat niet converteert."
+            description="Bewust geen brede waaier met losse diensten. We werken diep op specialisaties die elkaar versterken, want technische SEO zonder content leidt tot niets, content zonder GEO mist het AI-tijdperk, en groei zonder CRO blijft hangen in verkeer dat niet converteert."
           />
           <div className="grid md:grid-cols-2 gap-5 mt-12">
             {specialisms.map((s) => (
@@ -247,7 +240,7 @@ function OverOnsPage() {
           <Sparkle className="absolute top-6 right-8 opacity-40" size="md" animate />
           <div className="text-molten font-bold text-xs uppercase tracking-widest mb-3">Onze visie</div>
           <p className="font-display text-2xl md:text-3xl leading-snug text-balance">
-            “SEO, GEO en SEA zijn geen aparte werelden. Ze delen één fundament: een site waar potentiële klanten graag heen gaan, én waar machines — Google, ChatGPT, Perplexity — je merk graag citeren.”
+            “SEO, GEO en SEA zijn geen aparte werelden. Ze delen één fundament: een site waar potentiële klanten graag heen gaan, én waar machines zoals Google, ChatGPT, Perplexity je merk graag citeren.”
           </p>
           <div className="mt-5 text-sm text-white/70">— Berry & Britt, Expose Your Brand</div>
         </div>
@@ -315,24 +308,6 @@ function OverOnsPage() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-20 px-6">
-        <div className="max-w-3xl mx-auto">
-          <SectionHeader eyebrow="FAQ" title="Veelgestelde vragen over ons." />
-          <div className="mt-8 space-y-3">
-            {faq.map((f) => (
-              <details key={f.q} className="group p-6 bg-white rounded-xl ring-1 ring-black/5">
-                <summary className="cursor-pointer font-display font-semibold text-twilight flex items-center justify-between">
-                  {f.q}
-                  <span className="text-molten transition-transform group-open:rotate-45">+</span>
-                </summary>
-                <p className="mt-4 text-sm leading-relaxed text-body-text">{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Kennismaking CTA */}
       <section className="py-12 px-6">
         <div className="max-w-5xl mx-auto bg-twilight text-white rounded-[28px] p-10 md:p-14 ring-1 ring-black/5 relative overflow-hidden">
@@ -341,7 +316,7 @@ function OverOnsPage() {
             <div>
               <div className="text-molten font-bold text-xs uppercase tracking-widest mb-2">Kennismaking</div>
               <h3 className="font-display text-2xl md:text-3xl font-semibold">30 minuten. Vrijblijvend. Geen sales, pitch.</h3>
-              <p className="text-white/70 mt-2">Vertel waar je tegenaan loopt — wij denken meteen mee. Jij bepaalt, wij adviseren eerlijk.</p>
+              
               <a href="mailto:groei@expose-your-brand.com" className="inline-flex items-center gap-2 mt-4 text-sm text-white/80 hover:text-white">
                 <Mail className="size-4" /> groei@expose-your-brand.com
               </a>
