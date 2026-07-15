@@ -10,6 +10,7 @@ import berrySmiling from "@/assets/berry-smiling.jpg.asset.json";
 import brittPortrait from "@/assets/britt-field.jpg.asset.json";
 import brittLaptop from "@/assets/britt-laptop.jpg.asset.json";
 
+
 export const Route = createFileRoute("/_site/over-ons")({
   head: () => ({
     meta: [
