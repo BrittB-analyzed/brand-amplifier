@@ -111,20 +111,40 @@ const faq = [
 function AuditForm() {
   const [sent, setSent] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitting, setSubmitting] = useState(false);
 
-  function submit(e: React.FormEvent<HTMLFormElement>) {
+  async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const bedrijf = String(fd.get("bedrijf") ?? "").trim();
     const url = String(fd.get("url") ?? "").trim();
     const email = String(fd.get("email") ?? "").trim();
+    const hp = String(fd.get("_hp") ?? "");
     const errs: Record<string, string> = {};
     if (!bedrijf) errs.bedrijf = "Vul je bedrijfsnaam in";
     if (!url) errs.url = "Vul je website-URL in";
     if (!email) errs.email = "Vul je e-mailadres in";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errs.email = "Geen geldig e-mailadres";
     setErrors(errs);
-    if (Object.keys(errs).length === 0) setSent(true);
+    if (Object.keys(errs).length > 0) return;
+    setSubmitting(true);
+    try {
+      const { sendFormSubmission } = await import("@/lib/send-form.functions");
+      await sendFormSubmission({
+        data: {
+          formName: "SEO & GEO Audit",
+          name: bedrijf,
+          email,
+          url: /^https?:\/\//i.test(url) ? url : `https://${url}`,
+          _hp: hp,
+        },
+      });
+      setSent(true);
+    } catch (err) {
+      setErrors({ email: err instanceof Error ? err.message : "Verzenden mislukt." });
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (sent) {
@@ -151,8 +171,9 @@ function AuditForm() {
         <input name="email" type="email" required placeholder="Zakelijk e-mailadres *" className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten" />
         {errors.email && <p className="text-xs text-molten mt-1">{errors.email}</p>}
       </div>
-      <button type="submit" className="w-full bg-molten text-white font-medium h-12 rounded-md hover:brightness-110 transition-all mt-2 inline-flex items-center justify-center gap-2">
-        Vraag je SEO & GEO Audit aan <ArrowRight className="size-4" />
+      <input type="text" name="_hp" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
+      <button type="submit" disabled={submitting} className="w-full bg-molten text-white font-medium h-12 rounded-md hover:brightness-110 transition-all mt-2 inline-flex items-center justify-center gap-2 disabled:opacity-60">
+        {submitting ? "Verzenden…" : (<>Vraag je SEO & GEO Audit aan <ArrowRight className="size-4" /></>)}
       </button>
       <p className="text-[11px] text-body-text text-center pt-2">Binnen 1 werkdag antwoord. Geen verkooppraat.</p>
     </form>
