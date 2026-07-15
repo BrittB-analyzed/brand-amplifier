@@ -316,7 +316,31 @@ function OverOnsPage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="py-20 px-6">
+        <div className="max-w-3xl mx-auto">
+          <SectionHeader
+            eyebrow="Veelgestelde vragen"
+            title={<>Antwoorden, <span className="text-molten italic">direct.</span></>}
+            description="De vragen die we het vaakst krijgen — zonder marketingpraat."
+            className="mb-12"
+          />
+          <div className="space-y-3">
+            {faq.map((f) => (
+              <details key={f.q} className="group p-6 bg-white rounded-xl ring-1 ring-black/5">
+                <summary className="cursor-pointer font-display font-semibold text-twilight flex items-center justify-between">
+                  {f.q}
+                  <span className="text-molten transition-transform group-open:rotate-45 text-2xl leading-none">+</span>
+                </summary>
+                <p className="mt-4 leading-relaxed">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Kennismaking CTA */}
+
       <section className="py-12 px-6">
         <div className="max-w-5xl mx-auto bg-twilight text-white rounded-[28px] p-10 md:p-14 ring-1 ring-black/5 relative overflow-hidden">
           <Sparkle className="absolute top-6 right-8 opacity-50" size="md" animate />
