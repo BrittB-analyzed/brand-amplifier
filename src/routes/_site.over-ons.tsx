@@ -93,7 +93,7 @@ const specialisms = [
   { t: "GEO & AI, zichtbaarheid", d: "Geciteerd worden door ChatGPT, Perplexity, Gemini en AI Overviews. Passage, optimalisatie, SoLV, tracking, share of LLM voice." },
   { t: "Klassieke SEO", d: "Nog steeds 60–70% van de zoekmarkt. Rankings in Google, autoriteitsopbouw, technisch gezonde fundatie." },
   { t: "SEA (Google Ads)", d: "Snelle leads terwijl SEO en GEO opbouwen. Strategische campagne, inrichting, doorlopende optimalisatie." },
-  { t: "Conversie, optimalisatie", d: "Verkeer is geen doel — een klant is dat. Formulieren, CTA's en landingspagina's die werkelijk converteren." },
+  { t: "Conversie, optimalisatie", d: "Verkeer is geen doel, een nieuwe lead of sale is dat wel. Wij zorgen voor formulieren, CTA's en landingspagina's die werkelijk converteren." },
 ];
 
 const fitYes = [
