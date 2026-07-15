@@ -61,16 +61,7 @@ export function Footer() {
         <div className="grid md:grid-cols-2 gap-8 py-8 border-t border-white/10">
           <div>
             <p className="text-xs font-bold uppercase tracking-widest text-molten mb-3">Nieuwsbrief</p>
-            <form className="flex gap-2 max-w-sm" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="E-mailadres"
-                className="bg-white/5 border border-white/10 rounded-md px-4 py-2 text-sm flex-1 focus:outline-none focus:ring-1 focus:ring-molten text-white placeholder:text-white/40"
-              />
-              <button className="bg-molten text-white px-4 py-2 rounded-md text-xs font-bold hover:brightness-110">
-                Aanmelden
-              </button>
-            </form>
+            <NewsletterForm />
           </div>
           <div className="flex md:justify-end items-center gap-4">
             <a href="https://www.linkedin.com/company/expose-your-brand-com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="size-10 rounded-lg bg-white/5 hover:bg-molten transition-colors grid place-items-center">
