@@ -156,10 +156,10 @@ function OverOnsPage() {
           <SectionHeader
             eyebrow="Onze missie"
             title={<>Eén missie sinds dag één: <span className="text-molten italic">zichtbare resultaten</span> die voor zich spreken.</>}
-            description="Drie jaar geleden zaten we samen aan tafel. Beiden draaiden we een succesvol bureau. En we zagen iets veranderen: potentiële klanten zoeken steeds vaker niet in Google, maar vragen ChatGPT, Gemini of Perplexity. Bedrijven die daar zichtbaar zijn, groeien. De rest verdwijnt geruisloos."
+            description="Éen jaar geleden zaten we samen aan tafel en bespraken we onze kwaliteiten en de continue veranderde markt. Potentiële klanten zoeken steeds vaker niet in Google, maar vragen ChatGPT, Gemini of Perplexity. Bedrijven die daar zichtbaar zijn, groeien online."
           />
           <p className="mt-6 text-body-text leading-relaxed">
-            We realiseerden ons dat 95% van de bureaus dit nog niet eens had opgemerkt — ze doen dezelfde dingen als vijf jaar geleden. Allemaal nuttig, maar onvolledig. Dus stopten we met ‘standaard packages’ en focusten ons laser, scherp op één ding: jouw bedrijf zichtbaar maken waar het straks telt. <span className="text-twilight font-medium">Zo werd Expose Your Brand geboren.</span>
+            We realiseerden ons dat 95% van de bureaus nog steeds hetzelfde doen dan 5 jaar geleden. Allemaal nuttig, maar onvolledig. Wij stopten we met ‘standaard packages’ en focusten ons laser, scherp op één ding: jouw bedrijf zichtbaar maken waar het straks telt. <span className="text-twilight font-medium">Zo werd Expose Your Brand geboren.</span>
           </p>
         </div>
       </section>
