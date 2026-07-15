@@ -111,6 +111,14 @@ const fitNo = [
   "Je gelooft niet in AI",
 ];
 
+const faq = [
+  { q: "Hoe lang duurt het voordat ik resultaat zie?", a: "Eerste signalen vaak binnen 30 dagen na technische implementatie. Volledige GEO-effecten meestal binnen 90 dagen — vandaar onze garantie." },
+  { q: "Werkt GEO ook als ik nu al goed scoor in Google?", a: "Ja, en het is juist dan extra belangrijk: AI-modellen pakken hun bronnen anders. Een topranking in Google is geen garantie voor een citatie in ChatGPT." },
+  { q: "Wat is het verschil met een gewoon SEO-bureau?", a: "Wij rapporteren live op een eigen dashboard, communiceren via Slack en koppelen elke SEO-actie aan AI-zichtbaarheid." },
+  { q: "Wat kost een traject?", a: "Maatwerk en maandelijks aanpasbaar. Tijdens het gratis adviesgesprek krijg je een concreet voorstel met prijs en verwacht resultaat." },
+];
+
+
 
 function OverOnsPage() {
   return (
