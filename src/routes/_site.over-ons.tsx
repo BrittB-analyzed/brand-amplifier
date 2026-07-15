@@ -57,7 +57,7 @@ const traits = [
   {
     num: "02",
     title: "Direct",
-    body: "Korte lijnen. Je spreekt Berry of Britt — niet met juniors of accountmanagers. Afspraken zijn afspraken. Rapporten op tijd. Vragen beantwoord binnen werkdagen.",
+    body: "Korte lijnen. Je spreekt met Berry of Britt. Afspraken zijn afspraken. Rapporten op tijd. Vragen beantwoord binnen werkdagen.",
   },
   {
     num: "03",
