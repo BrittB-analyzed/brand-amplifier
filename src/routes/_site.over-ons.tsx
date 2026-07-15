@@ -208,7 +208,7 @@ function OverOnsPage() {
           <SectionHeader
             eyebrow="Onze route"
             title={<>Drie keer opnieuw nagedacht over <span className="text-molten italic">online zichtbaarheid.</span></>}
-            description="SEO en SEA zijn niet ‘opeens slecht’ — ze zijn nog steeds essentieel. Maar AI, zichtbaarheid maakt vandaag het verschil tussen groei en stagnatie."
+            description="SEO en SEA zijn nog steeds belangrijk. AI zichtbaarheid maakt vandaag het verschil tussen groei en stagnatie."
           />
           <div className="mt-12 grid md:grid-cols-3 gap-5">
             {timeline.map((t) => (
