@@ -36,7 +36,7 @@ function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title={<>Plan je <span className="text-molten italic">gratis</span> adviesgesprek.</>}
-        description="30 minuten. Geen verkooppraat — wel concrete cijfers en een plan. Binnen 24 uur antwoord."
+        description="30 minuten gesprek. Concrete cijfers en een gedegen plan van aanpak. Binnen 24 uur antwoord."
       />
 
       <section className="py-16 px-6">
