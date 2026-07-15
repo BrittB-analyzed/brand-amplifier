@@ -13,8 +13,8 @@ import brittLaptop from "@/assets/britt-laptop.jpg.asset.json";
 export const Route = createFileRoute("/_site/over-ons")({
   head: () => ({
     meta: [
-      { title: "Over Expose Your Brand — pragmatisch, direct, obsessed met AI-zichtbaarheid" },
-      { name: "description", content: "Britt en Berry helpen MKB-bedrijven zichtbaar worden in Google én in AI. 30+ jaar ervaring, 150+ klanten, korte lijnen en bewijs in je eigen dashboard." },
+      { title: "Over Expose Your Brand — pragmatisch, direct, obsessed met AI, zichtbaarheid" },
+      { name: "description", content: "Britt en Berry helpen MKB, bedrijven zichtbaar worden in Google én in AI. 30+ jaar ervaring, 150+ klanten, korte lijnen en bewijs in je eigen dashboard." },
       { property: "og:title", content: "Over ons | Expose Your Brand" },
       { property: "og:description", content: "Twee specialisten, één focus: jouw bedrijf zichtbaar in AI." },
       { property: "og:url", content: "/over-ons" },
@@ -29,14 +29,14 @@ const team = [
     name: "Berry",
     role: "Strategie & marktinzicht",
     bio: "Sinds 2010 actief in online marketing — als interne marketeer, consultant, bij grote bureaus en uiteindelijk als eigenaar van zijn eigen bureau. Berry ziet patronen, voelt aan waar de markt heen gaat en vertaalt bedrijfsdoelen naar een concrete roadmap. Als je nog niet weet waar je moet beginnen, begin je met Berry.",
-    specialism: "Strategie · marktinzicht · roadmap-building",
+    specialism: "Strategie · marktinzicht · roadmap, building",
     photo: berryPortrait.url,
   },
   {
     name: "Britt",
     role: "Executie & client success",
-    bio: "Bouwde sinds 2014 met B. Analyzed een online marketing-bureau met 50+ actieve klanten, een 9.8-rating en 386 #1-posities in Google. Britt is de motor: setup, implementatie, optimalisatie en rapportage. Niet theoretisch — praktisch. Niet morgen — vandaag als het kan. Je dashboard staat al op dag twee.",
-    specialism: "Account-management · implementatie · optimalisatie · client-success",
+    bio: "Bouwde sinds 2014 met B. Analyzed een online marketing, bureau met 50+ actieve klanten, een 9.8, rating en 386 #1, posities in Google. Britt is de motor: setup, implementatie, optimalisatie en rapportage. Niet theoretisch — praktisch. Niet morgen — vandaag als het kan. Je dashboard staat al op dag twee.",
+    specialism: "Account, management · implementatie · optimalisatie · client, success",
     photo: brittPortrait.url,
   },
 ];
@@ -44,14 +44,14 @@ const team = [
 const stats = [
   { stat: "30+", label: "jaar gecombineerde ervaring" },
   { stat: "150+", label: "klanten zichtbaarder gemaakt" },
-  { stat: "€50M+", label: "in totale klant-omzet gerealiseerd" },
+  { stat: "€50M+", label: "in totale klant, omzet gerealiseerd" },
 ];
 
 const traits = [
   {
     num: "01",
     title: "Pragmatisch",
-    body: "Geen jargon, geen marketing-taal. Wat werkt voor jóúw situatie, in normaal Nederlands. Heldere prioriteiten: dit doen we, dit levert het op.",
+    body: "Geen jargon, geen marketing, taal. Wat werkt voor jóúw situatie, in normaal Nederlands. Heldere prioriteiten: dit doen we, dit levert het op.",
   },
   {
     num: "02",
@@ -61,7 +61,7 @@ const traits = [
   {
     num: "03",
     title: "Scherp op resultaat",
-    body: "Marketing draait om klanten, niet om creatief denken. Wat niet meetbaar is, doen we niet. Dashboard-zichtbaarheid vanaf dag één.",
+    body: "Marketing draait om klanten, niet om creatief denken. Wat niet meetbaar is, doen we niet. Dashboard, zichtbaarheid vanaf dag één.",
   },
   {
     num: "04",
@@ -83,16 +83,16 @@ const timeline = [
   },
   {
     year: "2024",
-    title: "AI-citaties (GEO)",
+    title: "AI, citaties (GEO)",
     body: "ChatGPT, Gemini, Perplexity. Antwoorden bovenop de blauwe links. Citaties zonder klikken. GEO wordt de nieuwe frontlinie — en hier focussen wij ons nu volledig op.",
   },
 ];
 
 const specialisms = [
-  { t: "GEO & AI-zichtbaarheid", d: "Geciteerd worden door ChatGPT, Perplexity, Gemini en AI Overviews. Passage-optimalisatie, SoLV-tracking, share of LLM voice." },
+  { t: "GEO & AI, zichtbaarheid", d: "Geciteerd worden door ChatGPT, Perplexity, Gemini en AI Overviews. Passage, optimalisatie, SoLV, tracking, share of LLM voice." },
   { t: "Klassieke SEO", d: "Nog steeds 60–70% van de zoekmarkt. Rankings in Google, autoriteitsopbouw, technisch gezonde fundatie." },
-  { t: "SEA (Google Ads)", d: "Snelle leads terwijl SEO en GEO opbouwen. Strategische campagne-inrichting, doorlopende optimalisatie." },
-  { t: "Conversie-optimalisatie", d: "Verkeer is geen doel — een klant is dat. Formulieren, CTA's en landingspagina's die werkelijk converteren." },
+  { t: "SEA (Google Ads)", d: "Snelle leads terwijl SEO en GEO opbouwen. Strategische campagne, inrichting, doorlopende optimalisatie." },
+  { t: "Conversie, optimalisatie", d: "Verkeer is geen doel — een klant is dat. Formulieren, CTA's en landingspagina's die werkelijk converteren." },
 ];
 
 const fitYes = [
@@ -104,7 +104,7 @@ const fitYes = [
 ];
 
 const fitNo = [
-  "Startup zonder product-marktfit",
+  "Startup zonder product, marktfit",
   "Geen budget voor serieuze marketing",
   "Op zoek naar goedkoop snel resultaat",
   "Je gelooft niet in AI",
@@ -112,10 +112,10 @@ const fitNo = [
 
 const faq = [
   { q: "Werken jullie ook met kleine bedrijven?", a: "Ja, mits je minimaal €500K omzet hebt en €2K/maand marketingbudget. Daaronder is onze investering simpelweg te groot om eerlijk te zijn over het rendement." },
-  { q: "Wat is het verschil met B. Analyzed?", a: "B. Analyzed is fullservice online marketing (SEO, Ads, content, links). Expose Your Brand heeft laser-focus op AI-zichtbaarheid (GEO + complementaire diensten). Beide worden door Britt beheerd." },
+  { q: "Wat is het verschil met B. Analyzed?", a: "B. Analyzed is fullservice online marketing (SEO, Ads, content, links). Expose Your Brand heeft laser, focus op AI, zichtbaarheid (GEO + complementaire diensten). Beide worden door Britt beheerd." },
   { q: "Hoe snel zien we resultaat?", a: "Maand 1: audit, strategie en setup. Maand 2–3: eerste citaties zichtbaar. Maand 4+: solide momentum en opschaling. Realistisch: 12–16 weken voor voelbare vooruitgang." },
   { q: "Kunnen we langzaam starten?", a: "Niet echt. GEO werkt beter met momentum — maand 1 tot 3 zijn cruciaal. Half werk werkt tegen je." },
-  { q: "Bieden jullie garantie?", a: "Voor GEO: binnen 90 dagen je bedrijf geciteerd in AI, of we werken gratis door. Voor andere diensten zijn performance-based opties bespreekbaar." },
+  { q: "Bieden jullie garantie?", a: "Voor GEO: binnen 90 dagen je bedrijf geciteerd in AI, of we werken gratis door. Voor andere diensten zijn performance, based opties bespreekbaar." },
   { q: "Hoe lang is de contractperiode?", a: "Maandelijks opzegbaar na de eerste 3 maanden — die zijn nodig om een eerlijke nulmeting van het resultaat te maken." },
 ];
 
@@ -124,8 +124,8 @@ function OverOnsPage() {
     <>
       <PageHero
         eyebrow="Over Expose Your Brand"
-        title={<>Pragmatisch, direct, <span className="text-molten italic">obsessed</span> met AI-zichtbaarheid.</>}
-        description="Wij zijn Britt en Berry. Samen helpen we MKB-bedrijven zichtbaar worden in Google én waar het straks écht telt: ChatGPT, Gemini, Perplexity. Geen tussenlagen, geen callcenter — direct contact met de mensen die het werk doen."
+        title={<>Pragmatisch, direct, <span className="text-molten italic">obsessed</span> met AI, zichtbaarheid.</>}
+        description="Wij zijn Britt en Berry. Samen helpen we MKB, bedrijven zichtbaar worden in Google én waar het straks écht telt: ChatGPT, Gemini, Perplexity. Geen tussenlagen, geen callcenter — direct contact met de mensen die het werk doen."
       >
         <div className="flex flex-wrap gap-3">
           <CTAButton to="/contact" variant="molten">
@@ -158,7 +158,7 @@ function OverOnsPage() {
             description="Drie jaar geleden zaten we samen aan tafel. Beiden draaiden we een succesvol bureau. En we zagen iets veranderen: potentiële klanten zoeken steeds vaker niet in Google, maar vragen ChatGPT, Gemini of Perplexity. Bedrijven die daar zichtbaar zijn, groeien. De rest verdwijnt geruisloos."
           />
           <p className="mt-6 text-body-text leading-relaxed">
-            We realiseerden ons dat 95% van de bureaus dit nog niet eens had opgemerkt — ze doen dezelfde dingen als vijf jaar geleden. Allemaal nuttig, maar onvolledig. Dus stopten we met ‘standaard packages’ en focusten ons laser-scherp op één ding: jouw bedrijf zichtbaar maken waar het straks telt. <span className="text-twilight font-medium">Zo werd Expose Your Brand geboren.</span>
+            We realiseerden ons dat 95% van de bureaus dit nog niet eens had opgemerkt — ze doen dezelfde dingen als vijf jaar geleden. Allemaal nuttig, maar onvolledig. Dus stopten we met ‘standaard packages’ en focusten ons laser, scherp op één ding: jouw bedrijf zichtbaar maken waar het straks telt. <span className="text-twilight font-medium">Zo werd Expose Your Brand geboren.</span>
           </p>
         </div>
       </section>
@@ -207,7 +207,7 @@ function OverOnsPage() {
           <SectionHeader
             eyebrow="Onze route"
             title={<>Drie keer opnieuw nagedacht over <span className="text-molten italic">online zichtbaarheid.</span></>}
-            description="SEO en SEA zijn niet ‘opeens slecht’ — ze zijn nog steeds essentieel. Maar AI-zichtbaarheid maakt vandaag het verschil tussen groei en stagnatie."
+            description="SEO en SEA zijn niet ‘opeens slecht’ — ze zijn nog steeds essentieel. Maar AI, zichtbaarheid maakt vandaag het verschil tussen groei en stagnatie."
           />
           <div className="mt-12 grid md:grid-cols-3 gap-5">
             {timeline.map((t) => (
@@ -285,7 +285,7 @@ function OverOnsPage() {
       <section className="py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <SectionHeader
-            eyebrow="Pasvorm-check"
+            eyebrow="Pasvorm, check"
             title={<>Passen wij <span className="text-molten italic">bij elkaar?</span></>}
             description="We zijn liever vooraf eerlijk. Voor wie zijn we wél, en voor wie zijn we niet de juiste partner?"
           />
@@ -340,7 +340,7 @@ function OverOnsPage() {
           <div className="relative z-10 grid md:grid-cols-[1fr_auto] gap-6 items-center">
             <div>
               <div className="text-molten font-bold text-xs uppercase tracking-widest mb-2">Kennismaking</div>
-              <h3 className="font-display text-2xl md:text-3xl font-semibold">30 minuten. Vrijblijvend. Geen sales-pitch.</h3>
+              <h3 className="font-display text-2xl md:text-3xl font-semibold">30 minuten. Vrijblijvend. Geen sales, pitch.</h3>
               <p className="text-white/70 mt-2">Vertel waar je tegenaan loopt — wij denken meteen mee. Jij bepaalt, wij adviseren eerlijk.</p>
               <a href="mailto:groei@expose-your-brand.com" className="inline-flex items-center gap-2 mt-4 text-sm text-white/80 hover:text-white">
                 <Mail className="size-4" /> groei@expose-your-brand.com
