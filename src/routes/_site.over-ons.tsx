@@ -228,7 +228,7 @@ function OverOnsPage() {
           <SectionHeader
             eyebrow="Specialisaties"
             title={<>Eén focus. <span className="text-molten italic">Vier disciplines</span> die elkaar versterken.</>}
-            description="Bewust geen brede waaier met losse diensten. We werken diep op specialisaties die elkaar versterken — want technische SEO zonder content leidt nergens, content zonder GEO mist het AI-tijdperk, en groei zonder CRO blijft hangen in verkeer dat niet converteert."
+            description="Bewust geen brede waaier met losse diensten. We werken diep op specialisaties die elkaar versterken, want technische SEO zonder content leidt tot niets, content zonder GEO mist het AI-tijdperk, en groei zonder CRO blijft hangen in verkeer dat niet converteert."
           />
           <div className="grid md:grid-cols-2 gap-5 mt-12">
             {specialisms.map((s) => (
