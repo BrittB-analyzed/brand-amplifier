@@ -44,7 +44,7 @@ function ContactPage() {
           <div className="bg-white rounded-2xl p-8 ring-1 ring-black/5">
             <div className="flex items-center gap-2 mb-2">
               <Sparkle size="sm" />
-              <span className="text-molten font-bold text-xs uppercase tracking-widest">Direct boeken</span>
+              <span className="text-molten font-bold text-xs uppercase tracking-widest">Plan gesprek</span>
             </div>
             <h2 className="font-display text-2xl text-twilight font-semibold mb-6">Kies een tijdslot</h2>
             <div className="flex items-center gap-3 mb-6">
