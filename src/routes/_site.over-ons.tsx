@@ -14,7 +14,7 @@ export const Route = createFileRoute("/_site/over-ons")({
   head: () => ({
     meta: [
       { title: "Over Expose Your Brand — pragmatisch, direct, obsessed met AI, zichtbaarheid" },
-      { name: "description", content: "Britt en Berry helpen MKB, bedrijven zichtbaar worden in Google én in AI. 30+ jaar ervaring, 150+ klanten, korte lijnen en bewijs in je eigen dashboard." }
+      { name: "description", content: "Britt en Berry helpen MKB, bedrijven zichtbaar worden in Google én in AI. 30+ jaar ervaring, 150+ klanten, korte lijnen en bewijs in je eigen dashboard." },
       { property: "og:title", content: "Over ons | Expose Your Brand" },
       { property: "og:description", content: "Twee specialisten, één focus: jouw bedrijf zichtbaar in AI." },
       { property: "og:url", content: "/over-ons" },
