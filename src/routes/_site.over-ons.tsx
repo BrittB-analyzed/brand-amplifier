@@ -111,14 +111,6 @@ const fitNo = [
   "Je gelooft niet in AI",
 ];
 
-const faq = [
-  { q: "Werken jullie ook met kleine bedrijven?", a: "Ja, mits je minimaal €500K omzet hebt en €2K/maand marketingbudget. Daaronder is onze investering simpelweg te groot om eerlijk te zijn over het rendement." },
-  { q: "Wat is het verschil met B. Analyzed?", a: "B. Analyzed is fullservice online marketing (SEO, Ads, content, links). Expose Your Brand heeft laser, focus op AI, zichtbaarheid (GEO + complementaire diensten). Beide worden door Britt beheerd." },
-  { q: "Hoe snel zien we resultaat?", a: "Maand 1: audit, strategie en setup. Maand 2–3: eerste citaties zichtbaar. Maand 4+: solide momentum en opschaling. Realistisch: 12–16 weken voor voelbare vooruitgang." },
-  { q: "Kunnen we langzaam starten?", a: "Niet echt. GEO werkt beter met momentum — maand 1 tot 3 zijn cruciaal. Half werk werkt tegen je." },
-  { q: "Bieden jullie garantie?", a: "Voor GEO: binnen 90 dagen je bedrijf geciteerd in AI, of we werken gratis door. Voor andere diensten zijn performance, based opties bespreekbaar." },
-  { q: "Hoe lang is de contractperiode?", a: "Maandelijks opzegbaar na de eerste 3 maanden — die zijn nodig om een eerlijke nulmeting van het resultaat te maken." },
-];
 
 function OverOnsPage() {
   return (
