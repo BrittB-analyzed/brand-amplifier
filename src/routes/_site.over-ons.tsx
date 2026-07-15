@@ -248,7 +248,7 @@ function OverOnsPage() {
           <Sparkle className="absolute top-6 right-8 opacity-40" size="md" animate />
           <div className="text-molten font-bold text-xs uppercase tracking-widest mb-3">Onze visie</div>
           <p className="font-display text-2xl md:text-3xl leading-snug text-balance">
-            “SEO, GEO en SEA zijn geen aparte werelden. Ze delen één fundament: een site waar potentiële klanten graag heen gaan, én waar machines — Google, ChatGPT, Perplexity — je merk graag citeren.”
+            “SEO, GEO en SEA zijn geen aparte werelden. Ze delen één fundament: een site waar potentiële klanten graag heen gaan, én waar machines zoals Google, ChatGPT, Perplexity je merk graag citeren.”
           </p>
           <div className="mt-5 text-sm text-white/70">— Berry & Britt, Expose Your Brand</div>
         </div>
