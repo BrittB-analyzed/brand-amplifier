@@ -89,7 +89,7 @@ function ContactPage() {
                   </p>
                   <div className="mt-4 p-4 bg-molten/5 ring-1 ring-molten/15 rounded-xl">
                     <p className="text-sm text-twilight italic leading-relaxed">
-                      "Binnen 3 maanden merkbaar meer aanvragen — en eindelijk uitleg die klopt."
+                    "Binnen 3 maanden merkbaar meer aanvragen en eindelijk uitleg die klopt."
                     </p>
                     <p className="text-[11px] font-bold uppercase tracking-widest text-molten mt-2">
                       Al 40+ merken gingen je voor
