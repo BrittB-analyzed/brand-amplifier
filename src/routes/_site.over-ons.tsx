@@ -126,7 +126,7 @@ function OverOnsPage() {
       <PageHero
         eyebrow="Over Expose Your Brand"
         title={<>Pragmatisch, direct, <span className="text-molten italic">obsessed</span> met AI, zichtbaarheid.</>}
-        description="Wij zijn Britt en Berry. Samen helpen we MKB, bedrijven zichtbaar worden in Google én waar het straks écht telt: ChatGPT, Gemini, Perplexity. Geen tussenlagen, geen callcenter — direct contact met de mensen die het werk doen."
+        description="Wij zijn Britt en Berry. Samen helpen we MKB, bedrijven zichtbaar worden in Google én waar het straks écht telt: ChatGPT, Gemini, Perplexity. Geen tussenlagen, maar direct contact met Britt of Berry."
       >
         <div className="flex flex-wrap gap-3">
           <CTAButton to="/contact" variant="molten">
