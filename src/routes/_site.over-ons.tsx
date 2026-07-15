@@ -35,7 +35,7 @@ const team = [
   {
     name: "Britt",
     role: "Executie & client success",
-    bio: "Bouwde sinds 2014 met B. Analyzed een online marketing-bureau met 50+ actieve klanten, een 9.8-rating en 386 #1-posities in Google. Britt is de motor: setup, implementatie, optimalisatie en rapportage. Niet theoretisch — praktisch. Niet morgen — vandaag als het kan. Je dashboard staat al op dag twee.",
+    bio: "Bouwde sinds 2014 met B. Analyzed een online marketing, bureau met 50+ actieve klanten, een 9.8, rating en 386 #1, posities in Google. Britt is de motor: setup, implementatie, optimalisatie en rapportage. Niet theoretisch — praktisch. Niet morgen — vandaag als het kan. Je dashboard staat al op dag twee.",
     specialism: "Account, management · implementatie · optimalisatie · client, success",
     photo: brittPortrait.url,
   },
@@ -91,7 +91,7 @@ const timeline = [
 const specialisms = [
   { t: "GEO & AI, zichtbaarheid", d: "Geciteerd worden door ChatGPT, Perplexity, Gemini en AI Overviews. Passage, optimalisatie, SoLV, tracking, share of LLM voice." },
   { t: "Klassieke SEO", d: "Nog steeds 60–70% van de zoekmarkt. Rankings in Google, autoriteitsopbouw, technisch gezonde fundatie." },
-  { t: "SEA (Google Ads)", d: "Snelle leads terwijl SEO en GEO opbouwen. Strategische campagne-inrichting, doorlopende optimalisatie." },
+  { t: "SEA (Google Ads)", d: "Snelle leads terwijl SEO en GEO opbouwen. Strategische campagne, inrichting, doorlopende optimalisatie." },
   { t: "Conversie, optimalisatie", d: "Verkeer is geen doel — een klant is dat. Formulieren, CTA's en landingspagina's die werkelijk converteren." },
 ];
 
