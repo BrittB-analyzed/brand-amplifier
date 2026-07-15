@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Mail, MessageSquare, MapPin, Building2 } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { Sparkle } from "@/components/site/Sparkle";
+import { sendFormSubmission } from "@/lib/send-form.functions";
 import berryPortrait from "@/assets/berry-portrait.jpg.asset.json";
 import founderPortrait from "@/assets/founder-portrait.jpg.asset.json";
 
@@ -21,6 +22,8 @@ export const Route = createFileRoute("/_site/contact")({
 
 function ContactPage() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (document.getElementById("calendly-widget-script")) return;
@@ -72,17 +75,38 @@ function ContactPage() {
               ) : (
                 <form
                   className="space-y-4"
-                  onSubmit={(e) => {
+                  onSubmit={async (e) => {
                     e.preventDefault();
-                    setSent(true);
+                    setError(null);
+                    const fd = new FormData(e.currentTarget);
+                    setSubmitting(true);
+                    try {
+                      await sendFormSubmission({
+                        data: {
+                          formName: "Contactformulier",
+                          name: String(fd.get("name") ?? ""),
+                          email: String(fd.get("email") ?? ""),
+                          url: String(fd.get("url") ?? ""),
+                          message: String(fd.get("message") ?? ""),
+                          _hp: String(fd.get("_hp") ?? ""),
+                        },
+                      });
+                      setSent(true);
+                    } catch (err) {
+                      setError(err instanceof Error ? err.message : "Verzenden mislukt.");
+                    } finally {
+                      setSubmitting(false);
+                    }
                   }}
                 >
-                  <input required placeholder="Naam" className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten" />
-                  <input required type="email" placeholder="E-mailadres" className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten" />
-                  <input required type="url" placeholder="Website (URL)" className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten" />
-                  <textarea required placeholder="Waar kunnen we mee helpen?" rows={5} className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten resize-none" />
-                  <button type="submit" className="w-full bg-molten text-white font-medium h-12 rounded-md hover:brightness-110 transition-all">
-                    Vraag mijn gratis adviesgesprek aan
+                  <input name="name" required placeholder="Naam" className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten" />
+                  <input name="email" required type="email" placeholder="E-mailadres" className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten" />
+                  <input name="url" required type="url" placeholder="Website (URL)" className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten" />
+                  <textarea name="message" required placeholder="Waar kunnen we mee helpen?" rows={5} className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten resize-none" />
+                  <input type="text" name="_hp" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
+                  {error && <p className="text-sm text-molten">{error}</p>}
+                  <button type="submit" disabled={submitting} className="w-full bg-molten text-white font-medium h-12 rounded-md hover:brightness-110 transition-all disabled:opacity-60">
+                    {submitting ? "Verzenden…" : "Vraag mijn gratis adviesgesprek aan"}
                   </button>
                   <p className="text-xs text-body-text text-center pt-1">
                     Je krijgt binnen 24 uur persoonlijk antwoord van Berry of Britt.
