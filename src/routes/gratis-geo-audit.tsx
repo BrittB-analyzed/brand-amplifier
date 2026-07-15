@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Check, Calendar } from "lucide-react";
 import { Sparkle } from "@/components/site/Sparkle";
+import { sendFormSubmission } from "@/lib/send-form.functions";
 
 export const Route = createFileRoute("/gratis-geo-audit")({
   head: () => ({
@@ -18,6 +19,8 @@ export const Route = createFileRoute("/gratis-geo-audit")({
 
 function AuditLanding() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   return (
     <div className="bg-silver min-h-screen font-sans text-body-text">
@@ -82,13 +85,40 @@ function AuditLanding() {
                   <p className="text-twilight font-medium">Top! Check je inbox.</p>
                 </div>
               ) : (
-                <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="space-y-3">
-                  <input required placeholder="Naam" className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten" />
-                  <input required type="email" placeholder="Zakelijk e-mailadres" className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten" />
-                  <input required placeholder="Website (URL)" className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten" />
-                  <input placeholder="Sector / niche" className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten" />
-                  <button type="submit" className="w-full bg-molten text-white font-medium h-12 rounded-md hover:brightness-110 transition-all mt-2">
-                    Vraag gratis audit aan
+                <form
+                  onSubmit={async (e) => {
+                    e.preventDefault();
+                    setError(null);
+                    const fd = new FormData(e.currentTarget);
+                    setSubmitting(true);
+                    try {
+                      await sendFormSubmission({
+                        data: {
+                          formName: "Gratis GEO-audit",
+                          name: String(fd.get("name") ?? ""),
+                          email: String(fd.get("email") ?? ""),
+                          url: String(fd.get("url") ?? ""),
+                          extra: { Sector: String(fd.get("sector") ?? "") },
+                          _hp: String(fd.get("_hp") ?? ""),
+                        },
+                      });
+                      setSent(true);
+                    } catch (err) {
+                      setError(err instanceof Error ? err.message : "Verzenden mislukt.");
+                    } finally {
+                      setSubmitting(false);
+                    }
+                  }}
+                  className="space-y-3"
+                >
+                  <input name="name" required placeholder="Naam" className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten" />
+                  <input name="email" required type="email" placeholder="Zakelijk e-mailadres" className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten" />
+                  <input name="url" required type="url" placeholder="Website (URL)" className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten" />
+                  <input name="sector" placeholder="Sector / niche" className="w-full bg-silver rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-molten" />
+                  <input type="text" name="_hp" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
+                  {error && <p className="text-xs text-molten">{error}</p>}
+                  <button type="submit" disabled={submitting} className="w-full bg-molten text-white font-medium h-12 rounded-md hover:brightness-110 transition-all mt-2 disabled:opacity-60">
+                    {submitting ? "Verzenden…" : "Vraag gratis audit aan"}
                   </button>
                   <p className="text-[11px] text-body-text text-center pt-2">
                     Binnen 24 uur antwoord van een specialist.
