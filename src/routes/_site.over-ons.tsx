@@ -316,7 +316,7 @@ function OverOnsPage() {
             <div>
               <div className="text-molten font-bold text-xs uppercase tracking-widest mb-2">Kennismaking</div>
               <h3 className="font-display text-2xl md:text-3xl font-semibold">30 minuten. Vrijblijvend. Geen sales, pitch.</h3>
-              <p className="text-white/70 mt-2">Vertel waar je tegenaan loopt — wij denken meteen mee. Jij bepaalt, wij adviseren eerlijk.</p>
+              
               <a href="mailto:groei@expose-your-brand.com" className="inline-flex items-center gap-2 mt-4 text-sm text-white/80 hover:text-white">
                 <Mail className="size-4" /> groei@expose-your-brand.com
               </a>
