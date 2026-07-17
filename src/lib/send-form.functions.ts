@@ -25,9 +25,8 @@ export const sendFormSubmission = createServerFn({ method: "POST" })
       return { ok: true };
     }
 
-    const apiKey = process.env.LOVABLE_API_KEY;
     const resendKey = process.env.RESEND_API_KEY;
-    if (!apiKey || !resendKey) {
+    if (!resendKey) {
       throw new Error("E-mailservice is niet geconfigureerd.");
     }
 
@@ -54,15 +53,14 @@ export const sendFormSubmission = createServerFn({ method: "POST" })
         </table>
       </div>`;
 
-    const res = await fetch("https://connector-gateway.lovable.dev/resend/emails", {
+    const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-        "X-Connection-Api-Key": resendKey,
+        Authorization: `Bearer ${resendKey}`,
       },
       body: JSON.stringify({
-        from: "Expose Your Brand <onboarding@resend.dev>",
+        from: "Expose Your Brand <groei@expose-your-brand.com>",
         to: RECIPIENTS,
         reply_to: data.email,
         subject: `[${data.formName}] ${data.name || data.email}`,
