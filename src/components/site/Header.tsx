@@ -7,6 +7,52 @@ import { useLang, useT } from "@/lib/i18n";
 import logoAsset from "@/assets/logo.png.asset.json";
 import sparklesBg from "@/assets/sparkles-bg.png.asset.json";
 
+function LangSwitcher({
+  lang,
+  pathname,
+  className,
+}: {
+  lang: "nl" | "en";
+  pathname: string;
+  className?: string;
+}) {
+  return (
+    <div
+      className={cn(
+        "inline-flex items-center rounded-full ring-1 ring-black/10 bg-white/80 backdrop-blur-sm p-0.5 text-[11px] font-bold uppercase tracking-widest",
+        className,
+      )}
+      role="group"
+      aria-label="Language switcher"
+    >
+      <Link
+        to={pathname}
+        search={(prev: Record<string, unknown>) => ({ ...prev, lang: undefined })}
+        className={cn(
+          "px-2.5 py-1 rounded-full transition-colors",
+          lang === "nl" ? "bg-molten text-white" : "text-twilight/70 hover:text-twilight",
+        )}
+        aria-label="Nederlands"
+        aria-current={lang === "nl" ? "true" : undefined}
+      >
+        NL
+      </Link>
+      <Link
+        to={pathname}
+        search={(prev: Record<string, unknown>) => ({ ...prev, lang: "en" as const })}
+        className={cn(
+          "px-2.5 py-1 rounded-full transition-colors",
+          lang === "en" ? "bg-molten text-white" : "text-twilight/70 hover:text-twilight",
+        )}
+        aria-label="English"
+        aria-current={lang === "en" ? "true" : undefined}
+      >
+        EN
+      </Link>
+    </div>
+  );
+}
+
 const services = [
   { to: "/diensten/seo", label: "SEO" },
   { to: "/diensten/geo", label: "GEO" },
