@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  retainSearchParams,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -73,6 +74,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  validateSearch: (search: Record<string, unknown>) => {
+    const raw = search.lang;
+    return { lang: raw === "en" ? ("en" as const) : undefined };
+  },
+  search: {
+    middlewares: [retainSearchParams(["lang"])],
+  },
   head: () => ({
     meta: [
       { charSet: "utf-8" },
