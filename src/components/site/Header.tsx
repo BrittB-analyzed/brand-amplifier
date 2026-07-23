@@ -7,6 +7,52 @@ import { useLang, useT } from "@/lib/i18n";
 import logoAsset from "@/assets/logo.png.asset.json";
 import sparklesBg from "@/assets/sparkles-bg.png.asset.json";
 
+function LangSwitcher({
+  lang,
+  pathname,
+  className,
+}: {
+  lang: "nl" | "en";
+  pathname: string;
+  className?: string;
+}) {
+  return (
+    <div
+      className={cn(
+        "inline-flex items-center rounded-full ring-1 ring-black/10 bg-white/80 backdrop-blur-sm p-0.5 text-[11px] font-bold uppercase tracking-widest",
+        className,
+      )}
+      role="group"
+      aria-label="Language switcher"
+    >
+      <Link
+        to={pathname}
+        search={(prev: Record<string, unknown>) => ({ ...prev, lang: undefined })}
+        className={cn(
+          "px-2.5 py-1 rounded-full transition-colors",
+          lang === "nl" ? "bg-molten text-white" : "text-twilight/70 hover:text-twilight",
+        )}
+        aria-label="Nederlands"
+        aria-current={lang === "nl" ? "true" : undefined}
+      >
+        NL
+      </Link>
+      <Link
+        to={pathname}
+        search={(prev: Record<string, unknown>) => ({ ...prev, lang: "en" as const })}
+        className={cn(
+          "px-2.5 py-1 rounded-full transition-colors",
+          lang === "en" ? "bg-molten text-white" : "text-twilight/70 hover:text-twilight",
+        )}
+        aria-label="English"
+        aria-current={lang === "en" ? "true" : undefined}
+      >
+        EN
+      </Link>
+    </div>
+  );
+}
+
 const services = [
   { to: "/diensten/seo", label: "SEO" },
   { to: "/diensten/geo", label: "GEO" },
@@ -71,25 +117,6 @@ export function Header() {
             />
           ))}
         </div>
-        <div className="ml-3 flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.2em]">
-          <Link
-            to={pathname}
-            search={(prev: Record<string, unknown>) => ({ ...prev, lang: undefined })}
-            className={cn("px-1.5 py-0.5 rounded transition-colors", lang === "nl" ? "text-molten" : "hover:text-twilight")}
-            aria-label="Nederlands"
-          >
-            NL
-          </Link>
-          <span aria-hidden className="opacity-30">|</span>
-          <Link
-            to={pathname}
-            search={(prev: Record<string, unknown>) => ({ ...prev, lang: "en" as const })}
-            className={cn("px-1.5 py-0.5 rounded transition-colors", lang === "en" ? "text-molten" : "hover:text-twilight")}
-            aria-label="English"
-          >
-            EN
-          </Link>
-        </div>
       </div>
       <div
         aria-hidden
@@ -151,18 +178,22 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:block">
+          <LangSwitcher lang={lang} pathname={pathname} className="mr-3 inline-flex" />
           <CTAButton to="/contact" variant="molten" className="!h-10 !px-4 !text-sm">
             {t.cta}
           </CTAButton>
         </div>
 
-        <button
-          aria-label="Menu"
-          onClick={() => setOpen((v) => !v)}
-          className="lg:hidden p-2 -mr-2 text-twilight"
-        >
-          {open ? <X className="size-6" /> : <Menu className="size-6" />}
-        </button>
+        <div className="lg:hidden flex items-center gap-2 -mr-2">
+          <LangSwitcher lang={lang} pathname={pathname} />
+          <button
+            aria-label="Menu"
+            onClick={() => setOpen((v) => !v)}
+            className="p-2 text-twilight"
+          >
+            {open ? <X className="size-6" /> : <Menu className="size-6" />}
+          </button>
+        </div>
       </div>
 
       {open && (
