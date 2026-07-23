@@ -71,25 +71,6 @@ export function Header() {
             />
           ))}
         </div>
-        <div className="ml-3 flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.2em]">
-          <Link
-            to={pathname}
-            search={(prev: Record<string, unknown>) => ({ ...prev, lang: undefined })}
-            className={cn("px-1.5 py-0.5 rounded transition-colors", lang === "nl" ? "text-molten" : "hover:text-twilight")}
-            aria-label="Nederlands"
-          >
-            NL
-          </Link>
-          <span aria-hidden className="opacity-30">|</span>
-          <Link
-            to={pathname}
-            search={(prev: Record<string, unknown>) => ({ ...prev, lang: "en" as const })}
-            className={cn("px-1.5 py-0.5 rounded transition-colors", lang === "en" ? "text-molten" : "hover:text-twilight")}
-            aria-label="English"
-          >
-            EN
-          </Link>
-        </div>
       </div>
       <div
         aria-hidden
@@ -151,18 +132,22 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:block">
+          <LangSwitcher lang={lang} pathname={pathname} className="mr-3 inline-flex" />
           <CTAButton to="/contact" variant="molten" className="!h-10 !px-4 !text-sm">
             {t.cta}
           </CTAButton>
         </div>
 
-        <button
-          aria-label="Menu"
-          onClick={() => setOpen((v) => !v)}
-          className="lg:hidden p-2 -mr-2 text-twilight"
-        >
-          {open ? <X className="size-6" /> : <Menu className="size-6" />}
-        </button>
+        <div className="lg:hidden flex items-center gap-2 -mr-2">
+          <LangSwitcher lang={lang} pathname={pathname} />
+          <button
+            aria-label="Menu"
+            onClick={() => setOpen((v) => !v)}
+            className="p-2 text-twilight"
+          >
+            {open ? <X className="size-6" /> : <Menu className="size-6" />}
+          </button>
+        </div>
       </div>
 
       {open && (
