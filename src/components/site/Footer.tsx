@@ -2,11 +2,35 @@ import { Link } from "@tanstack/react-router";
 import { Linkedin, Instagram, Facebook, MapPin, Mail } from "lucide-react";
 import { useState } from "react";
 import { sendFormSubmission } from "@/lib/send-form.functions";
+import { useT } from "@/lib/i18n";
 import logoAsset from "@/assets/logo.png.asset.json";
 import berryPortrait from "@/assets/berry-portrait.jpg.asset.json";
 import founderPortrait from "@/assets/founder-portrait.jpg.asset.json";
 
 export function Footer() {
+  const t = useT({
+    tagline: {
+      nl: "Van 'Onzichtbaar' naar 'Aanbevolen'. AI-first SEO & GEO bureau voor ambitieuze ondernemers.",
+      en: "From 'Invisible' to 'Recommended'. AI-first SEO & GEO agency for ambitious entrepreneurs.",
+    },
+    berryRole: { nl: "Berry — Strategie", en: "Berry — Strategy" },
+    brittRole: { nl: "Britt — Executie", en: "Britt — Execution" },
+    directLine: { nl: "Je directe contactpersonen", en: "Your direct points of contact" },
+    servicesTitle: { nl: "Diensten", en: "Services" },
+    companyTitle: { nl: "Bedrijf", en: "Company" },
+    seoLabel: { nl: "SEO Strategie", en: "SEO Strategy" },
+    geoLabel: { nl: "GEO Optimalisatie", en: "GEO Optimization" },
+    seaLabel: { nl: "SEA & AI Ads", en: "SEA & AI Ads" },
+    croLabel: { nl: "Conversie (CRO)", en: "Conversion (CRO)" },
+    about: { nl: "Over ons", en: "About us" },
+    cases: { nl: "Cases", en: "Cases" },
+    smb: { nl: "SEO voor MKB", en: "SEO for SMB" },
+    contact: { nl: "Contact", en: "Contact" },
+    newsletter: { nl: "Nieuwsbrief", en: "Newsletter" },
+    privacy: { nl: "Privacy", en: "Privacy" },
+    terms: { nl: "Voorwaarden", en: "Terms" },
+    cookies: { nl: "Cookies", en: "Cookies" },
+  });
   return (
     <footer className="bg-navy text-white pt-20 pb-10 px-6">
       <div className="max-w-7xl mx-auto">
@@ -14,20 +38,20 @@ export function Footer() {
           <div className="lg:col-span-2">
             <img src={logoAsset.url} alt="Expose Your Brand" className="h-14 w-auto mb-4" />
             <p className="text-white/60 max-w-sm leading-relaxed mb-6">
-              Van 'Onzichtbaar' naar 'Aanbevolen'. AI-first SEO & GEO bureau voor ambitieuze ondernemers.
+              {t.tagline}
             </p>
             <div className="flex items-center gap-3 mb-5">
-              <img src={berryPortrait.url} alt="Berry — Strategie" className="size-12 rounded-full object-cover ring-2 ring-molten/40" />
-              <img src={founderPortrait.url} alt="Britt — Executie" className="size-12 rounded-full object-cover ring-2 ring-molten/40" />
+              <img src={berryPortrait.url} alt={t.berryRole} className="size-12 rounded-full object-cover ring-2 ring-molten/40" />
+              <img src={founderPortrait.url} alt={t.brittRole} className="size-12 rounded-full object-cover ring-2 ring-molten/40" />
               <div className="text-xs text-white/60">
                 <p className="text-white font-medium">Berry & Britt</p>
-                <p>Je directe contactpersonen</p>
+                <p>{t.directLine}</p>
               </div>
             </div>
             <address className="not-italic space-y-2 text-sm text-white/60">
               <div className="flex items-start gap-2">
                 <MapPin className="size-4 mt-0.5 shrink-0 text-molten" />
-                <span>Expose your Brand<br />Visstraat 55K<br />5211 DM Den Bosch · Nederland</span>
+                <span>Expose your Brand<br />Visstraat 55K<br />5211 DM Den Bosch · {t === t ? (useT === useT ? "" : "") : ""}Nederland</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="size-4 shrink-0 text-molten" />
@@ -40,29 +64,29 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-molten mb-4">Diensten</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-molten mb-4">{t.servicesTitle}</p>
             <ul className="space-y-2 text-sm text-white/60">
-              <li><Link to="/diensten/geo" className="hover:text-white">GEO Optimalisatie</Link></li>
-              <li><Link to="/diensten/seo" className="hover:text-white">SEO Strategie</Link></li>
-              <li><Link to="/diensten/sea" className="hover:text-white">SEA & AI Ads</Link></li>
-              <li><Link to="/diensten/cro" className="hover:text-white">Conversie (CRO)</Link></li>
+              <li><Link to="/diensten/geo" className="hover:text-white">{t.geoLabel}</Link></li>
+              <li><Link to="/diensten/seo" className="hover:text-white">{t.seoLabel}</Link></li>
+              <li><Link to="/diensten/sea" className="hover:text-white">{t.seaLabel}</Link></li>
+              <li><Link to="/diensten/cro" className="hover:text-white">{t.croLabel}</Link></li>
             </ul>
           </div>
 
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-molten mb-4">Bedrijf</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-molten mb-4">{t.companyTitle}</p>
             <ul className="space-y-2 text-sm text-white/60">
-              <li><Link to="/over-ons" className="hover:text-white">Over ons</Link></li>
-              <li><Link to="/cases" className="hover:text-white">Cases</Link></li>
-              <li><Link to="/seo-voor-mkb" className="hover:text-white">SEO voor MKB</Link></li>
-              <li><Link to="/contact" className="hover:text-white">Contact</Link></li>
+              <li><Link to="/over-ons" className="hover:text-white">{t.about}</Link></li>
+              <li><Link to="/cases" className="hover:text-white">{t.cases}</Link></li>
+              <li><Link to="/seo-voor-mkb" className="hover:text-white">{t.smb}</Link></li>
+              <li><Link to="/contact" className="hover:text-white">{t.contact}</Link></li>
             </ul>
           </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 py-8 border-t border-white/10">
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-molten mb-3">Nieuwsbrief</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-molten mb-3">{t.newsletter}</p>
             <NewsletterForm />
           </div>
           <div className="flex md:justify-end items-center gap-4">
@@ -81,9 +105,9 @@ export function Footer() {
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] uppercase tracking-widest text-white/30">
           <p>© {new Date().getFullYear()} Expose Your Brand · KvK Nederland</p>
           <div className="flex gap-6">
-            <Link to="/privacy" className="hover:text-white">Privacy</Link>
-            <Link to="/voorwaarden" className="hover:text-white">Voorwaarden</Link>
-            <Link to="/cookies" className="hover:text-white">Cookies</Link>
+            <Link to="/privacy" className="hover:text-white">{t.privacy}</Link>
+            <Link to="/voorwaarden" className="hover:text-white">{t.terms}</Link>
+            <Link to="/cookies" className="hover:text-white">{t.cookies}</Link>
           </div>
         </div>
       </div>
@@ -92,12 +116,18 @@ export function Footer() {
 }
 
 function NewsletterForm() {
+  const t = useT({
+    thanks: { nl: "Bedankt voor je aanmelding.", en: "Thanks for signing up." },
+    placeholder: { nl: "E-mailadres", en: "Email address" },
+    submit: { nl: "Aanmelden", en: "Sign up" },
+    failed: { nl: "Verzenden mislukt.", en: "Submission failed." },
+  });
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   if (sent) {
-    return <p className="text-sm text-white/70">Bedankt voor je aanmelding.</p>;
+    return <p className="text-sm text-white/70">{t.thanks}</p>;
   }
 
   return (
@@ -119,7 +149,7 @@ function NewsletterForm() {
           });
           setSent(true);
         } catch (err) {
-          setError(err instanceof Error ? err.message : "Verzenden mislukt.");
+          setError(err instanceof Error ? err.message : t.failed);
         } finally {
           setSubmitting(false);
         }
@@ -129,12 +159,12 @@ function NewsletterForm() {
         name="email"
         type="email"
         required
-        placeholder="E-mailadres"
+        placeholder={t.placeholder}
         className="bg-white/5 border border-white/10 rounded-md px-4 py-2 text-sm flex-1 focus:outline-none focus:ring-1 focus:ring-molten text-white placeholder:text-white/40"
       />
       <input type="text" name="_hp" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
       <button disabled={submitting} className="bg-molten text-white px-4 py-2 rounded-md text-xs font-bold hover:brightness-110 disabled:opacity-60">
-        {submitting ? "…" : "Aanmelden"}
+        {submitting ? "…" : t.submit}
       </button>
       {error && <p className="text-xs text-molten w-full">{error}</p>}
     </form>
