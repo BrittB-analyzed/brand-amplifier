@@ -17,6 +17,7 @@ import { Route as SiteVoorwaardenRouteImport } from './routes/_site.voorwaarden'
 import { Route as SiteSeoVoorMkbRouteImport } from './routes/_site.seo-voor-mkb'
 import { Route as SiteSamenwerkingRouteImport } from './routes/_site.samenwerking'
 import { Route as SitePrivacyRouteImport } from './routes/_site.privacy'
+import { Route as SiteOverOnsRouteImport } from './routes/_site.over-ons'
 import { Route as SiteKennisRouteImport } from './routes/_site.kennis'
 import { Route as SiteDienstenRouteImport } from './routes/_site.diensten'
 import { Route as SiteCookiesRouteImport } from './routes/_site.cookies'
@@ -69,6 +70,11 @@ const SiteSamenwerkingRoute = SiteSamenwerkingRouteImport.update({
 const SitePrivacyRoute = SitePrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteOverOnsRoute = SiteOverOnsRouteImport.update({
+  id: '/over-ons',
+  path: '/over-ons',
   getParentRoute: () => SiteRoute,
 } as any)
 const SiteKennisRoute = SiteKennisRouteImport.update({
@@ -151,6 +157,7 @@ export interface FileRoutesByFullPath {
   '/cookies': typeof SiteCookiesRoute
   '/diensten': typeof SiteDienstenRouteWithChildren
   '/kennis': typeof SiteKennisRouteWithChildren
+  '/over-ons': typeof SiteOverOnsRoute
   '/privacy': typeof SitePrivacyRoute
   '/samenwerking': typeof SiteSamenwerkingRoute
   '/seo-voor-mkb': typeof SiteSeoVoorMkbRoute
@@ -171,6 +178,7 @@ export interface FileRoutesByTo {
   '/cases': typeof SiteCasesRoute
   '/contact': typeof SiteContactRoute
   '/cookies': typeof SiteCookiesRoute
+  '/over-ons': typeof SiteOverOnsRoute
   '/privacy': typeof SitePrivacyRoute
   '/samenwerking': typeof SiteSamenwerkingRoute
   '/seo-voor-mkb': typeof SiteSeoVoorMkbRoute
@@ -196,6 +204,7 @@ export interface FileRoutesById {
   '/_site/cookies': typeof SiteCookiesRoute
   '/_site/diensten': typeof SiteDienstenRouteWithChildren
   '/_site/kennis': typeof SiteKennisRouteWithChildren
+  '/_site/over-ons': typeof SiteOverOnsRoute
   '/_site/privacy': typeof SitePrivacyRoute
   '/_site/samenwerking': typeof SiteSamenwerkingRoute
   '/_site/seo-voor-mkb': typeof SiteSeoVoorMkbRoute
@@ -222,6 +231,7 @@ export interface FileRouteTypes {
     | '/cookies'
     | '/diensten'
     | '/kennis'
+    | '/over-ons'
     | '/privacy'
     | '/samenwerking'
     | '/seo-voor-mkb'
@@ -242,6 +252,7 @@ export interface FileRouteTypes {
     | '/cases'
     | '/contact'
     | '/cookies'
+    | '/over-ons'
     | '/privacy'
     | '/samenwerking'
     | '/seo-voor-mkb'
@@ -266,6 +277,7 @@ export interface FileRouteTypes {
     | '/_site/cookies'
     | '/_site/diensten'
     | '/_site/kennis'
+    | '/_site/over-ons'
     | '/_site/privacy'
     | '/_site/samenwerking'
     | '/_site/seo-voor-mkb'
@@ -344,6 +356,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof SitePrivacyRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/over-ons': {
+      id: '/_site/over-ons'
+      path: '/over-ons'
+      fullPath: '/over-ons'
+      preLoaderRoute: typeof SiteOverOnsRouteImport
       parentRoute: typeof SiteRoute
     }
     '/_site/kennis': {
@@ -491,6 +510,7 @@ interface SiteRouteChildren {
   SiteCookiesRoute: typeof SiteCookiesRoute
   SiteDienstenRoute: typeof SiteDienstenRouteWithChildren
   SiteKennisRoute: typeof SiteKennisRouteWithChildren
+  SiteOverOnsRoute: typeof SiteOverOnsRoute
   SitePrivacyRoute: typeof SitePrivacyRoute
   SiteSamenwerkingRoute: typeof SiteSamenwerkingRoute
   SiteSeoVoorMkbRoute: typeof SiteSeoVoorMkbRoute
@@ -504,6 +524,7 @@ const SiteRouteChildren: SiteRouteChildren = {
   SiteCookiesRoute: SiteCookiesRoute,
   SiteDienstenRoute: SiteDienstenRouteWithChildren,
   SiteKennisRoute: SiteKennisRouteWithChildren,
+  SiteOverOnsRoute: SiteOverOnsRoute,
   SitePrivacyRoute: SitePrivacyRoute,
   SiteSamenwerkingRoute: SiteSamenwerkingRoute,
   SiteSeoVoorMkbRoute: SiteSeoVoorMkbRoute,
