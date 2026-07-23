@@ -51,7 +51,7 @@ export function Footer() {
             <address className="not-italic space-y-2 text-sm text-white/60">
               <div className="flex items-start gap-2">
                 <MapPin className="size-4 mt-0.5 shrink-0 text-molten" />
-                <span>Expose your Brand<br />Visstraat 55K<br />5211 DM Den Bosch · {t === t ? (useT === useT ? "" : "") : ""}Nederland</span>
+                <span>Expose your Brand<br />Visstraat 55K<br />5211 DM Den Bosch · Nederland</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="size-4 shrink-0 text-molten" />
