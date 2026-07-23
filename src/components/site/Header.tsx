@@ -74,7 +74,7 @@ export function Header() {
         <div className="ml-3 flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.2em]">
           <Link
             to={pathname}
-            search={(prev) => ({ ...(prev as object), lang: undefined })}
+            search={(prev: Record<string, unknown>) => ({ ...prev, lang: undefined })}
             className={cn("px-1.5 py-0.5 rounded transition-colors", lang === "nl" ? "text-molten" : "hover:text-twilight")}
             aria-label="Nederlands"
           >
@@ -83,7 +83,7 @@ export function Header() {
           <span aria-hidden className="opacity-30">|</span>
           <Link
             to={pathname}
-            search={(prev) => ({ ...(prev as object), lang: "en" as const })}
+            search={(prev: Record<string, unknown>) => ({ ...prev, lang: "en" as const })}
             className={cn("px-1.5 py-0.5 rounded transition-colors", lang === "en" ? "text-molten" : "hover:text-twilight")}
             aria-label="English"
           >
@@ -209,7 +209,7 @@ export function Header() {
               <Link
                 to={pathname}
                 onClick={() => setOpen(false)}
-                search={(prev) => ({ ...(prev as object), lang: undefined })}
+                search={(prev: Record<string, unknown>) => ({ ...prev, lang: undefined })}
                 className={cn("px-2 py-1 rounded", lang === "nl" ? "text-molten" : "text-twilight/60")}
               >
                 NL
@@ -218,7 +218,7 @@ export function Header() {
               <Link
                 to={pathname}
                 onClick={() => setOpen(false)}
-                search={(prev) => ({ ...(prev as object), lang: "en" as const })}
+                search={(prev: Record<string, unknown>) => ({ ...prev, lang: "en" as const })}
                 className={cn("px-2 py-1 rounded", lang === "en" ? "text-molten" : "text-twilight/60")}
               >
                 EN
