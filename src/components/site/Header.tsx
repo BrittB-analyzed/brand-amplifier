@@ -1,8 +1,9 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CTAButton } from "./CTAButton";
+import { useLang, useT } from "@/lib/i18n";
 import logoAsset from "@/assets/logo.png.asset.json";
 import sparklesBg from "@/assets/sparkles-bg.png.asset.json";
 
@@ -15,11 +16,6 @@ const services = [
 
 const auditLink = { to: "/diensten/seo-geo-audit", label: "SEO & GEO Audit" } as const;
 
-const navItems = [
-  { to: "/cases", label: "Cases" },
-  { to: "/over-ons", label: "Over ons" },
-] as const;
-
 const llmLogos = [
   { name: "ChatGPT", url: "https://www.google.com/s2/favicons?domain=openai.com&sz=128" },
   { name: "Gemini", url: "https://www.google.com/s2/favicons?domain=gemini.google.com&sz=128" },
@@ -30,6 +26,20 @@ const llmLogos = [
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const lang = useLang();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const t = useT({
+    recommendedIn: { nl: "Aanbevolen in", en: "Recommended by" },
+    services: { nl: "Diensten", en: "Services" },
+    newBadge: { nl: "Nieuw", en: "New" },
+    cta: { nl: "Plan gratis adviesgesprek", en: "Book free strategy call" },
+    cases: { nl: "Cases", en: "Cases" },
+    about: { nl: "Over ons", en: "About us" },
+  });
+  const navItems = [
+    { to: "/cases", label: t.cases },
+    { to: "/over-ons", label: t.about },
+  ] as const;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -48,7 +58,7 @@ export function Header() {
       )}
     >
       <div className="hidden md:flex relative z-20 items-center justify-end gap-3 px-6 pt-2 text-twilight/60">
-        <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Aanbevolen in</span>
+        <span className="text-[10px] font-bold uppercase tracking-[0.2em]">{t.recommendedIn}</span>
         <div className="flex items-center gap-2.5">
           {llmLogos.map((l) => (
             <img
@@ -60,6 +70,25 @@ export function Header() {
               loading="lazy"
             />
           ))}
+        </div>
+        <div className="ml-3 flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.2em]">
+          <Link
+            to={pathname}
+            search={(prev) => ({ ...(prev as object), lang: undefined })}
+            className={cn("px-1.5 py-0.5 rounded transition-colors", lang === "nl" ? "text-molten" : "hover:text-twilight")}
+            aria-label="Nederlands"
+          >
+            NL
+          </Link>
+          <span aria-hidden className="opacity-30">|</span>
+          <Link
+            to={pathname}
+            search={(prev) => ({ ...(prev as object), lang: "en" as const })}
+            className={cn("px-1.5 py-0.5 rounded transition-colors", lang === "en" ? "text-molten" : "hover:text-twilight")}
+            aria-label="English"
+          >
+            EN
+          </Link>
         </div>
       </div>
       <div
@@ -86,7 +115,7 @@ export function Header() {
         <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-twilight">
           <div className="relative group">
             <Link to="/diensten" className="inline-flex items-center gap-1 hover:text-molten transition-colors">
-              Diensten <ChevronDown className="size-3.5" />
+              {t.services} <ChevronDown className="size-3.5" />
             </Link>
             <div className="absolute left-0 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[200px]">
               <div className="bg-white rounded-xl ring-1 ring-black/5 shadow-xl p-2">
@@ -109,7 +138,7 @@ export function Header() {
             <span className="absolute -top-5 flex flex-col items-center">
               <Star className="size-3 text-molten fill-molten animate-sparkle-pulse" />
               <span className="text-[9px] font-bold uppercase tracking-wider text-molten">
-                Nieuw
+                {t.newBadge}
               </span>
             </span>
             <span>{auditLink.label}</span>
@@ -123,7 +152,7 @@ export function Header() {
 
         <div className="hidden lg:block">
           <CTAButton to="/contact" variant="molten" className="!h-10 !px-4 !text-sm">
-            Plan gratis adviesgesprek
+            {t.cta}
           </CTAButton>
         </div>
 
@@ -147,12 +176,12 @@ export function Header() {
               <Star className="size-4 fill-molten animate-sparkle-pulse" />
               {auditLink.label}
               <span className="ml-auto text-[10px] font-bold uppercase tracking-wider text-molten bg-powder px-2 py-0.5 rounded-full">
-                Nieuw
+                {t.newBadge}
               </span>
             </Link>
             <div className="h-px bg-black/5 my-2" />
             <div className="text-xs font-bold uppercase tracking-widest text-twilight/40 pb-2">
-              Diensten
+              {t.services}
             </div>
             {services.map((s) => (
               <Link
@@ -176,9 +205,28 @@ export function Header() {
                 </Link>
               ))}
             </div>
+            <div className="flex items-center gap-1 pt-4 text-xs font-bold uppercase tracking-widest">
+              <Link
+                to={pathname}
+                onClick={() => setOpen(false)}
+                search={(prev) => ({ ...(prev as object), lang: undefined })}
+                className={cn("px-2 py-1 rounded", lang === "nl" ? "text-molten" : "text-twilight/60")}
+              >
+                NL
+              </Link>
+              <span className="opacity-30">|</span>
+              <Link
+                to={pathname}
+                onClick={() => setOpen(false)}
+                search={(prev) => ({ ...(prev as object), lang: "en" as const })}
+                className={cn("px-2 py-1 rounded", lang === "en" ? "text-molten" : "text-twilight/60")}
+              >
+                EN
+              </Link>
+            </div>
             <div className="pt-4">
               <CTAButton to="/contact" variant="molten" className="w-full">
-                Plan gratis adviesgesprek
+                {t.cta}
               </CTAButton>
             </div>
           </div>
