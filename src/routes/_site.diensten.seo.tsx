@@ -512,7 +512,7 @@ function PillarsSection() {
                 </div>
                 <p className={cn("mt-5 leading-relaxed", isMotor ? "text-white/90" : "text-body-text")}>{pick(lang, p.body)}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
-                  {pick(lang, p.chips).map((c) => (
+                  {pick<readonly string[]>(lang, p.chips).map((c) => (
                     <span
                       key={c}
                       className={cn(
@@ -567,7 +567,7 @@ function IntentCompassSection() {
                 <div className="border-t border-black/5 pt-4">
                   <div className="text-[10px] font-bold uppercase tracking-widest text-twilight/60 mb-2"><T nl="Voorbeelden" en="Examples" /></div>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {pick(lang, i.examples).map((e) => (
+                    {pick<readonly string[]>(lang, i.examples).map((e) => (
                       <span key={e} className="text-xs font-mono px-2.5 py-1 bg-silver rounded text-twilight">{e}</span>
                     ))}
                   </div>
@@ -630,7 +630,7 @@ function StepsSection() {
             <h3 className="font-display text-3xl font-semibold text-twilight mb-4">{pick(lang, step.title)}</h3>
             <p className="text-body-text leading-relaxed mb-6">{pick(lang, step.desc)}</p>
             <ul className="space-y-3 mb-8">
-              {pick(lang, step.bullets).map((b) => (
+              {pick<readonly string[]>(lang, step.bullets).map((b) => (
                 <li key={b} className="flex gap-3 items-start">
                   <span className="shrink-0 mt-1 size-5 rounded-full bg-molten/10 text-molten flex items-center justify-center">
                     <Check className="size-3" />
